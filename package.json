@@ -1,0 +1,26 @@
+{
+  "name": "slostudysonar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "format": "npx prettier . --write",
+    "lint": "npx eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bhillyard/SloStudySonar.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bhillyard/SloStudySonar/issues"
+  },
+  "homepage": "https://github.com/bhillyard/SloStudySonar#readme",
+  "dependencies": {
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-ebay": "^1.1.5",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-standard": "^17.1.0"
+  }
+}
