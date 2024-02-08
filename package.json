@@ -13,11 +13,15 @@
   },
   "author": "",
   "license": "ISC",
+  "workspaces": [
+    "packages/*"
+  ],
   "bugs": {
     "url": "https://github.com/bhillyard/SloStudySonar/issues"
   },
   "homepage": "https://github.com/bhillyard/SloStudySonar#readme",
   "dependencies": {
+    "create-react-app": "^5.0.1",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-ebay": "^1.1.5",
     "eslint-config-google": "^0.14.0",
