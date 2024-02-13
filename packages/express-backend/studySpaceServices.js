@@ -5,8 +5,7 @@ mongoose.set("debug", true);
 
 mongoose
     .connect("mongodb://localhost:27017/studySpace", {
-        useNewUrlParse: true,
-        userUnifiedTopology: true,
+        
 })
 .catch((error) => console.log(error));
 
@@ -35,6 +34,7 @@ function addStudySpace(studySpace) {
 }
 
 function findStudySpaceById(id) {
+    
     return studySpaceModel.findById(id);
 }
 
@@ -59,7 +59,7 @@ function findStudySpaceByDescription(description) {
 }
 
 function deleteStudySpace(id) {
-    return studySpaceModel.findIdAndDelete(id);
+    return studySpaceModel.findByIdAndDelete(id);
 }
 
 export default {

@@ -19,7 +19,10 @@ app.listen(port, () => {
 
 // get all spaces
 app.get("/spaces", (req, res) => {
+    console.log("Run!");
+    console.log(req.query.title, req.query.photo, req.query.location, req.query.operatingHours, req.query.description);
     spaces_methods.getStudySpaces(req.query.title, req.query.photo, req.query.location, req.query.operatingHours, req.query.description).then((result) => {
+      console.log(result);
       res.status(200).send(result);
     }).catch((error) => {
       res.status(404).send("Spaces not found");
@@ -47,7 +50,7 @@ app.post("/spaces", (req, res) => {
 
 // delete a space by ID
 app.delete("/spaces/:id", (req, res) => {
-  spaces_methods.deleteStudySpaceById(req.params.id).then((result) => {
+  spaces_methods.deleteStudySpace(req.params.id).then((result) => {
     res.status(200).send(result);
   }).catch((error) => {
     res.status(404).send("Space not found");
