@@ -1,10 +1,12 @@
 import mongoose from "mongoose";
 import studySpaceModel from "./studySpace.js";
+import dotenv from 'dotenv';
+dotenv.config();
 
 mongoose.set("debug", true);
-
+const connectionString = process.env.MONGODB_URI;
 mongoose
-    .connect("mongodb://localhost:27017/studySpace", {
+    .connect(connectionString, {
         
 })
 .catch((error) => console.log(error));
