@@ -1,5 +1,6 @@
 // backend.js
 import express from "express";
+import spaces_methods from "./studySpaceServices.js";
 
 const app = express();
 const port = 8000;
@@ -18,34 +19,40 @@ app.listen(port, () => {
 
 // get all spaces
 app.get("/spaces", (req, res) => {
-    res.send(spaces);
+    spaces_methods.getStudySpaces(req.query.title, req.query.photo, req.query.location, req.query.operatingHours, req.query.description).then((result) => {
+      res.status(200).send(result);
+    }).catch((error) => {
+      res.status(404).send("Spaces not found");
+    });
 });
 
 // get a space by ID
 app.get("/spaces/:id", (req, res) => {
-  let result = spaces.spaces_list.find(space => space["id"] === req.params.id);
-  if(result){
+  spaces_methods.findStudySpaceById(req.params.id).then((result) => {
     res.status(200).send(result);
-  }
-  res.status(404).send("Space not found");
+  }).catch((error) => {
+    res.status(404).send("Space not found");
+  });
 });
 
 // add a new space
 app.post("/spaces", (req, res) => {
-  let userToAdd = req.body;
-  spaces.spaces_list.push(userToAdd);
-  res.send(userToAdd);
+  spaces_methods.addStudySpace(req.body).then((result) => {
+    res.status(201).send(result);
+  }).catch((error) => {
+    res.status(400).send("Space not added");
+  });
   
 });
 
 // delete a space by ID
 app.delete("/spaces/:id", (req, res) => {
-  let index = spaces.spaces_list.findIndex(space => space["_id"] === req.params.id);
-  if(index !== -1){
-    let removed = spaces.spaces_list.splice(index, 1);
-    res.status(200).send(removed);
-  }
-  res.status(404).send("Space not found");
+  spaces_methods.deleteStudySpaceById(req.params.id).then((result) => {
+    res.status(200).send(result);
+  }).catch((error) => {
+    res.status(404).send("Space not found");
+  });
+
 });
 
 
@@ -53,12 +60,11 @@ app.delete("/spaces/:id", (req, res) => {
 const spaces = {
   "spaces_list": [
     {
-      "_id": "1",
-      "name": "Baker Science",
-      "Photo URL": "https://www.google.com",
-      "Location": "Baker Science Building",
-      "Hours Open/Avalable": "8am-5pm",
-      "Description": "This is a space for students to study and work on projects in a nice air conditioned building"
+      "title": "Baker Science",
+      "photo": "https://www.google.com",
+      "location": "Baker Science Building",
+      "operatingHours": "08:00-17:00",
+      "description": "This is a space for students to study and work on projects in a nice air conditioned building"
     },
     {
       "_id": "2",

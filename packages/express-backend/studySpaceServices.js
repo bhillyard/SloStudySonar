@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import studySpaceModel from "./studySpace";
+import studySpaceModel from "./studySpace.js";
 
 mongoose.set("debug", true);
 
