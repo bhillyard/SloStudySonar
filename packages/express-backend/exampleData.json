@@ -1,0 +1,58 @@
+{
+    "props_list" :[
+        {
+            "spaces_list": [
+                {
+                    "title": "Baker Science",
+                    "photo": "https://www.google.com",
+                    "location": "Baker Science Building",
+                    "operatingHours": "08:00-17:00",
+                    "description": "This is a space for students to study and work on projects in a nice air conditioned building"
+                },
+                {
+                    "_id": "2",
+                    "name": "CSL",
+                    "Photo URL": "https://www.google.com",
+                    "Location": "Frank E. Pillng Computer Science Building",
+                    "Hours Open/Avalable": "24 Hours will requested Access",
+                    "Description": "Great for computer science students, open 24 hours with requested access and is in close proximity to the CS Professors offices"
+                },
+                {
+                    "_id": "3",
+                    "name": "Home",
+                    "Photo URL": "https://www.google.com",
+                    "Location": "Your House",
+                    "Hours Open/Avalable": "24 Hours unless your roommates are loud",
+                    "Description": "Is cozy if you can afford the electric bill and wifi, otherwise, steal your neighbors wifi and use the library"
+                }
+            
+            ]
+        },
+
+
+        {
+            "users_list": [
+                {
+                    "userName" : "cduhamel",
+                    "password" : "password",
+                    "email" : "cduhamel@calpoly.edu",
+                    "displayName": "C.J. DuHamel",
+                    "firstName": "C.J.",
+                    "lastName": "DuHamel",
+                    "major": "Computer Science"
+
+                },
+                {
+                    "userName" : "gduhamel",
+                    "password" : "password",
+                    "email" : "gduhamel@calpoly.edu",
+                    "displayName": "Gavin DuHamel",
+                    "firstName": "Gavin",
+                    "lastName": "DuHamel",
+                    "major": "Audio Engineering"
+
+                }
+            ]
+        }
+    ]
+}
