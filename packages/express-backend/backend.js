@@ -2,6 +2,15 @@
 import express from "express";
 import spaces_methods from "./studySpaceServices.js";
 import users_methods from "./userServices.js";
+import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
+
+//import routes
+import login from "./routes/login.js";
+
+//use routes
+app.use("/login", login);
+
 
 const app = express();
 const port = 8000;
