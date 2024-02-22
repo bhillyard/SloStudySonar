@@ -1,19 +1,24 @@
 import mongoose from "mongoose";
 import userModel from "./user.js";
+import dotenv from 'dotenv';
+dotenv.config();
 
 mongoose.set("debug", true);
 
+const connectionString = process.env.MONGODB_URI;
+
 mongoose
-    .connect("mongodb://localhost:27017/users", {
-        useNewUrlParse: true,
-        userUnifiedTopology: true,
-})
+    .connect(connectionString, {})
 .catch((error) => console.log(error));
 
 function addUser(user) {
     const userToAdd = new userModel(user);
     const promise = userToAdd.save();
     return promise;
+}
+
+function getAllUsers() {
+    return userModel.find();
 }
 
 function findUserById(id) {
@@ -42,5 +47,6 @@ export default {
     findUserByUserName,
     findUserByUserNameAndPassword,
     findUserByEmail,
-    deleteUser
+    deleteUser,
+    getAllUsers
 };

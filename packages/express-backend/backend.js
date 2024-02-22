@@ -1,6 +1,7 @@
 // backend.js
 import express from "express";
 import spaces_methods from "./studySpaceServices.js";
+import users_methods from "./userServices.js";
 
 const app = express();
 const port = 8000;
@@ -17,6 +18,7 @@ app.listen(port, () => {
   );
 });
 
+//Spaces Endpoints
 // get all spaces
 app.get("/spaces", (req, res) => {
     console.log("Run!");
@@ -58,34 +60,67 @@ app.delete("/spaces/:id", (req, res) => {
 
 });
 
+//Users Endpoints
+// get all Users
+app.get("/users", (req, res) => { 
+  const userName = req.query.userName;
+  const password = req.query.password;
+  const email = req.query.email;
+
+  if(!userName && !password && !email){ //gets all users
+    users_methods.getAllUsers().then((result) => {
+      res.status(200).send(result);
+    }).catch((error) => {
+      res.status(404).send("Users not found");
+    });
+  }else if(userName && password){ //gets users by userName and password
+    users_methods.findUserByUserNameAndPassword(userName, password).then((result) => {
+      res.status(200).send(result);
+    }).catch((error) => {
+      res.status(404).send("User not found");
+    });
+  }else if(userName){ //gets users by just userName
+    users_methods.findUserByUserName(userName).then((result) => {
+      res.status(200).send(result);
+    }).catch((error) => {
+      res.status(404).send("User not found");
+    });
+  }else if(email){ //gets users by just email
+    users_methods.findUserByEmail(email).then((result) => {
+      res.status(200).send(result);
+    }).catch((error) => {
+      res.status(404).send("User not found");
+    });
+  }
+  
+});
+
+//get User by ID
+app.get("/users/:id", (req, res) => {
+  users_methods.findUserById(req.params.id).then((result) => {
+    res.status(200).send(result);
+  }).catch((error) => {
+    res.status(404).send("User not found");
+  });
+});
 
 
-const spaces = {
-  "spaces_list": [
-    {
-      "title": "Baker Science",
-      "photo": "https://www.google.com",
-      "location": "Baker Science Building",
-      "operatingHours": "08:00-17:00",
-      "description": "This is a space for students to study and work on projects in a nice air conditioned building"
-    },
-    {
-      "_id": "2",
-      "name": "CSL",
-      "Photo URL": "https://www.google.com",
-      "Location": "Frank E. Pillng Computer Science Building",
-      "Hours Open/Avalable": "24 Hours will requested Access",
-      "Description": "Great for computer science students, open 24 hours with requested access and is in close proximity to the CS Professors offices"
-    }
-    /*
-    {
-      "_id": "3",
-      "name": "Home",
-      "Photo URL": "https://www.google.com",
-      "Location": "Your House",
-      "Hours Open/Avalable": "24 Hours unless your roommates are loud",
-      "Description": "Is cozy if you can afford the electric bill and wifi, otherwise, steal your neighbors wifi and use the library"
-    }
-    */
-  ]
-}
+
+// add a new user
+app.post("/users", (req, res) => {
+  users_methods.addUser(req.body).then((result) => {
+    res.status(201).send(result);
+  }).catch((error) => {
+    res.status(400).send("User not added");
+  });
+});
+
+// delete a user by ID
+app.delete("/users/:id", (req, res) => {
+  users_methods.deleteUser(req.params.id).then((result) => {
+    res.status(200).send(result);
+  }).catch((error) => {
+    res.status(404).send("User not found");
+  });
+});
+
