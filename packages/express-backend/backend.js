@@ -2,9 +2,20 @@
 import express from "express";
 import spaces_methods from "./studySpaceServices.js";
 import users_methods from "./userServices.js";
+import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
+
 
 const app = express();
 const port = 8000;
+
+//import routes
+import users from "./routes/users.js";
+//use routes
+app.use("/users", users);
+
+
+
 
 app.use(express.json());
 
@@ -60,67 +71,5 @@ app.delete("/spaces/:id", (req, res) => {
 
 });
 
-//Users Endpoints
-// get all Users
-app.get("/users", (req, res) => { 
-  const userName = req.query.userName;
-  const password = req.query.password;
-  const email = req.query.email;
 
-  if(!userName && !password && !email){ //gets all users
-    users_methods.getAllUsers().then((result) => {
-      res.status(200).send(result);
-    }).catch((error) => {
-      res.status(404).send("Users not found");
-    });
-  }else if(userName && password){ //gets users by userName and password
-    users_methods.findUserByUserNameAndPassword(userName, password).then((result) => {
-      res.status(200).send(result);
-    }).catch((error) => {
-      res.status(404).send("User not found");
-    });
-  }else if(userName){ //gets users by just userName
-    users_methods.findUserByUserName(userName).then((result) => {
-      res.status(200).send(result);
-    }).catch((error) => {
-      res.status(404).send("User not found");
-    });
-  }else if(email){ //gets users by just email
-    users_methods.findUserByEmail(email).then((result) => {
-      res.status(200).send(result);
-    }).catch((error) => {
-      res.status(404).send("User not found");
-    });
-  }
-  
-});
-
-//get User by ID
-app.get("/users/:id", (req, res) => {
-  users_methods.findUserById(req.params.id).then((result) => {
-    res.status(200).send(result);
-  }).catch((error) => {
-    res.status(404).send("User not found");
-  });
-});
-
-
-
-// add a new user
-app.post("/users", (req, res) => {
-  users_methods.addUser(req.body).then((result) => {
-    res.status(201).send(result);
-  }).catch((error) => {
-    res.status(400).send("User not added");
-  });
-});
-
-// delete a user by ID
-app.delete("/users/:id", (req, res) => {
-  users_methods.deleteUser(req.params.id).then((result) => {
-    res.status(200).send(result);
-  }).catch((error) => {
-    res.status(404).send("User not found");
-  });
-});
 
