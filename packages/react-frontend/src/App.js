@@ -3,7 +3,12 @@ import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import 'bootstrap/dist/js/bootstrap.min.js'
 import Navbar from './Navigation/Navbar.js'
-//import Carousel from './Carousel.js'
+import React from 'react';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import hillsimage from './images/hills.jpg'
+import cafe from './images/cafe.jpg'
+import scout from './images/scout.jpg'
 
 function App() {
   return (
@@ -12,6 +17,28 @@ function App() {
       <header className="App-header">
         <h1>SLO Study Sonar</h1>
       </header>
+  
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src={hillsimage} alt="First slide" />
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src={cafe} alt="Second slide" />
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="..." alt="Third slide" />
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
     </div>
   );
 }
