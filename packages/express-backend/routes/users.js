@@ -1,8 +1,44 @@
 import express from "express";
 import users_methods from "../userServices.js";
+import bcrypt from "bcrypt";
 
 
 const router = express.Router();
+router.use(express.json());
+
+
+//login endpoints
+router.get("/login", (req, res) => {
+  res.send("Why are you sending a get request to Login?");
+});
+
+router.post("/login", (req, res) => {
+    const userName = req.body.userName;
+    const password = req.body.password;
+    users_methods.findUserByUserName(userName).then(async (result) => {
+      const user = result[0];
+      if(user){
+        console.log(user);
+        try{
+          if(await bcrypt.compare(password, user.password)){
+            // const token = jwt.sign({userName: user.userName}, process.env.TOKEN_SECRET);
+            // res.header('auth-token', token).send(token);
+            res.send("Logged in");
+          }else{
+            res.send("Invalid Password");
+          }
+        }catch{
+          res.status(400).send("Invalid Password");
+        }
+       
+      }else{
+        res.status(400).send("User not found");
+      }
+    }).catch((error) => {
+      res.status(404).send("User not found");
+    })
+
+});
 
 //Users Endpoints
 // get all Users
@@ -80,14 +116,6 @@ router.delete("/:id", (req, res) => {
   });
 });
 
-router.get("/login", (req, res) => {
-  res.send("Why are you sending a get request to Login?");
-});
 
-router.post("/login", (req, res) => {
-    userName = req.body.userName;
-    password = req.body.password;
-
-});
 
 export default router;
