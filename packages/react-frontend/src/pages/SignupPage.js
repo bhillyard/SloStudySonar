@@ -6,6 +6,8 @@ const SignupPage = () => {
   const [formData, setFormData] = useState({
     email: '',
     userName: '',
+    firstName: '',
+    lastName: '',
     displayName: '',
     major: '',
     password: '',
@@ -34,7 +36,7 @@ const SignupPage = () => {
       alert("Passwords do not match");
       return;
     }
-    if (formData.userName === '' || formData.email === '' || formData.password === '' || formData.confirmPassword === '' || formData.displayName === '') {
+    if (formData.userName === '' || formData.email === '' || formData.password === '' || formData.confirmPassword === '' || formData.displayName === '' || formData.firstName === '' || formData.lastName === '') {
         alert("Please fill out all the required fields");
         return;
     }
@@ -79,6 +81,16 @@ const SignupPage = () => {
               <Form.Group controlId="formBasicUsername">
                 <Form.Label>Username</Form.Label>
                 <Form.Control type="text" placeholder="Enter username" name="userName" value={formData.userName} onChange={handleChange} />
+              </Form.Group>
+
+              <Form.Group controlId="formBasicFirstname">
+                <Form.Label>firstName</Form.Label>
+                <Form.Control type="text" placeholder="Enter first name" name="firstName" value={formData.firstName} onChange={handleChange} />
+              </Form.Group>
+
+              <Form.Group controlId="formBasicLastname">
+                <Form.Label>lastName</Form.Label>
+                <Form.Control type="text" placeholder="Enter last name" name="lastName" value={formData.lastName} onChange={handleChange} />
               </Form.Group>
 
               <Form.Group controlId="formBasicDisplayName">
