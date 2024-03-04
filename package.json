@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "cd packages/react-frontend && npm start",
     "format": "npx prettier . --write",
     "lint": "npx eslint ."
   },
@@ -22,6 +23,7 @@
   "homepage": "https://github.com/bhillyard/SloStudySonar#readme",
   "dependencies": {
     "bootstrap": "^5.3.3",
+    "cors": "^2.8.5",
     "create-react-app": "^5.0.1",
     "dotenv": "^16.4.4",
     "ejs": "^3.1.9",
@@ -30,6 +32,7 @@
     "eslint-config-google": "^0.14.0",
     "eslint-config-standard": "^17.1.0",
     "mongoose": "^8.1.1",
-    "react-responsive-carousel": "^3.2.23"
+    "react-responsive-carousel": "^3.2.23",
+    "react-router-dom": "^6.22.2"
   }
 }

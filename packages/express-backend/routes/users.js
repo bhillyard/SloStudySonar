@@ -120,6 +120,7 @@ router.post("/", async (req, res) => {
     users_methods.addUser(req.body).then((result) => {
       res.status(201).send(result);
     }).catch((error) => {
+      console.log(error)
       res.status(400).send("User not added");
     });
 
