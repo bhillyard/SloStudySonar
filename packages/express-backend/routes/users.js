@@ -79,6 +79,22 @@ router.get("/", (req, res) => {
   
 });
 
+
+//get self
+router.get("/self", middleware.authenticateUser, (req, res) => {
+  const user = req.userRef;
+  if(user == null){
+    res.status(401).send("Not logged in");
+  }
+  users_methods.findUserById(user.id).then((result) => {
+    res.status(200).send(result);
+  }).catch((error) => {
+    console.log(error);
+    console.log("Working")
+    res.status(404).send("User not found");
+  });
+});
+
 //get User by ID
 router.get("/:id", (req, res) => {
   users_methods.findUserById(req.params.id).then((result) => {
@@ -87,6 +103,8 @@ router.get("/:id", (req, res) => {
     res.status(404).send("User not found");
   });
 });
+
+
 
 
 
