@@ -2,6 +2,7 @@ import express from "express";
 import users_methods from "../userServices.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import middleware from "./middleware.js";
 
 //set up router to route to backend.js
 const router = express.Router();
