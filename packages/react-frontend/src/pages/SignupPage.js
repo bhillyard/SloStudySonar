@@ -5,7 +5,7 @@ import './SignupPage.css'; // Import CSS file for styling
 const SignupPage = () => {
   const [formData, setFormData] = useState({
     email: '',
-    username: '',
+    userName: '',
     displayName: '',
     major: '',
     password: '',
@@ -17,19 +17,52 @@ const SignupPage = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  function postUser(userData) {
+    const promise = fetch("http://localhost:8000/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    });
+    return promise;
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match");
       return;
     }
-    if (formData.username === '' || formData.email === '' || formData.password === '' || formData.confirmPassword === '' || formData.displayName === '') {
+    if (formData.userName === '' || formData.email === '' || formData.password === '' || formData.confirmPassword === '' || formData.displayName === '') {
         alert("Please fill out all the required fields");
         return;
     }
+    // dont include confirmPassword in the request body
+    const formDataWithoutConfirmPassword = { ...formData };
+    delete formDataWithoutConfirmPassword.confirmPassword;
+
+    //check if the major is empty, if so, set it to None (not sure if needed)
+    if (!formDataWithoutConfirmPassword.major) {
+      formDataWithoutConfirmPassword.major = 'None';
+    }
+    
+    postUser(formDataWithoutConfirmPassword)
+      .then((response) => {
+        if (response.status === 201) {
+          alert("user created successfully")
+        } else {
+          alert("user not created")
+        }
+      })
+      .catch(error => {
+        alert(error);
+      });
+
     // Add your signup logic here
     console.log(formData);
   };
+
 
   return (
     <div className="container-fluid h-100">
@@ -45,7 +78,7 @@ const SignupPage = () => {
 
               <Form.Group controlId="formBasicUsername">
                 <Form.Label>Username</Form.Label>
-                <Form.Control type="text" placeholder="Enter username" name="username" value={formData.username} onChange={handleChange} />
+                <Form.Control type="text" placeholder="Enter username" name="userName" value={formData.userName} onChange={handleChange} />
               </Form.Group>
 
               <Form.Group controlId="formBasicDisplayName">
