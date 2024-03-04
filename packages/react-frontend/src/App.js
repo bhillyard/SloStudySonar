@@ -42,7 +42,7 @@ function App() {
 
       <div class="mt-20 d-block">
         <h1 class="h1">Find Study Spots in San Luis Obispo, easily.</h1>
-        <button type="button" class="btn btn-primary btn-lg">Sign Up</button>
+        <a href="/signup" class="btn btn-primary btn-lg">Sign up</a>
       </div>
 
       <div class="text-start px-5">

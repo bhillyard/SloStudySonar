@@ -19,6 +19,7 @@ router.get("/login", (req, res) => {
 router.post("/login", (req, res) => {
     const userName = req.body.userName;
     const password = req.body.password;
+    console.log("sup")
     //locate user by userName (async for bcrypt)
     users_methods.findUserByUserName(userName).then(async (result) => {
       const user = result[0];
