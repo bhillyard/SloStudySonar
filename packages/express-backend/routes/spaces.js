@@ -1,5 +1,7 @@
 import express from "express";
 import spaces_methods from "../studySpaceServices.js";
+import middleware from "./middleware.js";
+import users_methods from "../userServices.js";
 
 const router = express.Router();
 router.use(express.json());
@@ -27,7 +29,10 @@ router.get("/:id", (req, res) => {
 });
 
 // add a new space
-router.post("/", (req, res) => {
+router.post("/", middleware.authenticateUser, (req, res) => {
+  const user = req.userRef;
+  console.log(user);
+  users_methods.findUserById(user.id).then((result) => {(console.log(result))});
   spaces_methods.addStudySpace(req.body).then((result) => {
     res.status(201).send(result);
   }).catch((error) => {

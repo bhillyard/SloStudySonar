@@ -1,6 +1,8 @@
 import express from "express";
 import users_methods from "../userServices.js";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import middleware from "./middleware.js";
 
 //set up router to route to backend.js
 const router = express.Router();
@@ -21,17 +23,16 @@ router.post("/login", (req, res) => {
     users_methods.findUserByUserName(userName).then(async (result) => {
       const user = result[0];
       if(user){
-        console.log(user);
         try{
           if(await bcrypt.compare(password, user.password)){ //compare password and hashed password
-            // const token = jwt.sign({userName: user.userName}, process.env.TOKEN_SECRET);
-            // res.header('auth-token', token).send(token);
-            res.send("Logged in");
+            const token = jwt.sign({ id: user._id, userName: user.userName }, process.env.ACCESS_TOKEN_SECRET);
+            res.json({token: token});
           }else{
             res.send("Invalid Password");
           }
-        }catch{
-          res.status(400).send("Invalid Password");
+        }catch(e){
+          console.log(e);
+          res.status(400).send("Error with login, please try again.");
         }
        
       }else{
@@ -78,6 +79,22 @@ router.get("/", (req, res) => {
   
 });
 
+
+//get self
+router.get("/self", middleware.authenticateUser, (req, res) => {
+  const user = req.userRef;
+  if(user == null){
+    res.status(401).send("Not logged in");
+  }
+  users_methods.findUserById(user.id).then((result) => {
+    res.status(200).send(result);
+  }).catch((error) => {
+    console.log(error);
+    console.log("Working")
+    res.status(404).send("User not found");
+  });
+});
+
 //get User by ID
 router.get("/:id", (req, res) => {
   users_methods.findUserById(req.params.id).then((result) => {
@@ -86,6 +103,8 @@ router.get("/:id", (req, res) => {
     res.status(404).send("User not found");
   });
 });
+
+
 
 
 
