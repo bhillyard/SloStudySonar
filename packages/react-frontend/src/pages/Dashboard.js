@@ -1,10 +1,12 @@
 import React from 'react';
 import '../style.css';
 import logo from '../logo.svg';
+import BackArrowButton from './BackArrowButton'; // Import CircleArrowButton component
 
 function Dashboard() {
     return (
         <div class="user-dashboard">
+        <BackArrowButton onClick={() => { /* Add your click handler logic here */ }} />
         <div class="user-info">
             
         </div>

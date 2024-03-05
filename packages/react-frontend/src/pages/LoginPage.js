@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import './LoginPage.css'; // Import CSS file for styling
-import BackArrowButton from './BackArrowButton'; // Import CircleArrowButton component
+import BackArrowButton from './BackArrowButton'; // Import BackArrowButton component
 import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate hook from React Router
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
     userName: '',
     password: '',
   });
+
+  const navigate = useNavigate(); // Get the history object from React Router
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -38,6 +42,7 @@ const LoginPage = () => {
             const token = res.token;
             Cookies.set("token", token, { expires: 1, secure: true});
         });
+        navigate("/dashboard");
         } else {
           alert(response.status)
         }
@@ -68,7 +73,7 @@ const LoginPage = () => {
 
               <div className="text-center"> {/* Wrapper for centered button */}
             <Button variant="primary" type="submit" className="w-50">
-              Sign Up
+              Log in
             </Button>
           </div>
             </Form>

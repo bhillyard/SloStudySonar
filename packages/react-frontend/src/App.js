@@ -75,7 +75,7 @@ function App() {
 
       {/* Sign in or create an account... div */}
       <div class="container my-10 py-2 px-5 bg-success-subtle">
-        <h1> <span class="text-primary"> <Link to="/signup">Sign up here</Link></span> or <span class="text-primary"><Link to="/signup">create an account</Link></span> to save your favorite study spots and register for study sessions.</h1>
+        <h1> <span class="text-primary"> <Link to="/login">Log in here</Link></span> or <span class="text-primary"><Link to="/signup">create an account</Link></span> to save your favorite study spots and register for study sessions.</h1>
       </div>
 
       {/*Features div*/}

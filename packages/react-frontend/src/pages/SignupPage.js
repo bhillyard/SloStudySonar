@@ -3,8 +3,11 @@ import { Form, Button } from 'react-bootstrap';
 import './SignupPage.css'; // Import CSS file for styling
 import BackArrowButton from './BackArrowButton'; // Import CircleArrowButton component
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate hook from React Router
 
 const SignupPage = () => {
+  const navigate = useNavigate(); // Get the history object from React Router
+
   const [formData, setFormData] = useState({
     email: '',
     userName: '',
@@ -55,6 +58,7 @@ const SignupPage = () => {
       .then((response) => {
         if (response.status === 201) {
           alert("user created successfully")
+          navigate("/dashboard");
         } else {
           alert("user not created")
         }
@@ -66,6 +70,7 @@ const SignupPage = () => {
 
     // Add your signup logic here
     console.log(formData);
+
   };
 
 
