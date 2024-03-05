@@ -3,6 +3,7 @@ import { Form, Button } from 'react-bootstrap';
 import './LoginPage.css'; // Import CSS file for styling
 import BackArrowButton from './BackArrowButton'; // Import CircleArrowButton component
 import Cookies from 'js-cookie';
+import { Link } from 'react-router-dom';
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -73,7 +74,7 @@ const LoginPage = () => {
             </Form>
             <div className="mt-3 text-center">
                 <span> Don't have an account? </span>
-                <a href="/signup">Sign up here</a>
+                <Link to="/signup">Sign up here</Link>
             </div>
             <div className="text-center mt-3">
               <BackArrowButton onClick={() => { /* Add your click handler logic here */ }} />
