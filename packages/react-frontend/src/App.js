@@ -11,6 +11,7 @@ import review from './images/reviews.jpg'
 import discover from './images/discover.png'
 import team from './images/team2.png'
 import { useNavigate } from 'react-router-dom'; // Import useNavigate hook from React Router
+import { Link } from 'react-router-dom';
 
 function App() {
 
@@ -19,6 +20,10 @@ function App() {
   const handleSignupClick = () => {
     navigate("/signup"); // Navigate to the "/signup" path
   };
+
+  const handleStudySpaceClick = () => {
+    navigate("/studySpaces"); // Navigate to the "/studySpaces" path
+  }
 
   return (
 
@@ -64,13 +69,13 @@ function App() {
       <div class="text-start py-5">
         <h2 class="px-5"> New to SSS?</h2>
         <form class="px-5 mt-3"><button type="button" class="btn btn-warning btn-lg">About SLO Study Sonar</button></form>
-        <form class="px-5 mt-3"><button type="button" class="btn btn-warning btn-lg">Browse Study Spaces</button></form>
+        <form class="px-5 mt-3"><button type="button" onClick={handleStudySpaceClick} class="btn btn-warning btn-lg">Browse Study Spaces</button></form>
         <form class="px-5 mt-3"><button type="button" class="btn btn-warning btn-lg">Study Sessions Info</button></form>
       </div >
 
       {/* Sign in or create an account... div */}
       <div class="container my-10 py-2 px-5 bg-success-subtle">
-        <h1> <a href="#">Sign in</a> or <a href="#">create an account</a> to save your favorite study spots and register for study sessions.</h1>
+        <h1> <span class="text-primary"> <Link to="/signup">Sign up here</Link></span> or <span class="text-primary"><Link to="/signup">create an account</Link></span> to save your favorite study spots and register for study sessions.</h1>
       </div>
 
       {/*Features div*/}

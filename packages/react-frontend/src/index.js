@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 import NotFoundPage from './pages/NotFoundPage';
+import StudySpacePage from './pages/StudySpacePage';
 
 import {
   createBrowserRouter,
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "login",
     element: <LoginPage/>,
+  },
+  {
+    path: "studySpaces",
+    element: <StudySpacePage/>,
   },
   {
     element: <NotFoundPage />, // Not found page doesn't work
