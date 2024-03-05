@@ -13,6 +13,7 @@ import {
   RouterProvider,
   Route,
 } from "react-router-dom";
+import Dashboard from './pages/Dashboard';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "login",
     element: <LoginPage/>,
+  },
+  {
+    path: "dashboard",
+    element: <Dashboard/>,
   },
   {
     element: <NotFoundPage />, // Not found page doesn't work

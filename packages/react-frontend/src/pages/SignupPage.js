@@ -3,8 +3,10 @@ import { Form, Button } from 'react-bootstrap';
 import './SignupPage.css'; // Import CSS file for styling
 import BackArrowButton from './BackArrowButton'; // Import CircleArrowButton component
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const SignupPage = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     userName: '',
@@ -19,6 +21,10 @@ const SignupPage = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSignupClick = () => {
+    navigate("/dashboard"); // Navigate to the "/dashboard" path
   };
 
   function postUser(userData) {
@@ -38,6 +44,10 @@ const SignupPage = () => {
       alert("Passwords do not match");
       return;
     }
+
+
+
+    
     if (formData.userName === '' || formData.email === '' || formData.password === '' || formData.confirmPassword === '' || formData.displayName === '' || formData.firstName === '' || formData.lastName === '') {
         alert("Please fill out all the required fields");
         return;
@@ -117,7 +127,7 @@ const SignupPage = () => {
               </Form.Group>
 
               <div className="text-center"> {/* Wrapper for centered button */}
-            <Button variant="primary" type="submit" className="w-50">
+            <Button variant="primary" onClick={handleSignupClick}type="submit" className="w-50">
               Sign Up
             </Button>
           </div>

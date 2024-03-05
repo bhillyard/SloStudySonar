@@ -11,6 +11,11 @@ import review from './images/reviews.jpg'
 import discover from './images/discover.png'
 import team from './images/team2.png'
 import { useNavigate } from 'react-router-dom'; // Import useNavigate hook from React Router
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import SignupPage from './pages/SignupPage'; // Adjust the path as needed
+import LoginPage from './pages/LoginPage'; // Adjust the path as needed
+import Dashboard from './pages/Dashboard'; // Adjust the path as needed
+
 
 function App() {
 
@@ -97,7 +102,19 @@ function App() {
       </div>
 
       <button onClick={handleSignupClick} class="btn btn-success btn-lg">Sign up</button>
-
+      
+      <Routes>
+          <Route path="/" element={
+            // Replace <> with your actual home component if you have one
+            <> 
+              {/* Home component's content here */}
+            </>
+          } />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          {/* Define other routes as needed */}
+        </Routes>
 
       {/*Bottom segment div*/}
       <div class="mt-5 py-5 bg-success-subtle">

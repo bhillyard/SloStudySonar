@@ -3,9 +3,11 @@ import { Form, Button } from 'react-bootstrap';
 import './LoginPage.css'; // Import CSS file for styling
 import BackArrowButton from './BackArrowButton'; // Import CircleArrowButton component
 import Cookies from 'js-cookie';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom'; 
 
 const LoginPage = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     userName: '',
     password: '',
@@ -14,6 +16,10 @@ const LoginPage = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSignupClick = () => {
+    navigate("/dashboard"); // Navigate to the "/dashboard" path
   };
 
   function postUser(userData) {
@@ -67,7 +73,7 @@ const LoginPage = () => {
               </Form.Group>
 
               <div className="text-center"> {/* Wrapper for centered button */}
-            <Button variant="primary" type="submit" className="w-50">
+            <Button variant="primary" onClick={handleSignupClick} type="submit" className="w-50">
               Sign Up
             </Button>
           </div>
