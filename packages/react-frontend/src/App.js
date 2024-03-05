@@ -1,9 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
-import 'bootstrap/dist/js/bootstrap.min.js'
-import Navbar from './Navigation/Navbar.js'
-//import Carousel from './Carousel.js'
+import 'bootstrap/dist/js/bootstrap.min.js';
+import Navbar from './Navigation/Navbar.js';
+import Dashboard from './pages/Dashboard.js';
+
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <header className="App-header">
         <h1>SLO Study Sonar</h1>
       </header>
+      
     </div>
   );
 }
