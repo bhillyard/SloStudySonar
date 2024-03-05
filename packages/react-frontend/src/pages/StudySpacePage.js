@@ -18,46 +18,7 @@ const StudySpacePage = () => {
             setSpaces(locations)
         });
     
-    })
-
-  function getStudySpaces() {
-    const promise = fetch("http://localhost:8000/spaces", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        const locations = [];
-        for (let i = 0; i < data.length; i++) {
-          const location = data[i].location;
-          locations.push(location);
-        }
-        console.log("Locations:", locations);
-        return locations;
-      })
-      .catch((error) => {
-        console.error("Error getting study sessions:", error);
-        throw error; // Re-throw the error to propagate it further
-      });
-
-    return promise; // Return the Promise
-  }
-
-console.log(getStudySpaces());
-//const buildingNames = ["Baker", "Dexter"];
-
-let buildingNames = ["Dexter", "Baker"]; // Declare buildingNames outside the callback function
-
-
-
-
+    });
 
   const [selectedFilters, setSelectedFilters] = useState([]); // State to manage the selected filters
   const [isOpen, setIsOpen] = useState(false); // State to manage the dropdown visibility
