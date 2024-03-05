@@ -70,7 +70,7 @@ function App() {
 
       {/* Sign in or create an account... div */}
       <div class="container my-10 py-2 px-5 bg-success-subtle">
-        <h1> <span class="text-primary"> <a text-primary>Sign in</a></span> or <span class="text-primary">create an account</span> to save your favorite study spots and register for study sessions.</h1>
+        <h1> <a href="#">Sign in</a> or <a href="#">create an account</a> to save your favorite study spots and register for study sessions.</h1>
       </div>
 
       {/*Features div*/}
@@ -104,27 +104,27 @@ function App() {
         <div class="container text-center">
           <div class="row">
             <div class="col">
-              About
+              <h5>About</h5>
               <div class="py-2"> 
-                About SLO Study Sonar
+                <a href="#">About SLO Study Sonar</a>
               </div>
               <div> 
-                Privacy Policy
+                <a href="#">Privacy Policy</a>
               </div>
             </div>
             <div class="col">
-              Discover
+              <h5>Discover</h5>
               <div class="py-2"> 
-                Study Spaces
+                <a href="#">Study Spaces</a>
               </div>
               <div> 
-                Study Sessions
+                <a href="#">Study Sessions</a>
               </div>
             </div>
             <div class="col">
-              Contact
+              <h5>Contact</h5>
               <div class="py-2"> 
-                Contact Us
+                <a href="#">Contact Us</a>
               </div>
             </div>
           </div>
