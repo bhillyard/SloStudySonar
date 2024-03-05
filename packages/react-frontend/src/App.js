@@ -7,6 +7,9 @@ import React from 'react';
 import hills from './images/hills.jpg'
 import cafe from './images/cafe.jpg'
 import scout from './images/scout.jpg'
+import review from './images/reviews.jpg'
+import discover from './images/discover.png'
+import team from './images/team2.png'
 import { useNavigate } from 'react-router-dom'; // Import useNavigate hook from React Router
 
 function App() {
@@ -27,7 +30,7 @@ function App() {
 
 
       {/*Carousel*/}
-      <div id="carouselExample" class="carousel slide mt-5 mb-5">
+      <div id="carouselExample" class="carousel slide py-5 bg-warning-subtle">
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img src={cafe} class="d-block w-50 mx-auto" alt="..." />
@@ -51,7 +54,7 @@ function App() {
       </div>
 
       {/*Some text*/}
-      <div class="mt-20 d-block">
+      <div class="mt-20 d-block pb-5 bg-warning-subtle">
         <h1 class="h1">Find Study Spots in San Luis Obispo, easily.</h1>
 
         {/*Sign up button*/}
@@ -76,12 +79,17 @@ function App() {
         <div class="container text-center">
           <div class="row">
             <div class="col">
+              <div><img src={review} class="w-75"/></div>
               Real reviews by Cal Poly students.
             </div>
             <div class="col">
+            <div><img src={discover} class="w-50"/></div>
               Upload and view images of study spaces in real time.
             </div>
             <div class="col">
+            <div>
+              <img src={team} class="w-50"/></div>
+              
               Form study groups with other students.
             </div>
           </div>
@@ -92,17 +100,32 @@ function App() {
 
 
       {/*Bottom segment div*/}
-      <div class="py-5">
+      <div class="mt-5 py-5 bg-success-subtle">
         <div class="container text-center">
           <div class="row">
             <div class="col">
               About
+              <div class="py-2"> 
+                About SLO Study Sonar
+              </div>
+              <div> 
+                Privacy Policy
+              </div>
             </div>
             <div class="col">
               Discover
+              <div class="py-2"> 
+                Study Spaces
+              </div>
+              <div> 
+                Study Sessions
+              </div>
             </div>
             <div class="col">
               Contact
+              <div class="py-2"> 
+                Contact Us
+              </div>
             </div>
           </div>
         </div>
