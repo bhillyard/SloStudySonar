@@ -8,12 +8,14 @@ html, body, #root, .container-fluid, .row, .col-md-6 {
     max-width: 400px; /* Adjust the value as needed */
     width: 100%; /* Ensure the text boxes still stretch to fit the screen */
     margin: 0 auto; /* Center the form controls */
+    border: .5px solid black;
   }
 
   /* Center the labels */
 .form-label {
     display: flex;
     justify-content: center;
+    margin-top: 5px;
   }
 
 .form-control::placeholder {

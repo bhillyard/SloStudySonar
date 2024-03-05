@@ -8,8 +8,16 @@ import { Carousel } from 'react-responsive-carousel';
 import hills from './images/hills.jpg'
 import cafe from './images/cafe.jpg'
 import scout from './images/scout.jpg'
+import { useNavigate } from 'react-router-dom'; // Import useNavigate hook from React Router
 
 function App() {
+
+  const navigate = useNavigate(); // Get the history object from React Router
+
+  const handleSignupClick = () => {
+    navigate("/signup"); // Navigate to the "/signup" path
+  };
+
   return (
     <div className="App">
       <Navbar />
@@ -42,7 +50,7 @@ function App() {
 
       <div class="mt-20 d-block">
         <h1 class="h1">Find Study Spots in San Luis Obispo, easily.</h1>
-        <button type="button" class="btn btn-primary btn-lg">Sign Up</button>
+        <button onClick={handleSignupClick} class="btn btn-primary btn-lg">Sign up</button>
       </div>
 
       <div class="text-start px-5">
