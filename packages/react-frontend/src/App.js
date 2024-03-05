@@ -50,8 +50,6 @@ function App() {
         <form class="px-5 mt-3"><button type="button" class="btn btn-secondary btn-lg">About SLO Study Sonar</button></form>
         <form class="px-5 mt-3"><button type="button" class="btn btn-secondary btn-lg">Browse Study Spaces</button></form>
         <form class="px-5 mt-3"><button type="button" class="btn btn-secondary btn-lg">Study Sessions Info</button></form>
-
-
       </div >
     </div >
 
