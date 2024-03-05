@@ -34,4 +34,4 @@ const BackArrowButton = () => {
   );
 };
 
-export default CircleArrowButton;
+export default BackArrowButton;
