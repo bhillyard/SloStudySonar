@@ -11,6 +11,13 @@ import scout from './images/scout.jpg'
 import { useNavigate } from 'react-router-dom'; // Import useNavigate hook from React Router
 
 function App() {
+
+  const navigate = useNavigate(); // Get the history object from React Router
+
+  const handleSignupClick = () => {
+    navigate("/signup"); // Navigate to the "/signup" path
+  };
+
   return (
   
    const navigate = useNavigate(); // Get the history object from React Router
