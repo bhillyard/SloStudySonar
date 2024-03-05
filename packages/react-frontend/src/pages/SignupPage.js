@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import './SignupPage.css'; // Import CSS file for styling
+import BackArrowButton from './BackArrowButton'; // Import CircleArrowButton component
 
 const SignupPage = () => {
   const [formData, setFormData] = useState({
@@ -120,6 +121,9 @@ const SignupPage = () => {
             </Button>
           </div>
             </Form>
+            <div className="text-center mt-3">
+              <BackArrowButton onClick={() => { /* Add your click handler logic here */ }} />
+            </div>
           </div>
         </div>
       </div>

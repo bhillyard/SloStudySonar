@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import './LoginPage.css'; // Import CSS file for styling
+import BackArrowButton from './BackArrowButton'; // Import CircleArrowButton component
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -70,6 +71,9 @@ const LoginPage = () => {
             <div className="mt-3 text-center">
                 <span> Don't have an account? </span>
                 <a href="/signup">Sign up here</a>
+            </div>
+            <div className="text-center mt-3">
+              <BackArrowButton onClick={() => { /* Add your click handler logic here */ }} />
             </div>
           </div>
         </div>
