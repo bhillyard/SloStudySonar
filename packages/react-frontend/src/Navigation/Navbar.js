@@ -1,6 +1,7 @@
 //Navbar.js
 
 import React from "react";
+import 'bootstrap/dist/js/bootstrap.min.js'
 
 const Navbar = () => {
    return(

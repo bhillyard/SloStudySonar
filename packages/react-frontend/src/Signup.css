@@ -1,0 +1,8 @@
+.signup-container {
+    position: relative;
+}
+
+.signup-button {
+    position: absolute;
+    bottom: 50px;
+}
