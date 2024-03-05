@@ -1,12 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
-<<<<<<< HEAD
-import 'bootstrap/dist/js/bootstrap.min.js';
-import Navbar from './Navigation/Navbar.js';
-import Dashboard from './pages/Dashboard.js';
-
-=======
 import 'bootstrap/dist/js/bootstrap.min.js'
 import Navbar from './Navigation/Navbar.js'
 import React from 'react';
@@ -17,7 +11,6 @@ import review from './images/reviews.jpg'
 import discover from './images/discover.png'
 import team from './images/team2.png'
 import { useNavigate } from 'react-router-dom'; // Import useNavigate hook from React Router
->>>>>>> c5f121760d3e7956016260b665bf9060dae07a0e
 
 function App() {
 
@@ -34,10 +27,6 @@ function App() {
       <header className="App-header">
         <h1>SLO Study Sonar</h1>
       </header>
-<<<<<<< HEAD
-      
-    </div>
-=======
 
 
       {/*Carousel*/}
@@ -148,7 +137,6 @@ function App() {
 
 
 
->>>>>>> c5f121760d3e7956016260b665bf9060dae07a0e
   );
 }
 
