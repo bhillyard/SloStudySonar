@@ -58,14 +58,14 @@ function App() {
         <h1 class="h1">Find Study Spots in San Luis Obispo, easily.</h1>
 
         {/*Sign up button*/}
-        <button onClick={handleSignupClick} class="btn btn-primary btn-lg">Sign up</button>
+        <button onClick={handleSignupClick} class="btn btn-success btn-lg">Sign up</button>
       </div>
 
       <div class="text-start py-5">
         <h2 class="px-5"> New to SSS?</h2>
-        <form class="px-5 mt-3"><button type="button" class="btn btn-secondary btn-lg">About SLO Study Sonar</button></form>
-        <form class="px-5 mt-3"><button type="button" class="btn btn-secondary btn-lg">Browse Study Spaces</button></form>
-        <form class="px-5 mt-3"><button type="button" class="btn btn-secondary btn-lg">Study Sessions Info</button></form>
+        <form class="px-5 mt-3"><button type="button" class="btn btn-warning btn-lg">About SLO Study Sonar</button></form>
+        <form class="px-5 mt-3"><button type="button" class="btn btn-warning btn-lg">Browse Study Spaces</button></form>
+        <form class="px-5 mt-3"><button type="button" class="btn btn-warning btn-lg">Study Sessions Info</button></form>
       </div >
 
       {/* Sign in or create an account... div */}
@@ -80,17 +80,17 @@ function App() {
           <div class="row">
             <div class="col">
               <div><img src={review} class="w-75"/></div>
-              Real reviews by Cal Poly students.
+              <strong>Real reviews </strong>by Cal Poly students.
             </div>
             <div class="col">
             <div><img src={discover} class="w-50"/></div>
-              Upload and view images of study spaces in real time.
+              <strong>Upload and view images</strong> of study spaces in real time.
             </div>
             <div class="col">
             <div>
               <img src={team} class="w-50"/></div>
               
-              Form study groups with other students.
+              <strong>Form study groups</strong> with other students.
             </div>
           </div>
         </div>
