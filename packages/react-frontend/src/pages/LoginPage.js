@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import './LoginPage.css'; // Import CSS file for styling
+import Cookies from 'js-cookie';
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -29,19 +30,21 @@ const LoginPage = () => {
     // add authentication here
     postUser(formData)
       .then((response) => {
-        if (response.status === 201) {
+        if (response.status === 200) {
           alert("user logged in successfully")
+          response.json().then((res) => {
+            const token = res.token;
+            Cookies.set("token", token, { expires: 1, secure: true});
+        });
         } else {
           alert(response.status)
-          console.log("response: ")
-          console.log(response.json())
         }
       })
       .catch(error => {
         // alert(error);
         alert(error);
       });
-    console.log(formData);
+    
   };
 
   return (
