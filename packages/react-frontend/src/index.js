@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 import NotFoundPage from './pages/NotFoundPage';
+import StudySessions from './studysessions/StudySessions';
 
 import {
   createBrowserRouter,
