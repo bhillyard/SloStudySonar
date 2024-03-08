@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate hook from React Router
 
-const BackArrowButton = () => {
+const BackArrowButton = ({path}) => {
   const navigate = useNavigate(); // Make navigate object
 
   const handleButtonClick = () => {

@@ -12,6 +12,7 @@ import Dashboard from './pages/Dashboard';
 import FavStudySpots from './pages/FavStudySpots';
 import Reviews from './pages/Reviews';
 import YourSessions from './pages/YourSessions';
+import ViewStudySpacePage from './pages/ViewStudySpacePage';
 
 import {
   createBrowserRouter,
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
   {
     path: "YourSessions",
     element: <YourSessions/>,
+  },
+  {
+    path: "ViewStudySpace",
+    element: <ViewStudySpacePage/>
   },
   {
     element: <NotFoundPage />, // Not found page doesn't work
