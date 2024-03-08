@@ -19,6 +19,7 @@ router.get("/login", (req, res) => {
 router.post("/login", (req, res) => {
     const userName = req.body.userName;
     const password = req.body.password;
+    console.log("sup")
     //locate user by userName (async for bcrypt)
     users_methods.findUserByUserName(userName).then(async (result) => {
       const user = result[0];
@@ -120,6 +121,7 @@ router.post("/", async (req, res) => {
     users_methods.addUser(req.body).then((result) => {
       res.status(201).send(result);
     }).catch((error) => {
+      console.log(error)
       res.status(400).send("User not added");
     });
 

@@ -7,7 +7,13 @@ import 'bootstrap/dist/css/bootstrap.css';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 import NotFoundPage from './pages/NotFoundPage';
-
+import StudySpacePage from './pages/StudySpacePage';
+import Dashboard from './pages/Dashboard';
+import FavStudySpots from './pages/FavStudySpots';
+import Reviews from './pages/Reviews';
+import YourSessions from './pages/YourSessions';
+import ViewStudySpacePage from './pages/ViewStudySpacePage';
+import StudySessions from './studysessions/StudySessions';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -26,6 +32,30 @@ const router = createBrowserRouter([
   {
     path: "login",
     element: <LoginPage/>,
+  },
+  {
+    path: "studySpaces",
+    element: <StudySpacePage/>,
+  },
+  {
+    path: "dashboard",
+    element: <Dashboard/>,
+  },
+  {
+    path: "FavStudySpots",
+    element: <FavStudySpots/>,
+  },
+  {
+    path: "Reviews",
+    element: <Reviews/>,
+  },
+  {
+    path: "YourSessions",
+    element: <YourSessions/>,
+  },
+  {
+    path: "ViewStudySpace",
+    element: <ViewStudySpacePage/>
   },
   {
     element: <NotFoundPage />, // Not found page doesn't work

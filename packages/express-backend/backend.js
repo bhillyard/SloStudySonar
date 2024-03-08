@@ -1,11 +1,13 @@
 // backend.js
 import express from "express";
+import cors from "cors";
 
 
 
 //setup app
 const app = express();
 const port = 8000;
+app.use(cors());
 
 //import routes
 import users from "./routes/users.js";

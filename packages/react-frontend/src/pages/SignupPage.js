@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import './SignupPage.css'; // Import CSS file for styling
+import BackArrowButton from './BackArrowButton'; // Import CircleArrowButton component
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate hook from React Router
 
 const SignupPage = () => {
+  const navigate = useNavigate(); // Get the history object from React Router
+
   const [formData, setFormData] = useState({
     email: '',
-    username: '',
+    userName: '',
+    firstName: '',
+    lastName: '',
     displayName: '',
     major: '',
     password: '',
@@ -17,19 +24,55 @@ const SignupPage = () => {
     setFormData({ ...formData, [name]: value });
   };
 
+  function postUser(userData) {
+    const promise = fetch("http://localhost:8000/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    });
+    return promise;
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match");
       return;
     }
-    if (formData.username === '' || formData.email === '' || formData.password === '' || formData.confirmPassword === '' || formData.displayName === '') {
+    if (formData.userName === '' || formData.email === '' || formData.password === '' || formData.confirmPassword === '' || formData.displayName === '' || formData.firstName === '' || formData.lastName === '') {
         alert("Please fill out all the required fields");
         return;
     }
+    // dont include confirmPassword in the request body
+    const formDataWithoutConfirmPassword = { ...formData };
+    delete formDataWithoutConfirmPassword.confirmPassword;
+
+    //check if the major is empty, if so, set it to None (not sure if needed)
+    if (!formDataWithoutConfirmPassword.major) {
+      formDataWithoutConfirmPassword.major = 'None';
+    }
+    
+    postUser(formDataWithoutConfirmPassword)
+      .then((response) => {
+        if (response.status === 201) {
+          alert("user created successfully")
+          navigate("/dashboard");
+        } else {
+          alert("user not created")
+        }
+      })
+      .catch(error => {
+        // alert(error);
+        console.log(error);
+      });
+
     // Add your signup logic here
     console.log(formData);
+
   };
+
 
   return (
     <div className="container-fluid h-100">
@@ -45,7 +88,17 @@ const SignupPage = () => {
 
               <Form.Group controlId="formBasicUsername">
                 <Form.Label>Username</Form.Label>
-                <Form.Control type="text" placeholder="Enter username" name="username" value={formData.username} onChange={handleChange} />
+                <Form.Control type="text" placeholder="Enter username" name="userName" value={formData.userName} onChange={handleChange} />
+              </Form.Group>
+
+              <Form.Group controlId="formBasicFirstname">
+                <Form.Label>firstName</Form.Label>
+                <Form.Control type="text" placeholder="Enter first name" name="firstName" value={formData.firstName} onChange={handleChange} />
+              </Form.Group>
+
+              <Form.Group controlId="formBasicLastname">
+                <Form.Label>lastName</Form.Label>
+                <Form.Control type="text" placeholder="Enter last name" name="lastName" value={formData.lastName} onChange={handleChange} />
               </Form.Group>
 
               <Form.Group controlId="formBasicDisplayName">
@@ -74,6 +127,13 @@ const SignupPage = () => {
             </Button>
           </div>
             </Form>
+            <div className="mt-3 text-center">
+                <span> Already have an account? </span>
+                <Link to="/login">Log in here</Link>
+            </div>
+            <div className="text-center mt-3">
+              <BackArrowButton onClick={() => { /* Add your click handler logic here */ }} />
+            </div>
           </div>
         </div>
       </div>
