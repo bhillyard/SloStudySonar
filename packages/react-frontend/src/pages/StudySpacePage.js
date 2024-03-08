@@ -1,27 +1,31 @@
 import React, { useState, useEffect } from "react";
 import "./StudySpacePage.css"; // Import CSS file for styling
 import BackArrowButton from "./BackArrowButton"; // Import the BackArrowButton component
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; // Import useNavigate hook from React Router
+import "bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap/dist/js/bootstrap.min.js'
 
 const StudySpacePage = () => {
+  const [studySpaces, setSpaces] = useState([]);
+  const navigate = useNavigate(); // Get the navigate object from React Router
 
-    const [studySpaces, setSpaces] = useState([]);
-
-    useEffect(() => {
-        fetch("http://localhost:8000/spaces")
-        .then((response) => response.json())
-        .then((data) => {
-            const locations = [];
-            for (let i = 0; i < data.length; i++) {
-                const location = data[i].location;
-                locations.push(location);
-            }
-            setSpaces(locations)
-        });
-    
-    });
+  useEffect(() => {
+    fetch("http://localhost:8000/spaces")
+      .then((response) => response.json())
+      .then((data) => {
+        setSpaces(data);
+      });
+  }, []); //run effect only once
 
   const [selectedFilters, setSelectedFilters] = useState([]); // State to manage the selected filters
   const [isOpen, setIsOpen] = useState(false); // State to manage the dropdown visibility
+
+  const handleClick = (space) => {
+    navigate("/viewStudySpace", {
+      state: { _id: space._id },
+    });
+  };
 
   const handleFilterChange = (e) => {
     const options = e.target.options;
@@ -73,7 +77,6 @@ const StudySpacePage = () => {
             )}
           </div>
         </div>
-        <div className="content">{/* Content goes here */}</div>
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-8">
@@ -85,8 +88,10 @@ const StudySpacePage = () => {
                 </p>
                 <div className="placeholder-box"></div>
                 <ul className="building-list">
-                  {studySpaces.map((building, index) => (
-                    <li key={index}>{building}</li>
+                  {studySpaces.map((space) => (
+                    <li key={space.location} onClick={() => handleClick(space)}>
+                      {space.location}
+                    </li>
                   ))}
                 </ul>
               </div>
