@@ -7,7 +7,11 @@ import React from 'react';
 import hills from './images/hills.jpg'
 import cafe from './images/cafe.jpg'
 import scout from './images/scout.jpg'
+import review from './images/reviews.jpg'
+import discover from './images/discover.png'
+import team from './images/team2.png'
 import { useNavigate } from 'react-router-dom'; // Import useNavigate hook from React Router
+import { Link } from 'react-router-dom';
 
 function App() {
 
@@ -16,6 +20,10 @@ function App() {
   const handleSignupClick = () => {
     navigate("/signup"); // Navigate to the "/signup" path
   };
+
+  const handleStudySpaceClick = () => {
+    navigate("/studySpaces"); // Navigate to the "/studySpaces" path
+  }
 
   return (
 
@@ -27,7 +35,7 @@ function App() {
 
 
       {/*Carousel*/}
-      <div id="carouselExample" class="carousel slide mt-5 mb-5">
+      <div id="carouselExample" class="carousel slide py-5 bg-warning-subtle">
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img src={cafe} class="d-block w-50 mx-auto" alt="..." />
@@ -51,23 +59,23 @@ function App() {
       </div>
 
       {/*Some text*/}
-      <div class="mt-20 d-block">
+      <div class="mt-20 d-block pb-5 bg-warning-subtle">
         <h1 class="h1">Find Study Spots in San Luis Obispo, easily.</h1>
 
         {/*Sign up button*/}
-        <button onClick={handleSignupClick} class="btn btn-primary btn-lg">Sign up</button>
+        <button onClick={handleSignupClick} class="btn btn-success btn-lg">Sign up</button>
       </div>
 
       <div class="text-start py-5">
         <h2 class="px-5"> New to SSS?</h2>
-        <form class="px-5 mt-3"><button type="button" class="btn btn-secondary btn-lg">About SLO Study Sonar</button></form>
-        <form class="px-5 mt-3"><button type="button" class="btn btn-secondary btn-lg">Browse Study Spaces</button></form>
-        <form class="px-5 mt-3"><button type="button" class="btn btn-secondary btn-lg">Study Sessions Info</button></form>
+        <form class="px-5 mt-3"><button type="button" class="btn btn-warning btn-lg">About SLO Study Sonar</button></form>
+        <form class="px-5 mt-3"><button type="button" onClick={handleStudySpaceClick} class="btn btn-warning btn-lg">Browse Study Spaces</button></form>
+        <form class="px-5 mt-3"><button type="button" class="btn btn-warning btn-lg">Study Sessions Info</button></form>
       </div >
 
       {/* Sign in or create an account... div */}
       <div class="container my-10 py-2 px-5 bg-success-subtle">
-        <h1> <span class="text-primary"> <a text-primary onClick={handleSignupClick}>Sign in</a></span> or <span class="text-primary">create an account</span> to save your favorite study spots and register for study sessions.</h1>
+        <h1> <span class="text-primary"> <Link to="/login">Log in here</Link></span> or <span class="text-primary"><Link to="/signup">create an account</Link></span> to save your favorite study spots and register for study sessions.</h1>
       </div>
 
       {/*Features div*/}
@@ -76,33 +84,53 @@ function App() {
         <div class="container text-center">
           <div class="row">
             <div class="col">
-              Real reviews by Cal Poly students.
+              <div><img src={review} class="w-75"/></div>
+              <strong>Real reviews </strong>by Cal Poly students.
             </div>
             <div class="col">
-              Upload and view images of study spaces in real time.
+            <div><img src={discover} class="w-50"/></div>
+              <strong>Upload and view images</strong> of study spaces in real time.
             </div>
             <div class="col">
-              Form study groups with other students.
+            <div>
+              <img src={team} class="w-50"/></div>
+              
+              <strong>Form study groups</strong> with other students.
             </div>
           </div>
         </div>
       </div>
 
-      <button onClick={handleSignupClick} class="btn btn-primary btn-lg">Sign up</button>
+      <button onClick={handleSignupClick} class="btn btn-success btn-lg">Sign up</button>
 
 
       {/*Bottom segment div*/}
-      <div class="py-5">
+      <div class="mt-5 py-5 bg-success-subtle">
         <div class="container text-center">
           <div class="row">
             <div class="col">
-              About
+              <h5>About</h5>
+              <div class="py-2"> 
+                <a href="#">About SLO Study Sonar</a>
+              </div>
+              <div> 
+                <a href="#">Privacy Policy</a>
+              </div>
             </div>
             <div class="col">
-              Discover
+              <h5>Discover</h5>
+              <div class="py-2"> 
+                <a href="#">Study Spaces</a>
+              </div>
+              <div> 
+                <a href="#">Study Sessions</a>
+              </div>
             </div>
             <div class="col">
-              Contact
+              <h5>Contact</h5>
+              <div class="py-2"> 
+                <a href="#">Contact Us</a>
+              </div>
             </div>
           </div>
         </div>
