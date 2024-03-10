@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import BackArrowButton from "./BackArrowButton";
 import { Container } from "react-bootstrap";
 import "./ViewStudySpacePage.css";
@@ -14,6 +14,22 @@ const ViewStudySpacePage = () => {
   useEffect(() => {
     getStudySpace(_id);
   }, [_id]);
+
+  const studySessions = [
+    "Mech Allnigher",
+    "357 Cram Session",
+    "203 A Star Strategizing",
+  ];
+
+  const upcomingStudySessions = studySessions.map((session) => {
+    return (
+      <li>
+        <Link to="/StudySessionPage" style={{ color: "black" }}>
+          {session}
+        </Link>
+      </li>
+    );
+  });
 
   function getStudySpace(_id) {
     fetch(`http://localhost:8000/spaces/${_id}`)
@@ -49,23 +65,36 @@ const ViewStudySpacePage = () => {
                     {/* set initial rating of 3 to test*/}
                   </div>
                   <div>
-                    <h2> Hours: {studySpaceData ? (
-                <h2>{studySpaceData.operatingHours}</h2>
-              ) : (
-                <h2>Loading...</h2>
-              )} </h2>
+                    <h1 className="hours">
+                      {" "}
+                      Hours:{" "}
+                      {studySpaceData ? (
+                        <span>{studySpaceData.operatingHours}</span>
+                      ) : (
+                        <span>Loading...</span>
+                      )}{" "}
+                    </h1>
                   </div>
                   <div>
-                    <h2> Location: {studySpaceData ? (
-                <h2>{studySpaceData.location}</h2>
-              ) : (
-                <h2>Loading...</h2>
-              )} </h2>
+                    <h1 className="location">
+                      Location:{" "}
+                      {studySpaceData ? (
+                        <span>{studySpaceData.location}</span>
+                      ) : (
+                        <span>Loading...</span>
+                      )}
+                    </h1>
                   </div>
                 </div>
                 <div className="col-md-6">
                   <p>Total Reviews</p>
                 </div>
+              </div>
+              <div>
+                <h2> Upcoming Study Sessions</h2>
+                <ul className="building-list">
+                  <ul>{upcomingStudySessions}</ul>
+                </ul>
               </div>
             </div>
           </div>

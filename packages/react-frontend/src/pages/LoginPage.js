@@ -3,9 +3,11 @@ import { Form, Button } from "react-bootstrap";
 import "./LoginPage.css"; // Import CSS file for styling
 import BackArrowButton from "./BackArrowButton"; // Import CircleArrowButton component
 import Cookies from "js-cookie";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     userName: "",
     password: "",
@@ -38,6 +40,7 @@ const LoginPage = () => {
             const token = res.token;
             Cookies.set("token", token, { expires: 1, secure: true });
           });
+          navigate("/dashboard");
         } else {
           alert(response.status);
         }
@@ -49,8 +52,9 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="container-fluid h-100">
-      <div className="row justify-content-center h-100">
+    <div className="container-fluid h-100 d-flex flex-column">
+      <BackArrowButton/>
+      <div className="row justify-content-center flex-grow-1">
         <div className="col-md-6 d-flex align-items-center">
           <div className="w-100">
             <h2 className="text-center mb-4">Log In</h2>
@@ -81,7 +85,7 @@ const LoginPage = () => {
                 {" "}
                 {/* Wrapper for centered button */}
                 <Button variant="primary" type="submit" className="w-50">
-                  Sign Up
+                  Log in
                 </Button>
               </div>
             </Form>
@@ -89,13 +93,7 @@ const LoginPage = () => {
               <span> Don't have an account? </span>
               <Link to="/signup">Sign up here</Link>
             </div>
-            <div className="text-center mt-3">
-              <BackArrowButton
-                onClick={() => {
-                  /* Add your click handler logic here */
-                }}
-              />
-            </div>
+            <div className="text-center mt-3"></div>
           </div>
         </div>
       </div>

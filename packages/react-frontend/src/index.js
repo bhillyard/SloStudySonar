@@ -14,6 +14,7 @@ import Reviews from './pages/Reviews';
 import YourSessions from './pages/YourSessions';
 import ViewStudySpacePage from './pages/ViewStudySpacePage';
 import StudySessions from './studysessions/StudySessions';
+import StudySessionPage from './pages/StudySessionPage';
 import {
   createBrowserRouter,
   RouterProvider,
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
   {
     path: "ViewStudySpace",
     element: <ViewStudySpacePage/>
+  },
+  {
+    path: "StudySessionPage",
+    element: <StudySessionPage/>
   },
   {
     element: <NotFoundPage />, // Not found page doesn't work
