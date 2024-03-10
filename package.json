@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "link": "npx eslint .. && npx prettier --check .",
+    "test": "npx jest",
+    "dev": "nodemon --watch backend.js --watch routes/",
     "start": "cd packages/react-frontend && npm start",
     "start-server": "cd packages/express-backend && npx nodemon backend.js",
-    "format": "npx prettier . --write",
-    "lint": "npx eslint ."
+    "format": "npx prettier . --write"
   },
   "repository": {
     "type": "git",
