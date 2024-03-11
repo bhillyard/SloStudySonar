@@ -18,7 +18,7 @@ function getAllReviews() {
 }
 
 function findReviewById(id) {
-    return sessionModel.findById(id);
+    return reviewModel.findById(id);
 }
 
 function findReviewBySpace(space) {
