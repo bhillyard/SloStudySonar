@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "link": "npx eslint .. && npx prettier --check .",
+    "lint": "npx eslint .. && npx prettier --check .",
     "test": "npx jest",
     "dev": "nodemon --watch backend.js --watch routes/",
     "start": "cd packages/react-frontend && npm start",
