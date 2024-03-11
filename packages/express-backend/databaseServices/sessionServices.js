@@ -21,7 +21,7 @@ function findSessionById(id) {
     return sessionModel.findById(id);
 }
 
-function findSessionBySpace(space) {
+function findSessionsBySpace(space) {
     return sessionModel.find({ space: space });
 }
 
@@ -32,7 +32,7 @@ function deleteSession(id) {
 export default {
     addSession,
     findSessionById,
-    findSessionBySpace,
+    findSessionsBySpace,
     getAllSessions,
     deleteSession
 };

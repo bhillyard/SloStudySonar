@@ -10,22 +10,33 @@ const ViewStudySpacePage = () => {
   const { _id } = location.state;
   console.log(_id);
 
-  const [studySpaceData, setStudySpaceData] = useState(null);
+  const [studySpaceData, setStudySpaceData] = useState([]);
+  const [studySessions, setStudySessions] = useState([]);
+  const [studySpaceReviews, setStudySpaceReviews] = useState([]);
+  
   useEffect(() => {
     getStudySpace(_id);
-  }, [_id]);
+    fetch("http://localhost:8000/sessions?space=" + _id)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch study sessions");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setStudySessions(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching study sessions:", error);
+      })
+  }, []);
 
-  const studySessions = [
-    "Mech Allnigher",
-    "357 Cram Session",
-    "203 A Star Strategizing",
-  ];
 
   const upcomingStudySessions = studySessions.map((session) => {
     return (
       <li>
         <Link to="/StudySessionPage" style={{ color: "black" }}>
-          {session}
+          {session.sessionName}
         </Link>
       </li>
     );
@@ -94,6 +105,12 @@ const ViewStudySpacePage = () => {
                 <h2> Upcoming Study Sessions</h2>
                 <ul className="building-list">
                   <ul>{upcomingStudySessions}</ul>
+                </ul>
+              </div>
+              <div>
+                <h2> Study Space Reviews</h2>
+                <ul className="building-list">
+                  <ul>{studySpaceReviews}</ul>
                 </ul>
               </div>
             </div>
