@@ -83,6 +83,7 @@
         {
             "reviews_list": [
                 {
+                    "title": "I love this spot!",
                     "space": "65cbd70e6505c7965dd10178",
                     "review": "This is a great space to work on projects and study",
                     "rating": 5,
