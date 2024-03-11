@@ -104,6 +104,7 @@ router.post("/:id/reviews", middleware.authenticateUser, (req, res) => {
     users_methods.findUserById(user.id).then((result) => {
       req.body.author = user.id;
       req.body.space = req.params.id;
+      req.body.date = new Date();
       reviews_methods.addReview(req.body).then((result) => {
         res.status(201).send(result);
       }).catch((error) => {
