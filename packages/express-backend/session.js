@@ -48,6 +48,12 @@ const SessionSchema = new mongoose.Schema(
             required: true,
             trim: true
         }
-    }
+        
+    },
+    {collection: "sessions_list"}
 
 );
+
+const Session = mongoose.model("Session", SessionSchema);
+
+export default Session;
