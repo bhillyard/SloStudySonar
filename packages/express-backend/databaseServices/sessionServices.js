@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import sessionModel from "./session.js";
+import sessionModel from "../schemas/session.js";
 import dotenv from 'dotenv';
 
 dotenv.config();

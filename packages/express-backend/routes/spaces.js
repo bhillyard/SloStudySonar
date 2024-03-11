@@ -1,7 +1,7 @@
 import express from "express";
-import spaces_methods from "../studySpaceServices.js";
+import spaces_methods from "../databaseServices/studySpaceServices.js";
 import middleware from "./middleware.js";
-import users_methods from "../userServices.js";
+import users_methods from "../databaseServices/userServices.js";
 
 const router = express.Router();
 router.use(express.json());

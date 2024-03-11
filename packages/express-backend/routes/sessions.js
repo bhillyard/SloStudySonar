@@ -1,7 +1,7 @@
 import express from "express";
-import sessions_methods from "../sessionServices.js";
+import sessions_methods from "../databaseServices/sessionServices.js";
 import middleware from "./middleware.js";
-import users_methods from "../userServices.js";
+import users_methods from "../databaseServices/userServices.js";
 
 
 //set up router to route to backend.js
