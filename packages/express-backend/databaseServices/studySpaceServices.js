@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import studySpaceModel from "./studySpace.js";
+import studySpaceModel from "../schemas/studySpace.js";
 import dotenv from 'dotenv';
 dotenv.config();
 
