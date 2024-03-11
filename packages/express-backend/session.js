@@ -9,17 +9,17 @@ const SessionSchema = new mongoose.Schema(
             trim: true
         },
         date:{
-            type: Date,
+            type: String,
             required: true,
             trim: true
         },
         startTime:{
-            type: Date,
+            type: String,
             required: true,
             trim: true
         },
         endTime:{
-            type: Date,
+            type: String,
             required: true,
             trim: true
         },
