@@ -27,6 +27,11 @@ const SessionSchema = new mongoose.Schema(
             type: String,
             required: true,
             trim: true
+        },
+        date: {
+            type: Date,
+            required: true,
+            trim: true
         }
     },
     {collection: "reviews_list"}
