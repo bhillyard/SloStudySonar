@@ -3,6 +3,11 @@ import mongoose from "mongoose";
 
 const SessionSchema = new mongoose.Schema(
     {
+        title: {
+            type: String,
+            required: true,
+            trim: true
+        },
         space: {
             type: String,
             required: true,
