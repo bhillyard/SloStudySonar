@@ -19,6 +19,7 @@ import {
   RouterProvider,
   Route,
 } from "react-router-dom";
+import About from './pages/about';
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
   {
     path: "ViewStudySpace",
     element: <ViewStudySpacePage/>
+  },
+  {
+    path: "About",
+    element: <About/>
   },
   {
     element: <NotFoundPage />, // Not found page doesn't work

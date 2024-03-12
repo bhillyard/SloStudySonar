@@ -12,6 +12,9 @@ import discover from './images/discover.png'
 import team from './images/team2.png'
 import { useNavigate } from 'react-router-dom'; // Import useNavigate hook from React Router
 import { Link } from 'react-router-dom';
+import About from './pages/about.js';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 
 function App() {
 
@@ -23,7 +26,11 @@ function App() {
 
   const handleStudySpaceClick = () => {
     navigate("/studySpaces"); // Navigate to the "/studySpaces" path
-  }
+  };
+
+  const handleAboutClick = () => {
+    navigate("/About");
+  };
 
   return (
 
@@ -68,7 +75,7 @@ function App() {
 
       <div class="text-start py-5">
         <h2 class="px-5"> New to SSS?</h2>
-        <form class="px-5 mt-3"><button type="button" class="btn btn-warning btn-lg">About SLO Study Sonar</button></form>
+        <form class="px-5 mt-3"><button type="button" onClick={handleAboutClick} class="btn btn-warning btn-lg">About SLO Study Sonar</button></form>
         <form class="px-5 mt-3"><button type="button" onClick={handleStudySpaceClick} class="btn btn-warning btn-lg">Browse Study Spaces</button></form>
         <form class="px-5 mt-3"><button type="button" class="btn btn-warning btn-lg">Study Sessions Info</button></form>
       </div >
@@ -111,7 +118,7 @@ function App() {
             <div class="col">
               <h5>About</h5>
               <div class="py-2"> 
-                <a href="#">About SLO Study Sonar</a>
+              <Link to="/about">About SLO Study Sonar</Link>
               </div>
               <div> 
                 <a href="#">Privacy Policy</a>
@@ -120,7 +127,7 @@ function App() {
             <div class="col">
               <h5>Discover</h5>
               <div class="py-2"> 
-                <a href="#">Study Spaces</a>
+              <Link to="/about">About SLO Study Sonar</Link>
               </div>
               <div> 
                 <a href="#">Study Sessions</a>
@@ -136,6 +143,12 @@ function App() {
         </div>
       </div>
 
+
+      <footer>
+    <div class="container">
+      <p>&copy; 2024 SLO Study Sonar. All Rights Reserved.</p>
+    </div>
+  </footer>
 
     </div >
 

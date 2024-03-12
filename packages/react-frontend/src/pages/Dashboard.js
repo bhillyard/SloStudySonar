@@ -28,6 +28,11 @@ function Dashboard() {
             <img src={logo} alt="Profile" className="profile-photo" />
             <button class="btn-change-photo">Change profile photo</button>
         </div>
+        <footer>
+             <div class="container">
+                <p>&copy; 2024 SLO Study Sonar. All Rights Reserved.</p>
+            </div>
+        </footer>
     </div>
     );
 }

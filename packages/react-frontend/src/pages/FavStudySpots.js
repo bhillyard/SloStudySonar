@@ -23,6 +23,11 @@ function FavStudySpots() {
             <tr><td>Baker</td></tr>
         </tbody>
     </table>
+    <footer>
+             <div class="container">
+                <p>&copy; 2024 SLO Study Sonar. All Rights Reserved.</p>
+            </div>
+        </footer>
 </div>
 )}
 
