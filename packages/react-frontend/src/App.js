@@ -121,7 +121,7 @@ function App() {
               <Link to="/about">About SLO Study Sonar</Link>
               </div>
               <div> 
-                <a href="#">Privacy Policy</a>
+              <Link to="/Privacy">Privacy Policy</Link>
               </div>
             </div>
             <div class="col">
@@ -136,7 +136,7 @@ function App() {
             <div class="col">
               <h5>Contact</h5>
               <div class="py-2"> 
-                <a href="#">Contact Us</a>
+              <Link to="/Contact">Contact Us</Link>
               </div>
             </div>
           </div>

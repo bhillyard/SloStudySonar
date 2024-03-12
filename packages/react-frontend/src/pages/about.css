@@ -1,10 +1,10 @@
-body {
+.body {
     background-color: #ffffff; /* Light background for the main body */
     color: #54585A; /* Darker gray for primary text */
     font-family: Arial, sans-serif; /* You can choose a different font that fits your branding */
 }
 
-header h1 {
+.header h1 {
     text-align: center; /* This will center the text in its container */
 }
   
@@ -33,6 +33,7 @@ footer {
 
 
   .team-members {
+    
     display: flex;
     justify-content: space-between; /* This will space out your items evenly */
     flex-wrap: wrap; /* Allows items to wrap onto the next line if not enough space */

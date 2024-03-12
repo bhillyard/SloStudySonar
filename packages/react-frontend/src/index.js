@@ -21,6 +21,8 @@ import {
   Route,
 } from "react-router-dom";
 import About from './pages/about';
+import PrivacyPolicy from './pages/privacy';
+import Contact from './pages/contact';
 
 const router = createBrowserRouter([
   {
@@ -63,14 +65,23 @@ const router = createBrowserRouter([
     path: "About",
     element: <About/>
  },
-  {  
+{
+    path: "Privacy",
+    element: <PrivacyPolicy/>
+},
+
+{  
     path: "StudySessionPage",
     element: <StudySessionPage/>
 
-  },
-  {
+},
+{
+    path: "Contact",
+    element: <Contact/>
+},
+{
     element: <NotFoundPage />, // Not found page doesn't work
-  }
+}
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -2,6 +2,8 @@
 
 import React from "react";
 import 'bootstrap/dist/js/bootstrap.min.js'
+import { Link } from 'react-router-dom'; // Import Link component
+
 
 const Navbar = () => {
    return(
@@ -13,11 +15,12 @@ const Navbar = () => {
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
+
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
+          <Link className="nav-link" to="/about">About</Link>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Study Spaces</a>

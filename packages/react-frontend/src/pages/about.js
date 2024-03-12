@@ -18,15 +18,15 @@ function About(){
   <BackArrowButton onClick={() => { /* Add your click handler logic here */ }} />
 
     <div class="container">
+        
       <h2>About Us</h2>
       <p>Welcome to SLO Study Sonar! We're committed to providing students in San Luis Obispo with the best possible study spots. 
         Our mission is to create a space where students can find quiet, comfortable, and resourceful places to study, collaborate, and succeed.</p>
       <div class="about-story">
         <h3>Our Story</h3>
-        <p>Founded by Cal Poly students in 2024, SLO Study Sonar was born out of a need to find the perfect studying nook. 
-            We've been there—searching for a quiet corner to prep for exams, a lively café for group projects, or just a serene outdoor spot for reading. 
-            That's why we've created a one-stop platform to discover and share study locations across town.</p>
-      </div>
+        <p>Founded by Cal Poly students in 2024, SLO Study Sonar was sparked by a pressing need that arose in the wake of the Kennedy Library's closure the previous year. As students faced the sudden scarcity of conducive study environments, we realized the importance of having a dedicated space for academic and collaborative pursuits. We've experienced firsthand the challenge of finding that quiet corner to prepare for exams or the ideal café for group projects. Driven by these challenges, we've created a one-stop platform to discover and share the best study locations across town, ensuring every student has access to comfortable, quiet, and resourceful study spots to learn and succeed.</p>
+        </div>
+
         <div class="about-team">
         <h3>Meet the Team</h3>
         <p>Our team is made up of a diverse group of individuals united by a common goal: 
