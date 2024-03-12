@@ -7,12 +7,13 @@ function FavStudySpots() {
     return (
         
     <div class="study-spots-container">
-    < BackArrowButton />
+   
     <Navbar />
             <header className="App-header">
             <h1>SLO Study Sonar</h1>
             </header>
-
+            <div className="back-arrow-container">    
+        <BackArrowButton onClick={() => { /* Add your click handler logic here */ }} /></div>
     <h1 class="spots-title">Favorite Study Spots</h1>
     <table class="spots-table">
         <thead>

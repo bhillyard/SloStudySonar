@@ -6,11 +6,15 @@ import Navbar from '../Navigation/Navbar';
 function Reviews() {
     return (
         <div class="reviews-container">
-        < BackArrowButton />
+       
         <Navbar />
             <header className="App-header">
             <h1>SLO Study Sonar</h1>
             </header>
+
+        <div className="back-arrow-container">    
+        <BackArrowButton onClick={() => { /* Add your click handler logic here */ }} /></div>
+            
         <h1 class="reviews-title">Your Reviews</h1>
         <table class="reviews-table">
             <thead>

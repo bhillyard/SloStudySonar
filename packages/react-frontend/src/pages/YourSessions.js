@@ -1,11 +1,20 @@
 import React from 'react';
 import '../style.css'; 
 import BackArrowButton from "./BackArrowButton";
+import Navbar from '../Navigation/Navbar';
 
 function YourSessions() {
     return (
         <div className="study-sessions-container">
-            < BackArrowButton />
+        <Navbar />
+            <header className="App-header">
+            <h1>SLO Study Sonar</h1>
+            </header>  
+
+        <div className="back-arrow-container">    
+        <BackArrowButton onClick={() => { /* Add your click handler logic here */ }} /></div>
+       
+
             <h1 className="sessions-title">Your Study Sessions</h1>
             <table className="sessions-table">
                 <thead>

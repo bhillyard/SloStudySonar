@@ -10,9 +10,14 @@ body {
     color: #333; 
 }
 
+.App-header h1 {
+    text-align: center; /* This will center the text in its container */
+}
 
 .dashboard-title, .spots-title, .sessions-title, .reviews-title {
     padding-top: 3rem; 
+    text-align: center;
+
 }
 
 
@@ -38,6 +43,7 @@ body {
     margin-bottom: 1rem; 
     text-decoration: none; 
     transition: background-color 0.3s; 
+    text-align: center;
 }
 
 .dashboard-content a:hover {
@@ -46,18 +52,21 @@ body {
 
 
 .profile-photo-section {
-    text-align: center; 
-    margin-top: 1rem; 
+    display: flex; /* Flexbox will help in centering the content */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center items horizontally within the flex container */
+    justify-content: center; /* Center items vertically within the flex container */
+    width: 100%; /* Take the full width to maintain the container size */
+    margin-top: 1rem; /* Maintain the top margin as before */
 }
 
 
 .profile-photo {
-    display: inline-block; 
-    width: 150px; 
-    height: 150px; 
-    background-color: #aaa; 
-    border-radius: 0.5rem; 
-    margin-bottom: 1rem; 
+    /* Ensure the width and height are set to maintain aspect ratio */
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Make it round */
+    margin-bottom: 1rem; /* Space between the photo and the button */
 }
 
 
@@ -70,10 +79,13 @@ body {
     cursor: pointer; 
     font-size: 1rem;
     transition: background-color 0.3s; 
+    align-items: center;
+    
 }
 
 .btn-change-photo:hover {
     background-color: #154734; 
+    
 }
 
 
