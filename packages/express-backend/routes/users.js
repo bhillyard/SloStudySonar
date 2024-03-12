@@ -1,5 +1,5 @@
 import express from "express";
-import users_methods from "../userServices.js";
+import users_methods from "../databaseServices/userServices.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import middleware from "./middleware.js";

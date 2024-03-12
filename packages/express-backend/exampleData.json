@@ -53,6 +53,45 @@
 
                 }
             ]
+        },
+        {
+            "sessions_list": [
+                {
+                    "sessionName": "CSC 307 Project Brainstorming",
+                    "date": "2019-10-01",
+                    "startTime": "12:00",
+                    "endTime": "14:00",
+                    "space": "65cbd70e6505c7965dd10178",
+                    "description": "We will be brainstorming ideas for our project in the CSL",
+                    "participants": [],
+                    "reviews": []
+                }
+                
+
+            ]
+        },
+        {
+            "login": [
+                {
+                    "userName" : "User",
+                    "password" : "password"
+                }
+                
+
+            ]
+        },
+        {
+            "reviews_list": [
+                {
+                    "title": "I love this spot!",
+                    "space": "65cbd70e6505c7965dd10178",
+                    "review": "This is a great space to work on projects and study",
+                    "rating": 5,
+                    "author": "65e6600c724d2962588a5c1a"
+                }
+                
+
+            ]
         }
     ]
 }

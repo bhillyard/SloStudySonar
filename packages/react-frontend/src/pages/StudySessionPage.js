@@ -4,7 +4,7 @@ import BackArrowButton from "./BackArrowButton";
 const StudySessionPage = () => {
     return (
         <div>
-            <h2> Hi there </h2>
+            <h2> Need to implement this page </h2>
         </div>
     )
 };

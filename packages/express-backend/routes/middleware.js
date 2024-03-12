@@ -11,20 +11,24 @@ function authenticateUser(req, res, next){
   if(token == null){
     req.userRef = null;
     next();
-  }
+  }else{
     //verify token
-  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-    if(err){
-        return res.sendStatus(403);
-    }else{
-        //allows access to the userRef in the request
-        req.userRef = user;
-    }   
-    next();
-  });
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+      if(err){
+          return res.sendStatus(403);
+      }else{
+          //allows access to the userRef in the request
+          req.userRef = user;
+      }   
+      next();
+    });
+  }
+    
 
   
 }
+
+
 
 
 
