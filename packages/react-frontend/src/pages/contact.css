@@ -31,3 +31,8 @@
   .App-header h1 {
     text-align: center; /* This will center the text in its container */
 }
+
+.back-arrow-container {
+  position: relative;
+  top: 0.1px; 
+}

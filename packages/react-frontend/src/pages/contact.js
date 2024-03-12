@@ -15,7 +15,9 @@ function Contact(){
       </header>
 
   <div class="contact-main">
-  
+  <div className="back-arrow-container">    
+  <BackArrowButton onClick={() => { /* Add your click handler logic here */ }} />
+  </div>
     <div class="container">
         
       <h2>Contact Us</h2>

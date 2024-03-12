@@ -13,6 +13,9 @@ function About(){
       <header className="App-header">
         <h1>SLO Study Sonar</h1>
       </header>
+  <div className="back-arrow-container">    
+  <BackArrowButton onClick={() => { /* Add your click handler logic here */ }} />
+  </div>
 
   <div class="about-main">
  

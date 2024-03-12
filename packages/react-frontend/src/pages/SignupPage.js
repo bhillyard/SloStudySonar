@@ -84,12 +84,16 @@ const SignupPage = () => {
   return (
       
     <div className="container-fluid h-100">
-      <BackArrowButton/>
+      
       <Navbar />
       <header className="App-header">
         <h1>SLO Study Sonar</h1>
       </header>
 
+      <div className="back-arrow-container">    
+      <BackArrowButton onClick={() => { /* Add your click handler logic here */ }} />
+      </div>
+      
       <div className="row justify-content-center h-100">
         <div className="col-md-6 d-flex align-items-center">
           <div className="w-100">

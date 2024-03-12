@@ -40,4 +40,7 @@ footer {
 
 
 
- 
+.privacy-back-arrow-container {
+    position: relative;
+    top: 0.1px; 
+  } 
