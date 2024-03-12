@@ -36,7 +36,6 @@ function addStudySpace(studySpace) {
 }
 
 function findStudySpaceById(id) {
-    
     return studySpaceModel.findById(id);
 }
 
@@ -60,6 +59,10 @@ function findStudySpaceByDescription(description) {
     return studySpaceModel.find({ description: description });
 }
 
+function findStudySpaceByOnCampus(onCampus) {
+    return studySpaceModel.find({ onCampus: onCampus });
+}
+
 function deleteStudySpace(id) {
     return studySpaceModel.findByIdAndDelete(id);
 }
@@ -73,5 +76,6 @@ export default {
     findStudySpaceByLocation,
     findStudySpaceByOperatingHours,
     findStudySpaceByDescription,
+    findStudySpaceByOnCampus,
     deleteStudySpace
 }
