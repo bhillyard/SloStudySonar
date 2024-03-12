@@ -1,12 +1,18 @@
 import React from "react";
 import '../style.css';
 import BackArrowButton from "./BackArrowButton";
-
+import Navbar from "../Navigation/Navbar";
 
 function FavStudySpots() {
     return (
+        
     <div class="study-spots-container">
     < BackArrowButton />
+    <Navbar />
+            <header className="App-header">
+            <h1>SLO Study Sonar</h1>
+            </header>
+
     <h1 class="spots-title">Favorite Study Spots</h1>
     <table class="spots-table">
         <thead>

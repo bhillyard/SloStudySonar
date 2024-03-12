@@ -9,11 +9,14 @@ import Navbar from '../Navigation/Navbar.js'
 function PrivacyPolicy() {
     return (
 <body>
-    
+    <Navbar />
+      <header className="App-header">
+        <h1>SLO Study Sonar</h1>
+      </header>
+
 
   <div class="privacy-policy-container">
-  <BackArrowButton onClick={() => { /* Add your click handler logic here */ }} />
-
+  
 
     <div class="container">
         <h2>Privacy Policy</h2>

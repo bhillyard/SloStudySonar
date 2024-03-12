@@ -9,14 +9,13 @@ import Navbar from '../Navigation/Navbar.js'
 function Contact(){
     return(
 <body>
-    {/* <Navbar />
+    <Navbar />
       <header className="App-header">
         <h1>SLO Study Sonar</h1>
-      </header> */}
+      </header>
 
   <div class="contact-main">
-  <BackArrowButton onClick={() => { /* Add your click handler logic here */ }} />
-
+  
     <div class="container">
         
       <h2>Contact Us</h2>
