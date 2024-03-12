@@ -51,7 +51,22 @@ const UserSchema = new mongoose.Schema(
         type: String,
         required: false,
         trim: true
-      }
+      },
+      favoriteSpaces:{
+        type: Array,
+        required: true,
+        default: []
+      },
+      sessions:{
+        type: Array,
+        required: true,
+        default: []
+      },
+      role:{
+        type: String,
+        required: true,
+        default: "basic"
+      },
     },
     { collection: "users_list" }
   );
