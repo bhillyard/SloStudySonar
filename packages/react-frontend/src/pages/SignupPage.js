@@ -83,19 +83,19 @@ const SignupPage = () => {
 
   return (
       
-    <div className="container-fluid h-100">
+    <div className="">
       
       <Navbar />
-      <header className="App-header">
+      <header className="App-header mb-5">
         <h1>SLO Study Sonar</h1>
       </header>
 
-      <div className="back-arrow-container">    
+      <div className="back-arrow-container mb-5">    
       <BackArrowButton onClick={() => { /* Add your click handler logic here */ }} />
       </div>
       
-      <div className="row justify-content-center h-100">
-        <div className="col-md-6 d-flex align-items-center">
+      <div className="row h-100 mx-auto">
+        <div className="col-md-6 mx-auto">
           <div className="w-100">
             <h2 className="text-center mb-4">Sign Up</h2>
             <Form onSubmit={handleSubmit}>
@@ -203,7 +203,7 @@ const SignupPage = () => {
         </div>
       </div>
       <footer>
-             <div class="container">
+             <div >
                 <p>&copy; 2024 SLO Study Sonar. All Rights Reserved.</p>
             </div>
         </footer>

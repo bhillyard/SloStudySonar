@@ -41,7 +41,7 @@ function App() {
 
 
       {/*Carousel*/}
-      <div id="carouselExample" class="carousel slide py-5">
+      <div id="carouselExample" class="carousel slide py-5 carousel-fade">
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img src={cafe} class="d-block w-75 mx-auto" alt="..." />
@@ -72,7 +72,7 @@ function App() {
         <button onClick={handleSignupClick} class="btn btn-success btn-lg alumni-sans">Sign up</button>
       </div>
 
-      <div class="py-5">
+      <div class="py-2">
         <h2 class="text-start px-5 source-sans-3"> New to SSS?</h2>
         <form class="mt-3 alumni-sans"><button type="button" onClick={handleAboutClick} class="btn w-75 btn-override">About SLO Study Sonar</button></form>
         <form class="mt-3 alumni-sans"><button type="button" onClick={handleStudySpaceClick} class="btn w-75 btn-override ">Browse Study Spaces</button></form>
@@ -80,7 +80,7 @@ function App() {
       </div >
 
       {/* Sign in or create an account... div */}
-      <div class="container my-10 py-2 px-5 green-div source-sans-3">
+      <div class="container my-10 py-3 px-5 green-div source-sans-3">
         <h1> <span class="text-primary"> <Link to="/login">Log in here</Link></span> or <span class="text-primary"><Link to="/signup">create an account</Link></span> to save your favorite study spots and register for study sessions.</h1>
       </div>
 
