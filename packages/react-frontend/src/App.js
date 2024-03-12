@@ -15,6 +15,7 @@ import './App.css';
 
 
 
+
 function App() {
 
   const navigate = useNavigate(); // Get the history object from React Router
@@ -74,13 +75,13 @@ function App() {
 
       <div class="py-5">
         <h2 class="text-start px-5 source-sans-3"> New to SSS?</h2>
-        <form class="mt-3 alumni-sans"><button type="button" onClick={handleAboutClick} class="btn btn-override w-75">About SLO Study Sonar</button></form>
-        <form class="mt-3 alumni-sans"><button type="button" onClick={handleStudySpaceClick} class="btn btn-override w-75">Browse Study Spaces</button></form>
-        <form class="mt-3 alumni-sans"><button type="button" class="btn btn-override w-75">Study Sessions Info</button></form>
+        <form class="mt-3 alumni-sans"><button type="button" onClick={handleAboutClick} class="btn w-75 btn-override">About SLO Study Sonar</button></form>
+        <form class="mt-3 alumni-sans"><button type="button" onClick={handleStudySpaceClick} class="btn w-75 btn-override ">Browse Study Spaces</button></form>
+        <form class="mt-3 alumni-sans"><button type="button" class="btn w-75 btn-override">Study Sessions Info</button></form>
       </div >
 
       {/* Sign in or create an account... div */}
-      <div class="container my-10 py-2 px-5 bg-success-subtle source-sans-3">
+      <div class="container my-10 py-2 px-5 green-div source-sans-3">
         <h1> <span class="text-primary"> <Link to="/login">Log in here</Link></span> or <span class="text-primary"><Link to="/signup">create an account</Link></span> to save your favorite study spots and register for study sessions.</h1>
       </div>
 
@@ -111,7 +112,7 @@ function App() {
 
 
       {/*Bottom segment div*/}
-      <div class="mt-5 py-5 bg-success-subtle">
+      <div class="mt-5 py-5 green-div">
         <div class="container text-center">
           <div class="row">
             <div class="col">

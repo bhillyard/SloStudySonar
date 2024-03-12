@@ -11,7 +11,7 @@ function Contact(){
 <body>
     <Navbar />
       <header className="App-header">
-        <h1>SLO Study Sonar</h1>
+        <h1 class='alumni-sans'>SLO Study Sonar</h1>
       </header>
 
   <div class="contact-main">
@@ -20,7 +20,7 @@ function Contact(){
   </div>
     <div class="container">
         
-      <h2>Contact Us</h2>
+      <h2 class='alumni-sans'>Contact Us</h2>
 
       <p>Got a feature suggestion? Have any questions, comments, or concerns?  Feel free to contact us!</p>
       <p>E-Mail: slostudysonar@gmail.com</p>
