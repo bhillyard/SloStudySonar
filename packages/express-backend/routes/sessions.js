@@ -13,7 +13,7 @@ router.use(express.json());
 router.get("/", (req, res) => {
 
     if(req.query.space){
-        sessions_methods.getSessionsBySpace(req.query.space).then((result) => {
+        sessions_methods.findSessionsBySpace(req.query.space).then((result) => {
             res.status(200).send(result);
         }).catch((error) => {
             res.status(404).send("Sessions not found");
