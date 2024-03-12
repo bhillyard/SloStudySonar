@@ -5,28 +5,28 @@ import BackArrowButton from './BackArrowButton'; // Import CircleArrowButton com
 
 function Dashboard() {
     return (
-        <div class="user-dashboard">
+        <div className="user-dashboard">
         <BackArrowButton onClick={() => { /* Add your click handler logic here */ }} />
-        <div class="user-info">
+        <div className="user-info">
             
         </div>
         
-        <div class="dashboard-content">
-            <div class="content-section">
-                <a href="/FavStudySpots" class="dashboard-link">Favorite Study Spots</a>
+        <div className="dashboard-content">
+            <div className="content-section">
+                <a href="/FavStudySpots" className="dashboard-link">Favorite Study Spots</a>
                
             </div>
-            <div class="content-section">
-                <a href="/YourSessions" class="dashboard-link">Your Study Sessions</a>
+            <div className="content-section">
+                <a href="/YourSessions" className="dashboard-link">Your Study Sessions</a>
             </div>
-            <div class="content-section">
-                <a href="/Reviews" class="dashboard-link">Your Reviews</a>
+            <div className="content-section">
+                <a href="/Reviews" className="dashboard-link">Your Reviews</a>
             </div>
         </div>
         
-        <div class="profile-photo-section">
+        <div className="profile-photo-section">
             <img src={logo} alt="Profile" className="profile-photo" />
-            <button class="btn-change-photo">Change profile photo</button>
+            <button className="btn-change-photo">Change profile photo</button>
         </div>
     </div>
     );
