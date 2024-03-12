@@ -1,20 +1,10 @@
 .App {
   text-align: center;
-  background-color: #154734;
-  color: #b88813; 
+  /* background-color: #154734; */
+  /* color: #b88813; */
   /* background-color: #d8d4d5; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #154734;
@@ -27,15 +17,6 @@
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 .source-sans-3 {
@@ -53,7 +34,19 @@
 }
 
 .btn-override {
-  background-color: #DEA517;
+  background-color: #DEA517 !important;
+}
+
+.btn-override:hover {
+  background-color: #F2C75C !important;
+  font-family: "Alumni Sans" !important;
+  transform: none !important;
+  margin-top: 0.5;
+  margin-bottom: 0.5;
+}
+
+.green-div {
+  background-color: #B7CDC2
 }
 
 
