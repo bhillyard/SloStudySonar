@@ -41,16 +41,16 @@ function App() {
 
 
       {/*Carousel*/}
-      <div id="carouselExample" class="carousel slide py-5 carousel-fade">
+      <div id="carouselExample" class="carousel slide py-5 carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src={cafe} class="d-block w-75 mx-auto" alt="..." />
+            <img src={cafe} class="d-block w-75 mx-auto data-bs-interval=3000" alt="..." />
           </div>
           <div class="carousel-item">
-            <img src={scout} class="d-block w-75 mx-auto" alt="..." />
+            <img src={scout} class="d-block w-75 mx-auto data-bs-interval=3000" alt="..." />
           </div>
           <div class="carousel-item">
-            <img src={hills} class="d-block w-75 d-inline-block mx-auto" alt="..." />
+            <img src={hills} class="d-block w-75 d-inline-block mx-auto data-bs-interval=3000" alt="..." />
           </div>
 
         </div>
@@ -80,7 +80,7 @@ function App() {
       </div >
 
       {/* Sign in or create an account... div */}
-      <div class="container my-10 py-3 px-5 green-div source-sans-3">
+      <div class="container mt-5 py-3 px-5 green-div source-sans-3">
         <h1> <span class="text-primary"> <Link to="/login">Log in here</Link></span> or <span class="text-primary"><Link to="/signup">create an account</Link></span> to save your favorite study spots and register for study sessions.</h1>
       </div>
 
