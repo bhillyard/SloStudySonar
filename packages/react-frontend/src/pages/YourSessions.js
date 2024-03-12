@@ -1,10 +1,11 @@
 import React from 'react';
 import '../style.css'; 
+import BackArrowButton from "./BackArrowButton";
 
 function YourSessions() {
     return (
         <div className="study-sessions-container">
-            <a href="/dashboard" className="back-button">←</a>
+            < BackArrowButton />
             <h1 className="sessions-title">Your Study Sessions</h1>
             <table className="sessions-table">
                 <thead>

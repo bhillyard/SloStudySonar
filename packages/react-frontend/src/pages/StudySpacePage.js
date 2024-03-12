@@ -1,25 +1,24 @@
 import React, { useState, useEffect } from "react";
-import "./StudySpacePage.css"; // Import CSS file for styling
 import BackArrowButton from "./BackArrowButton"; // Import the BackArrowButton component
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom"; // Import useNavigate hook from React Router
+import "./StudySpacePage.css"; // Import CSS file for styling
 import "bootstrap/dist/css/bootstrap.min.css";
 import 'bootstrap/dist/js/bootstrap.min.js'
 
 const StudySpacePage = () => {
   const [studySpaces, setSpaces] = useState([]);
+  const [selectedFilters, setSelectedFilters] = useState([]); // State to manage the selected filters
+  const [isOpen, setIsOpen] = useState(false); // State to manage the dropdown visibility
   const navigate = useNavigate(); // Get the navigate object from React Router
 
+  //get all study spaces (going to need to separate to on campus and off campus later)
   useEffect(() => {
     fetch("http://localhost:8000/spaces")
       .then((response) => response.json())
       .then((data) => {
         setSpaces(data);
       });
-  }, []); //run effect only once
-
-  const [selectedFilters, setSelectedFilters] = useState([]); // State to manage the selected filters
-  const [isOpen, setIsOpen] = useState(false); // State to manage the dropdown visibility
+  }, []);
 
   const handleClick = (space) => {
     navigate("/viewStudySpace", {
@@ -45,7 +44,7 @@ const StudySpacePage = () => {
   return (
     <div>
       <header className="Appheader">
-        <BackArrowButton /> {/* Add the BackArrowButton component here */}
+        <BackArrowButton /> {/* back arrow button to go to prev page */}
         <h1> </h1>
       </header>
       <div className="study-spaces-container">

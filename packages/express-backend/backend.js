@@ -12,11 +12,13 @@ app.use(cors());
 //import routes
 import users from "./routes/users.js";
 import spaces from "./routes/spaces.js";
+import sessions from "./routes/sessions.js";
 
 
 //use routes
 app.use("/users", users);
 app.use("/spaces", spaces);
+app.use("/sessions", sessions);
 
 //use JSON
 app.use(express.json());

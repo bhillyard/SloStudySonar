@@ -1,11 +1,12 @@
 import React from "react";
 import '../style.css';
+import BackArrowButton from "./BackArrowButton";
 
 
 function FavStudySpots() {
     return (
     <div class="study-spots-container">
-    <a href="/dashboard" class="back-button">←</a>
+    < BackArrowButton />
     <h1 class="spots-title">Favorite Study Spots</h1>
     <table class="spots-table">
         <thead>

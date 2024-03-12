@@ -1,12 +1,12 @@
 import React from 'react';
 import '../style.css';
-
+import BackArrowButton from "./BackArrowButton";
 
 
 function Reviews() {
     return (
         <div class="reviews-container">
-        <a href="/dashboard" class="back-button">←</a>
+        < BackArrowButton />
         <h1 class="reviews-title">Your Reviews</h1>
         <table class="reviews-table">
             <thead>
