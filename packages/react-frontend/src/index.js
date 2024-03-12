@@ -18,7 +18,6 @@ import StudySessionPage from './pages/StudySessionPage';
 import {
   createBrowserRouter,
   RouterProvider,
-  Route,
 } from "react-router-dom";
 
 const router = createBrowserRouter([
