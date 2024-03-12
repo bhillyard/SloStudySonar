@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "slo-study-sonar",
+  "private_key_id": "8d4dc02e26026714a3bd4a25d9854f7bbc4af143",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCSU8XyI8vzgTpD\n1uM9042hXVlXBqzcyhOconm4TA8dWOVCmwgWu0Lm2/p7QSnEFPMbyeXx9UMnw5xF\n9N1B3axwivo6rD5GqCv//cgPcdcNl8sYhaqHcsJW0N7uoClCWxHlmzASARDaSf3d\nbA5LyIPMF62GRMkwQoJI5Js/t/FOBcjqcVIt7fXh8Z0dEPGbq7UMc6A8ahx8tsxi\neXumd9sfdnkUt5VuFVnnD5z3ExK+ZGPGvusywlS+R92zcqYugwqnDL3ToCu/YA6J\nH4Z1AbjxO10I/beC7Pg6vxDdbr37EhqQyiMERRPF1oA2hyrHTVLNuHxQAzmrDMz8\n7GWH5LMbAgMBAAECggEAQb2pfTRf+TLh/oCY77oQM6NA9DxnhXq0fPbyQL7LO6Ao\nwFfutmfDkvzZ+G46WYIgBygaSy6p0T+tAjEVBvaU9qs56QphoFUGD6jxLR80Q0Mj\nWA0VpG0GqwKEZilG4C0SSVoDqtMXwzri94wIkDuyGwu4Rk65JRl8d0teBK6blzWL\n2rPd09fZ6e08iISCjeoyTmDifO7WK4fjl4XWCxV6A0MXLIA0emDk1BArWXxAP1Iw\nWpI9/HzxvaBmaqsqlpY4y3EdxXbea0Uta8FG+VrDxYRWLRy/sMqRmDFt9lVVJmbJ\nZJfigLJ67FXXObL64zOvg7Jaf36RpaL3GsarWFXCYQKBgQDOlzHyA+8Mj2DUXBIP\nus176QRiRPeun0uq1myRYy80zLIGHKrCiDbRCAtxjdVpkMBQgaARgP/6bVzqW79w\n59I6p/8/lPL2obxHdJPmWPSXxBydmLfSwG/aoMeo0r1qog7XVKZsxSsJjpZT7osC\nzgAdSqwWMFp/dPOLAhNtpn2vFQKBgQC1Ut4QAOiRmOTSKdeFl3IG+9ReXSBBvvhN\nVmkY/w3C3pmDExzZEOCpuloKkP7WQQ+ByZoHXmfpMjC28QWe6oWxe0wm/9y3D+fv\nsVXer9eYvXtu/Bbm1T/IDwCjeq7//MhH+Fim1bdX9GakITkmxb0H9U/0CUC7SaN1\nZraN9KjlbwKBgQCbbRD8fY0pq+0zl5lXEDlsUeEkdbLKQ7pP60Z/E1n+pUoCYyrt\ndEGZfi3t3sGCzI6DgyKESMNNC15uS1x6e06lJqNYmJ06hG/8am6jTKWoULkesDkM\nbA87Mt9D2lj7krULt/oFt0krxYS/3KXlFErtvrI9d19+qORZ3tPzGOFSCQKBgQCS\nxoOOvM2FnhgLr2cQcqkQ0iT0RbnovmdMYxgr7bn79iiZm40MgMb7XSepyfkfAgdF\nbiXKtTaz47bfP3bnTrvuEPpxz0egv7Vlp0z1N63zq94Q1urK6+/3R32i15p1CPAu\noe9RDUqeXe4ACgyzP/lmScLwrdTCRjeUvxIjEtrs7QKBgHMPVxE1o4mYsFYUoqBD\nPt1VHScsFy/EGY4P178v9JjGuSZ/Spf9sgNgmCOflhGzfDmgqYXdcoVJeIHqmSk3\nECFsZQZFi4eljGVtmgiMIY52HNKj25i88qJdn1J42uni2Bxq0angDBndiP/8dSkv\nUo2nDeR5/nSc7Uk4ALfUv/P+\n-----END PRIVATE KEY-----\n",
+  "client_email": "cduhamel@slo-study-sonar.iam.gserviceaccount.com",
+  "client_id": "114045758575628614492",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/cduhamel%40slo-study-sonar.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
