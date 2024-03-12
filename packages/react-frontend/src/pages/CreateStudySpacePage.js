@@ -40,6 +40,7 @@ const CreateStudySpacePage = () => {
         operatingHours: `${operatingHoursStart}-${operatingHoursEnd}`,
         description: description,
       };
+    console.log(photo);
     if (formData.title === "" || formData.location === "" || formData.operatingHours === "" || formData.description === "") {
         alert("Please fill out all the required fields");
         return;
