@@ -1,18 +1,18 @@
 import logo from './logo.svg';
 import "bootstrap/dist/css/bootstrap.min.css";
-import 'bootstrap/dist/js/bootstrap.min.js'
-import Navbar from './Navigation/Navbar.js'
+import 'bootstrap/dist/js/bootstrap.min.js';
+import Navbar from './Navigation/Navbar.js';
 import React from 'react';
-import hills from './images/hills.jpg'
-import cafe from './images/cafe.jpg'
-import scout from './images/scout.jpg'
-import review from './images/reviews.jpg'
-import discover from './images/discover.png'
-import team from './images/team2.png'
+import hills from './images/hills.jpg';
+import cafe from './images/cafe.jpg';
+import scout from './images/scout.jpg';
+import review from './images/reviews.jpg';
+import discover from './images/discover.png';
+import team from './images/team2.png';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate hook from React Router
 import { Link } from 'react-router-dom';
 import './App.css';
-import About from './pages/about.js';
+
 
 
 function App() {
