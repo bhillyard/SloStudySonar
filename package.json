@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/bhillyard/SloStudySonar#readme",
   "dependencies": {
+    "@azure/storage-blob": "^12.17.0",
     "axios": "^1.6.7",
     "bootstrap": "^5.3.3",
     "cors": "^2.8.5",

@@ -121,18 +121,6 @@ body {
 }
 
 
-.user-dashboard, 
-.study-spots-container, 
-.study-sessions-container,
-.reviews-container {
-    position: relative; /* This will be the anchor point for the absolute positioning of the back button */
-    max-width: 800px;
-    margin: 2rem auto;
-    background: #fff;
-    border-radius: 0.5rem;
-    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
-    padding: 2rem; /* Make sure padding is consistent */
-}
 
 
 .back-button {
