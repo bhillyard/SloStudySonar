@@ -52,14 +52,16 @@ router.get("/:id", (req, res) => {
 // add a new space
 router.post("/", middleware.authenticateUser, (req, res) => {
   const user = req.userRef;
-  if (user == null) {
+  if (user == null || user == undefined) {
     res.status(403).send("User not authenticated, please sign in.");
+    return
   }
   console.log(user);
   users_methods.findUserById(user.id).then((result) => {(console.log(result))});
   spaces_methods.addStudySpace(req.body).then((result) => {
     res.status(201).send(result);
   }).catch((error) => {
+    console.log(error);
     res.status(400).send("Space not added");
   });
   
