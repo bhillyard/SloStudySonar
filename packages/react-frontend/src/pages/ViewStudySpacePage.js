@@ -134,11 +134,28 @@ const ViewStudySpacePage = () => {
                   </div>
                 </div>
                 <div className="col-md-6">
-                  <p>
-                    {averageRating} ({studySpaceReviews.length} reviews)
-                  </p>
+                  <div className="col-md-6">
+                    <p className="mt-2">
+                      {averageRating} ({studySpaceReviews.length} reviews)
+                    </p>
+                  </div>
+                </div>  
+              </div>
+              <div className="row">
+                <div>
+                  <div className="col-12">
+                    <h1 className="description">
+                      Description:{" "}
+                      {studySpaceData ? (
+                        <span>{studySpaceData.description}</span>
+                      ) : (
+                        <span>Loading...</span>
+                      )}
+                    </h1>
+                  </div>
                 </div>
               </div>
+              
               <div>
                 <h2> Upcoming Study Sessions</h2>
                 <ul className="building-list">

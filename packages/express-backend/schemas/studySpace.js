@@ -35,6 +35,10 @@ const StudySpaceSchema = new mongoose.Schema(
         required: true,
         trim: true
       },
+      onCampus: {
+        type: Boolean,
+        required: true
+      },
     },
     { collection: "studySpace_list" }
   );
