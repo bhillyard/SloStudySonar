@@ -1,5 +1,4 @@
 import logo from './logo.svg';
-import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import 'bootstrap/dist/js/bootstrap.min.js'
 import Navbar from './Navigation/Navbar.js'
@@ -12,6 +11,7 @@ import discover from './images/discover.png'
 import team from './images/team2.png'
 import { useNavigate } from 'react-router-dom'; // Import useNavigate hook from React Router
 import { Link } from 'react-router-dom';
+import './App.css';
 import About from './pages/about.js';
 
 
@@ -33,10 +33,10 @@ function App() {
 
   return (
 
-    <div className="App">
+    <div className="App source-sans-3">
       <Navbar />
       <header className="App-header">
-        <h1>SLO Study Sonar</h1>
+        <h1 class="alumni-sans">SLO Study Sonar</h1>
       </header>
 
 
@@ -44,13 +44,13 @@ function App() {
       <div id="carouselExample" class="carousel slide py-5">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src={cafe} class="d-block w-50 mx-auto" alt="..." />
+            <img src={cafe} class="d-block w-75 mx-auto" alt="..." />
           </div>
           <div class="carousel-item">
-            <img src={scout} class="d-block w-50 mx-auto" alt="..." />
+            <img src={scout} class="d-block w-75 mx-auto" alt="..." />
           </div>
           <div class="carousel-item">
-            <img src={hills} class="d-block w-50 d-inline-block mx-auto" alt="..." />
+            <img src={hills} class="d-block w-75 d-inline-block mx-auto" alt="..." />
           </div>
 
         </div>
@@ -66,17 +66,17 @@ function App() {
 
       {/*Some text*/}
       <div class="mt-20 d-block pb-5">
-        <h1 class="h1">Find Study Spots in San Luis Obispo, easily.</h1>
+        <h1 class="h1 source-sans-3">Find Study Spots in San Luis Obispo, easily.</h1>
 
         {/*Sign up button*/}
-        <button onClick={handleSignupClick} class="btn btn-success btn-lg">Sign up</button>
+        <button onClick={handleSignupClick} class="btn btn-success btn-lg alumni-sans">Sign up</button>
       </div>
 
-      <div class="text-start py-5">
-        <h2 class="px-5"> New to SSS?</h2>
-        <form class="px-5 mt-3"><button type="button" onClick={handleAboutClick} class="btn btn-warning btn-lg">About SLO Study Sonar</button></form>
-        <form class="px-5 mt-3"><button type="button" onClick={handleStudySpaceClick} class="btn btn-warning btn-lg">Browse Study Spaces</button></form>
-        <form class="px-5 mt-3"><button type="button" class="btn btn-warning btn-lg">Study Sessions Info</button></form>
+      <div class="py-5">
+        <h2 class="text-start px-5 source-sans-3"> New to SSS?</h2>
+        <form class="mt-3 alumni-sans"><button type="button" onClick={handleAboutClick} class="btn btn-override w-75">About SLO Study Sonar</button></form>
+        <form class="mt-3 alumni-sans"><button type="button" onClick={handleStudySpaceClick} class="btn btn-override w-75">Browse Study Spaces</button></form>
+        <form class="mt-3 alumni-sans"><button type="button" class="btn btn-override w-75">Study Sessions Info</button></form>
       </div >
 
       {/* Sign in or create an account... div */}
@@ -86,18 +86,18 @@ function App() {
 
       {/*Features div*/}
       <div class="py-5">
-        <h1 class="text-start px-5">Features</h1>
+        <h1 class="text-start px-5 source-sans-3">Features</h1>
         <div class="container text-center">
           <div class="row">
             <div class="col source-sans-3">
               <div><img src={review} class="w-75"/></div>
               <strong>Real reviews </strong>by Cal Poly students.
             </div>
-            <div class="col">
+            <div class="col source-sans-3">
             <div><img src={discover} class="w-50"/></div>
               <strong>Upload and view images</strong> of study spaces in real time.
             </div>
-            <div class="col">
+            <div class="col source-sans-3">
             <div>
               <img src={team} class="w-50"/></div>
               
@@ -107,7 +107,7 @@ function App() {
         </div>
       </div>
 
-      <button onClick={handleSignupClick} class="btn btn-success btn-lg">Sign up</button>
+      <button onClick={handleSignupClick} class="btn btn-success btn-lg alumni-sans">Sign up</button>
 
 
       {/*Bottom segment div*/}
