@@ -59,14 +59,14 @@ const router = createBrowserRouter([
     path: "ViewStudySpace",
     element: <ViewStudySpacePage/>
   },
-  {
-<<<<<<< HEAD
+ {
     path: "About",
     element: <About/>
-=======
+ },
+  {  
     path: "StudySessionPage",
     element: <StudySessionPage/>
->>>>>>> main
+
   },
   {
     element: <NotFoundPage />, // Not found page doesn't work
