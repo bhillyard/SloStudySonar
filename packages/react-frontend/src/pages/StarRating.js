@@ -2,15 +2,7 @@ import React, { useState } from "react";
 import { Rating } from "react-simple-star-rating";
 
 function StarRating({ initialRating }) {
-  const [ratingValue, setRatingValue] = useState(initialRating || 0);
-
-  const handleRating = (ratingValue) => {
-    setRatingValue(ratingValue);
-  };
-
-  const handleReset = () => {
-    setRatingValue(ratingValue);
-  };
+  const [ratingValue] = useState(initialRating || 0);
 
   return (
     <div className="App">

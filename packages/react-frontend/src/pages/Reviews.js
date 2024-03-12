@@ -5,10 +5,10 @@ import BackArrowButton from "./BackArrowButton";
 
 function Reviews() {
     return (
-        <div class="reviews-container">
+        <div className="reviews-container">
         < BackArrowButton />
-        <h1 class="reviews-title">Your Reviews</h1>
-        <table class="reviews-table">
+        <h1 className="reviews-title">Your Reviews</h1>
+        <table className="reviews-table">
             <thead>
                 <tr>
                     <th>Study Space</th>
