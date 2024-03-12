@@ -41,7 +41,7 @@ function App() {
 
 
       {/*Carousel*/}
-      <div id="carouselExample" class="carousel slide py-5 bg-warning-subtle">
+      <div id="carouselExample" class="carousel slide py-5">
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img src={cafe} class="d-block w-50 mx-auto" alt="..." />
@@ -65,7 +65,7 @@ function App() {
       </div>
 
       {/*Some text*/}
-      <div class="mt-20 d-block pb-5 bg-warning-subtle">
+      <div class="mt-20 d-block pb-5">
         <h1 class="h1">Find Study Spots in San Luis Obispo, easily.</h1>
 
         {/*Sign up button*/}
@@ -80,7 +80,7 @@ function App() {
       </div >
 
       {/* Sign in or create an account... div */}
-      <div class="container my-10 py-2 px-5 bg-success-subtle">
+      <div class="container my-10 py-2 px-5 bg-success-subtle source-sans-3">
         <h1> <span class="text-primary"> <Link to="/login">Log in here</Link></span> or <span class="text-primary"><Link to="/signup">create an account</Link></span> to save your favorite study spots and register for study sessions.</h1>
       </div>
 
@@ -89,7 +89,7 @@ function App() {
         <h1 class="text-start px-5">Features</h1>
         <div class="container text-center">
           <div class="row">
-            <div class="col">
+            <div class="col source-sans-3">
               <div><img src={review} class="w-75"/></div>
               <strong>Real reviews </strong>by Cal Poly students.
             </div>
