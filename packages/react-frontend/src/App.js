@@ -13,7 +13,6 @@ import team from './images/team2.png'
 import { useNavigate } from 'react-router-dom'; // Import useNavigate hook from React Router
 import { Link } from 'react-router-dom';
 import About from './pages/about.js';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 function App() {
