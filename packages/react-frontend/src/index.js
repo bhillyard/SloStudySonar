@@ -13,12 +13,10 @@ import FavStudySpots from './pages/FavStudySpots';
 import Reviews from './pages/Reviews';
 import YourSessions from './pages/YourSessions';
 import ViewStudySpacePage from './pages/ViewStudySpacePage';
-import StudySessions from './studysessions/StudySessions';
 import StudySessionPage from './pages/StudySessionPage';
 import {
   createBrowserRouter,
   RouterProvider,
-  Route,
 } from "react-router-dom";
 
 const router = createBrowserRouter([

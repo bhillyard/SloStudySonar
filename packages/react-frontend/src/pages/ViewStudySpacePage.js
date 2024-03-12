@@ -65,7 +65,7 @@ const ViewStudySpacePage = () => {
 
   const mapUpcomingStudySessions = studySessions.map((session) => {
     return (
-      <li>
+      <li key={session._id}>
         <Link to="/StudySessionPage" style={{ color: "black" }}>
           {session.sessionName}
         </Link>

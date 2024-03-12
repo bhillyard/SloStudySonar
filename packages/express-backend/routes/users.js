@@ -41,6 +41,7 @@ router.post("/login", (req, res) => {
       }
     }).catch((error) => {
       res.status(404).send("User not found");
+      console.log(error);
     })
 
 });
@@ -57,24 +58,28 @@ router.get("/", (req, res) => {
       res.status(200).send(result);
     }).catch((error) => {
       res.status(404).send("Users not found");
+      console.log(error);
     });
   }else if(userName && password){ //gets users by userName and password
     users_methods.findUserByUserNameAndPassword(userName, password).then((result) => {
       res.status(200).send(result);
     }).catch((error) => {
       res.status(404).send("User not found");
+      console.log(error);
     });
   }else if(userName){ //gets users by just userName
     users_methods.findUserByUserName(userName).then((result) => {
       res.status(200).send(result);
     }).catch((error) => {
       res.status(404).send("User not found");
+      console.log(error);
     });
   }else if(email){ //gets users by just email
     users_methods.findUserByEmail(email).then((result) => {
       res.status(200).send(result);
     }).catch((error) => {
       res.status(404).send("User not found");
+      console.log(error);
     });
   }
   
@@ -102,6 +107,7 @@ router.get("/:id", (req, res) => {
     res.status(200).send(result);
   }).catch((error) => {
     res.status(404).send("User not found");
+    console.log(error);
   });
 });
 
@@ -137,9 +143,8 @@ router.delete("/:id", (req, res) => {
     res.status(200).send(result);
   }).catch((error) => {
     res.status(404).send("User not found");
+    console.log(error);
   });
 });
-
-
 
 export default router;

@@ -5,10 +5,10 @@ import BackArrowButton from "./BackArrowButton";
 
 function FavStudySpots() {
     return (
-    <div class="study-spots-container">
+    <div className="study-spots-container">
     < BackArrowButton />
-    <h1 class="spots-title">Favorite Study Spots</h1>
-    <table class="spots-table">
+    <h1 className="spots-title">Favorite Study Spots</h1>
+    <table className="spots-table">
         <thead>
             <tr>
                 <th>
