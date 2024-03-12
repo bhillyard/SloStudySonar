@@ -20,7 +20,6 @@ import CreateStudySpacePage from './pages/CreateStudySpacePage';
 import {
   createBrowserRouter,
   RouterProvider,
-  Route,
 } from "react-router-dom";
 
 const router = createBrowserRouter([
