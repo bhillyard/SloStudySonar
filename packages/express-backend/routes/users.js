@@ -113,6 +113,7 @@ router.post("/self/updateFavorite/", middleware.authenticateUser, (req, res) => 
         res.status(200).send(result);
       }).catch((error) => {
         res.status(400).send("Favorite not updated");
+        console.log(error);
       });
       
     });
