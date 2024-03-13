@@ -6,6 +6,7 @@ name: Build and deploy Node.js app to Azure Web App - SloStudySonar
 on:
   push:
     branches:
+      - main
       - CI/CD
   workflow_dispatch:
 
