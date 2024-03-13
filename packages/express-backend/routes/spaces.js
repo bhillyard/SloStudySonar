@@ -3,9 +3,54 @@ import spaces_methods from "../databaseServices/studySpaceServices.js";
 import middleware from "./middleware.js";
 import users_methods from "../databaseServices/userServices.js";
 import reviews_methods from "../databaseServices/reviewServices.js";
+import multer from "multer";
+
+dotenv.config();
+
+import {Storage} from "@google-cloud/storage";
+
+const upload = multer({dest: "uploads/"});
+
+
+
 
 const router = express.Router();
 router.use(express.json());
+
+
+//image uploads
+const projectID = process.env.PROJECT_ID;
+const keyFilename = process.env.KEYFILENAME;
+const bucketName = process.env.BUCKET_NAME;
+
+const storage = new Storage({projectID, keyFilename});
+
+async function uploadImage(bucketName, file, uploadFileName){
+  try{
+    const bucket = storage.bucket(bucketName);
+    const response = await bucket.upload(file, {
+      destination: uploadFileName,
+      metadata: {
+        cacheControl: "public, max-age=31536000",
+      }
+    });
+
+    return response;
+  }catch(error){
+    console.log(error);
+  
+  }
+}
+
+async function uploadTest(){
+  await uploadImage(bucketName, "./kitten.png", "text.png");
+}
+
+router.get("/test", (req, res) => {
+  uploadTest();
+  res.send("Test");
+});
+
 
 //Spaces Endpoints
 // get all spaces
