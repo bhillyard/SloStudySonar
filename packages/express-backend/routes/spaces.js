@@ -7,7 +7,7 @@ import dotenv from "dotenv";
 import multer from "multer";
 import multerGoogleStorage from "multer-cloud-storage";
 
-import {Storage} from "@google-cloud/storage";
+import { Storage } from "@google-cloud/storage";
 dotenv.config();
 //image uploads
 
@@ -26,18 +26,16 @@ var upload = multer({
     filename: (req, file, cb) => {
       const fname = `${Date.now()}_${file.originalname}`;
       cb(null, fname);
-      
-    }
-  })
+    },
+  }),
 });
 
 const router = express.Router();
 router.use(express.json());
 
 //configure storage bucket
-const storage = new Storage({projectID, keyFilename});
+const storage = new Storage({ projectID, keyFilename });
 const bucket = storage.bucket(bucketName);
-
 
 //Spaces Endpoints
 // get all spaces
@@ -113,32 +111,37 @@ router.get("/:id", (req, res) => {
 });
 
 // add a new space
-router.post("/", middleware.authenticateUser, upload.single('photo'), (req, res) => {
-  // (req, res, (err) => {
-  //   console.log(err);
-  // });
-  const user = req.userRef;
-  if (user == null || user == undefined) {
-    res.status(403).send("User not authenticated, please sign in.");
-    return;
-  }
-  
-  console.log(user);
-  users_methods.findUserById(user.id).then((result) => {
-    console.log(result);
-  });
-  req.body.photo = req.file.filename;
-  spaces_methods
-    .addStudySpace(req.body)
-    .then((result) => {
-      res.status(201).send(result);
-    })
-    .catch((error) => {
-      console.log(error);
-      res.status(400).send("Space not added");
-      console.log(error);
+router.post(
+  "/",
+  middleware.authenticateUser,
+  upload.single("photo"),
+  (req, res) => {
+    // (req, res, (err) => {
+    //   console.log(err);
+    // });
+    const user = req.userRef;
+    if (user == null || user == undefined) {
+      res.status(403).send("User not authenticated, please sign in.");
+      return;
+    }
+
+    console.log(user);
+    users_methods.findUserById(user.id).then((result) => {
+      console.log(result);
     });
-});
+    req.body.photo = req.file.filename;
+    spaces_methods
+      .addStudySpace(req.body)
+      .then((result) => {
+        res.status(201).send(result);
+      })
+      .catch((error) => {
+        console.log(error);
+        res.status(400).send("Space not added");
+        console.log(error);
+      });
+  },
+);
 
 // delete a space by ID
 router.delete("/:id", (req, res) => {
@@ -146,12 +149,15 @@ router.delete("/:id", (req, res) => {
     .deleteStudySpace(req.params.id)
     .then((result) => {
       const file = bucket.file(result.photo);
-      file.delete().then(() => {
-        res.status(200).send(result);
-      }).catch((error) => {
-        res.status(404).send("Photo not deleted");
-        console.log(error);
-      });
+      file
+        .delete()
+        .then(() => {
+          res.status(200).send(result);
+        })
+        .catch((error) => {
+          res.status(404).send("Photo not deleted");
+          console.log(error);
+        });
     })
     .catch((error) => {
       res.status(404).send("Space not found");
