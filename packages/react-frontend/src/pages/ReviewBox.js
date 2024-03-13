@@ -2,7 +2,7 @@ import React from "react";
 import StarRating from "./StarRating"; // Import the StarRating component
 import { useState, useEffect } from "react";
 
-const ReviewBox = ({ starRating, reviewTitle, author, date }) => {
+const ReviewBox = ({ starRating, reviewTitle, author, date, review}) => {
   const [username, setUsername] = useState(""); // State to store the username
   const [formattedDate, setFormattedDate] = useState(""); // State to store the formatted date
   useEffect(() => {
@@ -19,17 +19,25 @@ const ReviewBox = ({ starRating, reviewTitle, author, date }) => {
   }, []); // Only fetch when userId changes
 
   return (
-    <div className="review-box d-flex flex-column border p-3">
-      <div className="d-flex align-items-center mb-2">
-        <div className="star-rating mr-2">
-          <StarRating initialRating={starRating} />{" "}
-          {/* Replace with SimpleStarRating */}
+
+
+    <div className="col-12 my-1">
+      <div className="card">
+        <div className="row">
+          <div className="col-md-4">
+            <StarRating initialRating={starRating} />
+          </div>
+          <div className=" mt-2 col-md-8">
+            <h5>{reviewTitle}</h5>
+          </div>
         </div>
-        <div className="reviewer-info">
-          <div className="review-title flex-grow-1">{reviewTitle}</div>
-          <div className="user-info text-muted">
-            <span className="mr-2">{username}, </span>
-            <span>{formattedDate}</span>
+        <div className="row">
+          <div className="col-md-4 mb-3">
+              <p className="text-center mb-0">{username}</p>
+              <p className="text-center mb-0">{formattedDate}</p>
+          </div>
+          <div className="col-md-8">
+            <p className="me-2">{review}</p>
           </div>
         </div>
       </div>
