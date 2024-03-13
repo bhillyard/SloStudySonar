@@ -7,8 +7,8 @@
   "scripts": {
     "lint": "npx eslint . && npx prettier --check .",
     "test": "npx jest",
-    "dev": "nodemon backend_with_db.js",
-    "start": "node backend_with_db.js"
+    "dev": "nodemon backend.js",
+    "start": "node backend.js"
   },
   "author": "",
   "license": "MIT",
