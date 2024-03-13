@@ -6,6 +6,9 @@
 
   /* color: #b88813; */
 
+
+  /* color: #b88813; */
+
   /* background-color: #d8d4d5; */
 }
 
@@ -40,6 +43,7 @@
 .btn-override {
   background-color: #DEA517 !important;
 
+
    padding: 0.5rem 1rem; /* Adjust padding to suit the button size */
   font-size: 0.8rem; /* Smaller font size if necessary */
   width: auto; /* Allow the button to only be as wide as its content plus padding */
@@ -47,6 +51,10 @@
  
 
 }
+
+
+
+
 
 .btn-override:hover {
   background-color: #F2C75C !important;

@@ -13,6 +13,8 @@ function StarRating({ initialRating }) {
   };
 
   return (
+
+    
     <div className="App">
       <Rating
         initialValue={ratingValue}
