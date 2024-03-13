@@ -13,7 +13,7 @@ const StudySpacePage = () => {
 
   //get all study spaces (going to need to separate to on campus and off campus later)
   useEffect(() => {
-    fetch("http://localhost:8000/spaces")
+    fetch("slostudysonar.azurewebsites.net/spaces")
       .then((response) => response.json())
       .then((data) => {
         setSpaces(data);

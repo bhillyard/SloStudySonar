@@ -22,7 +22,7 @@ const ViewStudySpacePage = () => {
   //useEffect to get the study space data, study sessions, and reviews
   useEffect(() => {
     getStudySpace(_id);
-    fetch("http://localhost:8000/sessions?space=" + _id)
+    fetch("slostudysonar.azurewebsites.net/sessions?space=" + _id)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch study sessions");
@@ -35,7 +35,7 @@ const ViewStudySpacePage = () => {
       .catch((error) => {
         console.error("Error fetching study sessions:", error);
       });
-    fetch(`http://localhost:8000/spaces/${_id}/reviews`)
+    fetch(`slostudysonar.azurewebsites.net/spaces/${_id}/reviews`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch study space reviews");
@@ -75,7 +75,7 @@ const ViewStudySpacePage = () => {
   });
   //function to get the study space data with study space id passed from prev page
   function getStudySpace(_id) {
-    fetch(`http://localhost:8000/spaces/${_id}`)
+    fetch(`slostudysonar.azurewebsites.net/spaces/${_id}`)
       .then((response) => response.json())
       .then((data) => {
         setStudySpaceData(data);

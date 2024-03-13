@@ -7,7 +7,7 @@ const ReviewBox = ({ starRating, reviewTitle, author, date }) => {
   const [formattedDate, setFormattedDate] = useState(""); // State to store the formatted date
   useEffect(() => {
     // Fetch username for the current review
-    fetch(`http://localhost:8000/users/${author}`) // Assuming userId exists in review data
+    fetch(`slostudysonar.azurewebsites.net/users/${author}`) // Assuming userId exists in review data
       .then((response) => response.json())
       .then((data) => setUsername(data.displayName))
       .catch((error) => console.error("Error fetching username:", error));
