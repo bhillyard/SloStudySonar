@@ -1,59 +1,57 @@
 import mongoose from "mongoose";
 import userModel from "../schemas/user.js";
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 dotenv.config();
 
 mongoose.set("debug", true);
 
 const connectionString = process.env.MONGODB_URI;
 
-mongoose
-    .connect(connectionString, {})
-.catch((error) => console.log(error));
+mongoose.connect(connectionString, {}).catch((error) => console.log(error));
 
 function addUser(user) {
-    const userToAdd = new userModel(user);
-    const promise = userToAdd.save();
-    return promise;
+  const userToAdd = new userModel(user);
+  const promise = userToAdd.save();
+  return promise;
 }
 
 function getAllUsers() {
-    return userModel.find();
+  return userModel.find();
 }
 
 function findUserById(id) {
-    return userModel.findById(id);
+  return userModel.findById(id);
 }
 
 function findUserByUserName(userName) {
-    return userModel.find({ userName: userName });
+  return userModel.find({ userName: userName });
 }
 
 function findUserByUserNameAndPassword(userName, password) {
-    return userModel.find({userName: userName, password: password});
+  return userModel.find({ userName: userName, password: password });
 }
 
 function findUserByEmail(email) {
-    return userModel.find({email: email});
+  return userModel.find({ email: email });
 }
 
 function deleteUser(id) {
-    return userModel.findByIdAndDelete(id);
+  return userModel.findByIdAndDelete(id);
 }
 
-async function updateUser (user) {
-    await user.save();
-    console.log("Favorite Updated Successfully");
-    return user;
+async function updateUser(user) {
+  await user.save();
+  console.log("Favorite Updated Successfully");
+  return user;
 }
 
 export default {
-    addUser,
-    findUserById,
-    findUserByUserName,
-    findUserByUserNameAndPassword,
-    findUserByEmail,
-    deleteUser,
-    getAllUsers,
-    updateUser
+  addUser,
+  findUserById,
+  findUserByUserName,
+  findUserByUserNameAndPassword,
+  findUserByEmail,
+  deleteUser,
+  getAllUsers,
+  updateUser,
 };

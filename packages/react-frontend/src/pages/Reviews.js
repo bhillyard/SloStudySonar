@@ -5,7 +5,7 @@ import Navbar from '../Navigation/Navbar';
 
 function Reviews() {
     return (
-        <div class="reviews-container">
+        <div className="reviews-container">
        
         <Navbar />
             <header className="App-header">
@@ -15,8 +15,8 @@ function Reviews() {
         <div className="back-arrow-container">    
         <BackArrowButton onClick={() => { /* Add your click handler logic here */ }} /></div>
             
-        <h1 class="reviews-title">Your Reviews</h1>
-        <table class="reviews-table">
+        <h1 className="reviews-title">Your Reviews</h1>
+        <table className="reviews-table">
             <thead>
                 <tr>
                     <th>Study Space</th>
@@ -34,7 +34,7 @@ function Reviews() {
             </tbody>
         </table>
         <footer>
-             <div class="container">
+             <div className="container">
                 <p>&copy; 2024 SLO Study Sonar. All Rights Reserved.</p>
             </div>
         </footer>

@@ -3,7 +3,7 @@ import BackArrowButton from "./BackArrowButton"; // Import the BackArrowButton c
 import { useNavigate, Link } from "react-router-dom"; // Import useNavigate hook from React Router
 import "./StudySpacePage.css"; // Import CSS file for styling
 import "bootstrap/dist/css/bootstrap.min.css";
-import 'bootstrap/dist/js/bootstrap.min.js'
+import "bootstrap/dist/js/bootstrap.min.js";
 
 const StudySpacePage = () => {
   const [studySpaces, setSpaces] = useState([]);
@@ -105,10 +105,10 @@ const StudySpacePage = () => {
       </div>
 
       <footer>
-             <div class="container">
-                <p>&copy; 2024 SLO Study Sonar. All Rights Reserved.</p>
-            </div>
-      </footer>  
+        <div className="container">
+          <p>&copy; 2024 SLO Study Sonar. All Rights Reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 };
