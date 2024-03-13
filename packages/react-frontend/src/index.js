@@ -20,6 +20,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import About from "./pages/about";
 import PrivacyPolicy from "./pages/privacy";
 import Contact from "./pages/contact";
+import CreateSpaceReviewPage from "./pages/CreateSpaceReviewPage";
 
 const router = createBrowserRouter([
   {
@@ -83,6 +84,10 @@ const router = createBrowserRouter([
   {
     path: "viewStudySession/:id",
     element: <ViewStudySessionPage />
+  },
+  {
+    path: "CreateSpaceReview",
+    element: <CreateSpaceReviewPage />,
   },
   {
     element: <NotFoundPage />, // Not found page doesn't work
