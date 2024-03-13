@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, Link, useNavigate } from "react-router-dom";
 import BackArrowButton from "./BackArrowButton";
 import { Container } from "react-bootstrap";
 import "./ViewStudySpacePage.css";
@@ -11,6 +11,7 @@ import ReviewBox from "./ReviewBox"; // Import the reviewBox component
 const ViewStudySpacePage = () => {
   const location = useLocation();
   const { _id } = location.state;
+  const navigate = useNavigate(); // Get the navigate object from React Router
   const navigate = useNavigate(); // Get the navigate object from React Router
   console.log(_id);
 
@@ -220,7 +221,7 @@ const ViewStudySpacePage = () => {
                     <h2> Reviews of {studySpaceData.title}</h2>
                   </div>
                   <div className="col-auto">
-                    <Button variant="primary" type="submit">
+                    <Button variant="primary" onClick={handleClick} type="submit">
                       Make a Review
                     </Button>
                   </div>
