@@ -81,6 +81,7 @@ const ViewStudySpacePage = () => {
       });
   }
 
+
   return (
     <div>
       <header className="Appheader">
@@ -103,7 +104,7 @@ const ViewStudySpacePage = () => {
                   <img
                     src={studySpaceData.photo}
                     alt="study space"
-                    className="img-fluid study-space-photo"
+                    className="img-fluid study-space-photo rounded"
                   />
                 ) : (
                   <img
@@ -114,7 +115,7 @@ const ViewStudySpacePage = () => {
                 )}
               </div>
               <div className="row">
-                <div className="col-md-6">
+                <div className="col-md-3 me-3">
                   <div>
                     {studySpaceReviews.length > 0 ? (
                       ratingUpdated ? (
@@ -124,6 +125,17 @@ const ViewStudySpacePage = () => {
                       <StarRating initialRating={0} />
                     )}
                   </div>
+                </div>
+                <div className="col-md-8">
+                  <div className="col-md-6">
+                    <p className="mt-2">
+                      {averageRating} ({studySpaceReviews.length} reviews)
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-md-6">
                   <div>
                     {/* If the study space data is loaded, display the operating hours */}
                     <h1 className="hours">
@@ -147,13 +159,6 @@ const ViewStudySpacePage = () => {
                     </h1>
                   </div>
                 </div>
-                <div className="col-md-6">
-                  <div className="col-md-6">
-                    <p className="mt-2">
-                      {averageRating} ({studySpaceReviews.length} reviews)
-                    </p>
-                  </div>
-                </div>
               </div>
               <div className="row">
                 <div>
@@ -169,29 +174,34 @@ const ViewStudySpacePage = () => {
                   </div>
                 </div>
               </div>
-
+                  <hr></hr>
               <div>
                 <h2> Upcoming Study Sessions</h2>
                 <ul className="building-list">
                   <ul>{mapUpcomingStudySessions}</ul>
                 </ul>
               </div>
-              <div className="container">
-                <h2> Reviews of {studySpaceData.title}</h2>
+              
+              <hr></hr>
+              <h2 className="text-start"> Reviews of {studySpaceData.title}</h2>
+              <div className="row mb-3">
                 {studySpaceReviews.length === 0 ? (
                   <p>Be the first to leave a review!</p>
                 ) : (
                   studySpaceReviews.map((review, index) => (
+                    
                     <ReviewBox
                       key={index}
                       starRating={review.rating}
                       reviewTitle={review.title}
                       author={review.author}
                       date={review.date}
+                      review={review.review}
                     />
                   ))
                 )}
               </div>
+              
             </div>
           </div>
         </Container>

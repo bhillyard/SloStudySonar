@@ -97,21 +97,22 @@ const CreateStudySpacePage = () => {
 
   return (
     <div className="container">
-      <header>
-        <h1>Add a Study Space</h1>
-      </header>
+
+      <h1 className="my-3">Add a Study Space</h1>
+     
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>
+        <div className="form-group">
+          <label className="me-2">
             On Campus:
-            <input
+          </label>
+          <input
               type="checkbox"
               checked={onCampus}
               onChange={(e) => setOnCampus(e.target.checked)}
+              className="form-check-input"
             />
-          </label>
         </div>
-        <div>
+        <div className="form-group">
           <label>
             Title:
             <input
@@ -121,7 +122,7 @@ const CreateStudySpacePage = () => {
             />
           </label>
         </div>
-        <div>
+        <div className="mt-2 form-group">
           <label>
             Location:
             <input
@@ -131,7 +132,7 @@ const CreateStudySpacePage = () => {
             />
           </label>
         </div>
-        <div className="time-picker">
+        <div className="time-picker mt-3">
           <label>Operating Hours:</label>
           <input
             type="number"
@@ -165,6 +166,7 @@ const CreateStudySpacePage = () => {
           />
           :
           <input
+          
             type="number"
             min="0"
             max="59"
@@ -176,7 +178,7 @@ const CreateStudySpacePage = () => {
             <option value="PM">PM</option>
           </select>
         </div>
-        <div className="description">
+        <div className="description mt-2">
           <label>
             Description:<br></br>
             <textarea
@@ -186,15 +188,20 @@ const CreateStudySpacePage = () => {
           </label>
         </div>
         {/* File upload input */}
-        <div className="photo-upload">
-          <label>Upload Photo:</label>
+        <div className="photo-upload form-group">
+          <label className="me-2 mb-1">Upload Photo:</label>
           <input
+            className="form-control"
             type="file"
             accept="image/*" // Specify that only image files are allowed
             onChange={(e) => setPhoto(e.target.files[0])} // Store the uploaded file in state
           />
         </div>
-        <button type="submit">Submit</button>
+        <div className="row">
+          <div className="col-md-6">
+            <button className="mt-3 btn" type="submit">Submit</button>
+          </div>
+        </div>
       </form>
     </div>
   );
