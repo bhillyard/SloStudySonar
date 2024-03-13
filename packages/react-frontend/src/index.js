@@ -13,12 +13,12 @@ import FavStudySpots from './pages/FavStudySpots';
 import Reviews from './pages/Reviews';
 import YourSessions from './pages/YourSessions';
 import ViewStudySpacePage from './pages/ViewStudySpacePage';
-import StudySessions from './studysessions/StudySessions';
 import StudySessionPage from './pages/StudySessionPage';
+import CreateStudySpacePage from './pages/CreateStudySpacePage';
+
 import {
   createBrowserRouter,
   RouterProvider,
-  Route,
 } from "react-router-dom";
 import About from './pages/about';
 import PrivacyPolicy from './pages/privacy';
@@ -74,12 +74,21 @@ const router = createBrowserRouter([
     path: "StudySessionPage",
     element: <StudySessionPage/>
 
+
 },
 {
     path: "Contact",
     element: <Contact/>
 },
 {
+
+  },
+  {
+    path: "createStudySpace",
+    element: <CreateStudySpacePage/>
+  },
+  {
+
     element: <NotFoundPage />, // Not found page doesn't work
 }
 ]);
@@ -92,6 +101,6 @@ root.render(
 );
 
 // If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
+// to log results (for example: reportWebVitals(console.log)) 
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

@@ -41,6 +41,7 @@ router.post("/login", (req, res) => {
       }
     }).catch((error) => {
       res.status(404).send("User not found");
+      console.log(error);
     })
 
 });
@@ -57,24 +58,28 @@ router.get("/", (req, res) => {
       res.status(200).send(result);
     }).catch((error) => {
       res.status(404).send("Users not found");
+      console.log(error);
     });
   }else if(userName && password){ //gets users by userName and password
     users_methods.findUserByUserNameAndPassword(userName, password).then((result) => {
       res.status(200).send(result);
     }).catch((error) => {
       res.status(404).send("User not found");
+      console.log(error);
     });
   }else if(userName){ //gets users by just userName
     users_methods.findUserByUserName(userName).then((result) => {
       res.status(200).send(result);
     }).catch((error) => {
       res.status(404).send("User not found");
+      console.log(error);
     });
   }else if(email){ //gets users by just email
     users_methods.findUserByEmail(email).then((result) => {
       res.status(200).send(result);
     }).catch((error) => {
       res.status(404).send("User not found");
+      console.log(error);
     });
   }
   
@@ -96,12 +101,32 @@ router.get("/self", middleware.authenticateUser, (req, res) => {
   });
 });
 
+router.post("/self/updateFavorite/", middleware.authenticateUser, (req, res) => {
+  const user = req.userRef;
+  if(user == null){
+    res.status(401).send("Not logged in");
+  }else{
+    users_methods.findUserById(user.id).then((result) => {
+      const user = result;
+      result.favoriteSpaces.push(req.body.favoriteSpace);
+      users_methods.updateUser(user).then((result) => {
+        res.status(200).send(result);
+      }).catch((error) => {
+        res.status(400).send("Favorite not updated");
+        console.log(error);
+      });
+      
+    });
+  }
+});
+
 //get User by ID
 router.get("/:id", (req, res) => {
   users_methods.findUserById(req.params.id).then((result) => {
     res.status(200).send(result);
   }).catch((error) => {
     res.status(404).send("User not found");
+    console.log(error);
   });
 });
 
@@ -137,9 +162,8 @@ router.delete("/:id", (req, res) => {
     res.status(200).send(result);
   }).catch((error) => {
     res.status(404).send("User not found");
+    console.log(error);
   });
 });
-
-
 
 export default router;

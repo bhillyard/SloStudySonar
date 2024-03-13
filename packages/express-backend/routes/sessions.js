@@ -17,12 +17,14 @@ router.get("/", (req, res) => {
             res.status(200).send(result);
         }).catch((error) => {
             res.status(404).send("Sessions not found");
+            console.log(error);
         });
     }else{
         sessions_methods.getAllSessions().then((result) => {
             res.status(200).send(result);
         }).catch((error) => {
             res.status(404).send("Sessions not found");
+            console.log(error);
         });
     }
     
@@ -33,6 +35,7 @@ router.get("/:id", (req, res) => {
         res.status(200).send(result);
     }).catch((error) => {
         res.status(404).send("Session not found");
+        console.log(error);
     });
 });
 
@@ -41,7 +44,7 @@ router.post("/", middleware.authenticateUser, (req, res) => {
     if (user == null) {
         res.status(403).send("User not authenticated, please sign in.");
     }
-    users_methods.findUserById(user.id).then((result) => {
+    users_methods.findUserById(user.id).then(() => {
         req.body.host = user.id;
         sessions_methods.addSession(req.body).then((result) => {
             res.status(201).send(result);
@@ -51,6 +54,7 @@ router.post("/", middleware.authenticateUser, (req, res) => {
         });
     }).catch((error) => {
         res.status(404).send("User not found");
+        console.log(error);
     });
 });
 
@@ -65,12 +69,14 @@ router.delete("/:id", middleware.authenticateUser, (req, res) => {
                     res.status(200).send(result);
                 }).catch((error) => {
                     res.status(404).send("Session not found");
+                    console.log(error);
                 });
             } else {
                 res.status(403).send("User not authorized to delete this session.");
             }
         }).catch((error) => {
             res.status(404).send("Session not found");
+            console.log(error);
         });
     }
     

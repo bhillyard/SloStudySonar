@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import BackArrowButton from "./BackArrowButton"; // Import the BackArrowButton component
-import { useNavigate } from "react-router-dom"; // Import useNavigate hook from React Router
+import { useNavigate, Link } from "react-router-dom"; // Import useNavigate hook from React Router
 import "./StudySpacePage.css"; // Import CSS file for styling
 import "bootstrap/dist/css/bootstrap.min.css";
 import 'bootstrap/dist/js/bootstrap.min.js'
@@ -74,6 +74,11 @@ const StudySpacePage = () => {
                 {/* Add more options as needed */}
               </select>
             )}
+          </div>
+          <div>
+            Have a study space you want to share?<br></br>
+            Submit a new study space
+            <Link to="/createStudySpace">here!</Link>
           </div>
         </div>
         <div className="container">

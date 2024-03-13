@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import BackArrowButton from "./BackArrowButton";
+import React from "react";
 
 const StudySessionPage = () => {
     return (

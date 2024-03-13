@@ -41,6 +41,12 @@ function deleteUser(id) {
     return userModel.findByIdAndDelete(id);
 }
 
+async function updateUser (user) {
+    await user.save();
+    console.log("Favorite Updated Successfully");
+    return user;
+}
+
 export default {
     addUser,
     findUserById,
@@ -48,5 +54,6 @@ export default {
     findUserByUserNameAndPassword,
     findUserByEmail,
     deleteUser,
-    getAllUsers
+    getAllUsers,
+    updateUser
 };
