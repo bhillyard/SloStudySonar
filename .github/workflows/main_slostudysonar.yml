@@ -7,7 +7,7 @@ on:
   push:
     branches:
       - main
-      - CI/CD
+      - 'CI/CD'
   workflow_dispatch:
 
 jobs:
