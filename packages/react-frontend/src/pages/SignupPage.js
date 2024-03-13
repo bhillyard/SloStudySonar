@@ -82,18 +82,20 @@ const SignupPage = () => {
   };
 
   return (
-      
     <div className="">
-      
       <Navbar />
       <header className="App-header mb-5">
         <h1 className="alumni-sans">SLO Study Sonar</h1>
       </header>
 
-      <div className="back-arrow-container mb-5">    
-      <BackArrowButton onClick={() => { /* Add your click handler logic here */ }} />
+      <div className="back-arrow-container mb-5">
+        <BackArrowButton
+          onClick={() => {
+            /* Add your click handler logic here */
+          }}
+        />
       </div>
-      
+
       <div className="row h-100 mx-auto">
         <div className="col-md-6 mx-auto">
           <div className="w-100">
@@ -203,10 +205,10 @@ const SignupPage = () => {
         </div>
       </div>
       <footer>
-             <div >
-                <p>&copy; 2024 SLO Study Sonar. All Rights Reserved.</p>
-            </div>
-        </footer>
+        <div>
+          <p>&copy; 2024 SLO Study Sonar. All Rights Reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 };

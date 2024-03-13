@@ -139,7 +139,7 @@ const ViewStudySpacePage = () => {
                       {averageRating} ({studySpaceReviews.length} reviews)
                     </p>
                   </div>
-                </div>  
+                </div>
               </div>
               <div className="row">
                 <div>
@@ -155,7 +155,7 @@ const ViewStudySpacePage = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div>
                 <h2> Upcoming Study Sessions</h2>
                 <ul className="building-list">
@@ -184,10 +184,10 @@ const ViewStudySpacePage = () => {
       </div>
 
       <footer>
-             <div className="container">
-                <p>&copy; 2024 SLO Study Sonar. All Rights Reserved.</p>
-            </div>
-        </footer>
+        <div className="container">
+          <p>&copy; 2024 SLO Study Sonar. All Rights Reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 };

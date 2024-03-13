@@ -13,7 +13,7 @@ const ReviewBox = ({ starRating, reviewTitle, author, date }) => {
       .catch((error) => console.error("Error fetching username:", error));
 
     const parsedDate = new Date(date);
-    const options = {month: "long", day: "numeric", year: "numeric"};
+    const options = { month: "long", day: "numeric", year: "numeric" };
     const formattedDateString = parsedDate.toLocaleDateString("en-US", options);
     setFormattedDate(formattedDateString);
   }, []); // Only fetch when userId changes

@@ -1,12 +1,11 @@
 .body {
-    background-color: #ffffff; /* Light background for the main body */
-    color: #54585A; /* Darker gray for primary text */
-    font-family: Arial, sans-serif; /* You can choose a different font that fits your branding */
+  background-color: #ffffff; /* Light background for the main body */
+  color: #54585a; /* Darker gray for primary text */
+  font-family: Arial, sans-serif; /* You can choose a different font that fits your branding */
 }
 
- 
 .App-header h1 {
-    text-align: center; /* This will center the text in its container */
+  text-align: center; /* This will center the text in its container */
 }
 
 .privacy-policy-container h2,
@@ -18,32 +17,24 @@
 .privacy-policy-container h5,
 .privacy-policy-container h6,
 .privacy-policy-container h7 {
-    color: #B88813;
-    background-color: #D8D4D5; /* Light gray background for the about section */
-    padding: 20px;
-    font-size: 2em;
-    
+  color: #b88813;
+  background-color: #d8d4d5; /* Light gray background for the about section */
+  padding: 20px;
+  font-size: 2em;
 }
-  
-  
+
 .privacy-policy-container {
-    background-color: #D8D4D5; /* Light gray background for the about section */
-    padding: 20px;
-    
+  background-color: #d8d4d5; /* Light gray background for the about section */
+  padding: 20px;
 }
-  
 
-  
 footer {
-    background-color: #154734; /* Dark green background for the footer */
-    color: #ffffff; /* White text for contrast */
-    padding: 10px 0;
-  }
-  
-
-
+  background-color: #154734; /* Dark green background for the footer */
+  color: #ffffff; /* White text for contrast */
+  padding: 10px 0;
+}
 
 .back-arrow-container {
-    position: relative;
-    top: 0.1px; 
-  } 
+  position: relative;
+  top: 0.1px;
+}

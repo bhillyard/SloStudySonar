@@ -2,37 +2,36 @@
 
 /* General body styles */
 .body {
-    background-color: #ffffff; /* Light background for the main body */
-    color: #54585A; /* Darker gray for primary text */
-    font-family: Arial, sans-serif; /* You can choose a different font that fits your branding */
-  }
-  
-  /* Styles for the contact main section */
-  .contact-main {
-    background-color: #D8D4D5; /* Light gray background for the section */
-    padding: 20px;
-    color: #54585A; /* Set the default text color to darker gray */
-  }
-  
-  /* Specific styles for h2 headings within contact-main */
-  .contact-main h2 {
-    color: #B88813; /* Gold color for h2 headings */
-    font-size: 2.5em; /* Set font size for h2 headings */
-  }
-  
- 
-  /* Footer styles */
-  footer {
-    background-color: #154734; /* Dark green background for the footer */
-    color: #ffffff; /* White text for contrast */
-    padding: 10px 0;
-  }
-  
-  .App-header h1 {
-    text-align: center; /* This will center the text in its container */
+  background-color: #ffffff; /* Light background for the main body */
+  color: #54585a; /* Darker gray for primary text */
+  font-family: Arial, sans-serif; /* You can choose a different font that fits your branding */
+}
+
+/* Styles for the contact main section */
+.contact-main {
+  background-color: #d8d4d5; /* Light gray background for the section */
+  padding: 20px;
+  color: #54585a; /* Set the default text color to darker gray */
+}
+
+/* Specific styles for h2 headings within contact-main */
+.contact-main h2 {
+  color: #b88813; /* Gold color for h2 headings */
+  font-size: 2.5em; /* Set font size for h2 headings */
+}
+
+/* Footer styles */
+footer {
+  background-color: #154734; /* Dark green background for the footer */
+  color: #ffffff; /* White text for contrast */
+  padding: 10px 0;
+}
+
+.App-header h1 {
+  text-align: center; /* This will center the text in its container */
 }
 
 .back-arrow-container {
   position: relative;
-  top: 0.1px; 
+  top: 0.1px;
 }

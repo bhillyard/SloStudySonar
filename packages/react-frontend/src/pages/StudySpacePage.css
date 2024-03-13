@@ -1,75 +1,75 @@
 /* StudySpacePage.css */
 
 .Appheader {
-    background-color: #106e08; /* Example background color */
-    height: 80px; /* Set the fixed height */
-    width: 100%; /* Make the header span the entire width */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* Additional styling as needed */
-  }
-
-  .study-spaces-container {
-    margin-top: 80px; /* Add margin to the top to prevent content from being hidden behind the header */
-    height: calc(100vh - 80px); /* Adjusted height to occupy remaining space */
-    overflow-y: auto; /* Add vertical scrolling */
-  }
-  .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch; /* Stretch items to fill the container */
-  }
-  
-  .studyspaces-header h2{
-    font-size: 50px; /* Adjust the font size as needed */
-    flex: 0; /* Remove flex to allow filters to take up space */
-  }
-
-  .studyspaces-header p {
-    font-size: 18px; /* Adjust the font size as needed */
+  background-color: #106e08; /* Example background color */
+  height: 80px; /* Set the fixed height */
+  width: 100%; /* Make the header span the entire width */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Additional styling as needed */
 }
-  
-  input[type="text"] {
-    width: 100%; /* Make the input take up the entire width of its container */
-    font-size: 20px; /* Adjust the font size as needed */
-  }
-  
-  .filters {
-    flex: 1; /* Take up remaining space */
-    display: flex;
-    flex-direction: column;
-    align-items: stretch; /* Stretch items to fill the container */
-  }
-  
-  .on-campus-container {
-    margin-top: 20px; /* Add margin to separate from previous content */
-  }
-  
-  .on-campus-container h2 {
-    font-size: 36px; /* Adjust font size for the header */
-    font-weight: bold;
-  }
-  
-  .on-campus-container p {
-    font-size: 18px; /* Adjust font size for the paragraph */
-  }
-  
-  /* Placeholder box styles */
-  .placeholder-box {
-    width: 100%;
-    height: 200px; /* Set height of the placeholder box */
-    background-color: #ccc; /* Add a background color */
-  }
 
-  .BackArrowButton {
-    position: fixed;
-    top: 10px; /* Adjust the top position as needed */
-    left: 10px; /* Adjust the left position as needed */
-    z-index: 1000; /* Set a high z-index to ensure it stays on top */
-  }
+.study-spaces-container {
+  margin-top: 80px; /* Add margin to the top to prevent content from being hidden behind the header */
+  height: calc(100vh - 80px); /* Adjusted height to occupy remaining space */
+  overflow-y: auto; /* Add vertical scrolling */
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch; /* Stretch items to fill the container */
+}
 
-  .building-list {
-    list-style-type: none; /* Remove the default list style (including the dots) */
-  }
+.studyspaces-header h2 {
+  font-size: 50px; /* Adjust the font size as needed */
+  flex: 0; /* Remove flex to allow filters to take up space */
+}
+
+.studyspaces-header p {
+  font-size: 18px; /* Adjust the font size as needed */
+}
+
+input[type="text"] {
+  width: 100%; /* Make the input take up the entire width of its container */
+  font-size: 20px; /* Adjust the font size as needed */
+}
+
+.filters {
+  flex: 1; /* Take up remaining space */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; /* Stretch items to fill the container */
+}
+
+.on-campus-container {
+  margin-top: 20px; /* Add margin to separate from previous content */
+}
+
+.on-campus-container h2 {
+  font-size: 36px; /* Adjust font size for the header */
+  font-weight: bold;
+}
+
+.on-campus-container p {
+  font-size: 18px; /* Adjust font size for the paragraph */
+}
+
+/* Placeholder box styles */
+.placeholder-box {
+  width: 100%;
+  height: 200px; /* Set height of the placeholder box */
+  background-color: #ccc; /* Add a background color */
+}
+
+.BackArrowButton {
+  position: fixed;
+  top: 10px; /* Adjust the top position as needed */
+  left: 10px; /* Adjust the left position as needed */
+  z-index: 1000; /* Set a high z-index to ensure it stays on top */
+}
+
+.building-list {
+  list-style-type: none; /* Remove the default list style (including the dots) */
+}

@@ -3,7 +3,6 @@ import "./CreateStudySpacePage.css"; // Import CSS file for styling
 import Cookies from "js-cookie";
 
 const CreateStudySpacePage = () => {
-  
   const [onCampus, setOnCampus] = useState(false);
   const [title, setTitle] = useState("");
   const [location, setLocation] = useState("");
@@ -23,10 +22,18 @@ const CreateStudySpacePage = () => {
     const formattedHoursEnd =
       amPmEnd === "PM" ? parseInt(hoursEnd) + 12 : hoursEnd;
     // Add leading zeros if hours or minutes are less than 10
-    const paddedHoursStart = formattedHoursStart.length < 2 ? `0${formattedHoursStart}` : formattedHoursStart;
-    const paddedMinutesStart = minutesStart.length < 2 ? `0${minutesStart}` : minutesStart;
-    const paddedHoursEnd = formattedHoursEnd.length < 2 ? `0${formattedHoursEnd}` : formattedHoursEnd;
-    const paddedMinutesEnd = minutesEnd.length < 2 ? `0${minutesEnd}` : minutesEnd;
+    const paddedHoursStart =
+      formattedHoursStart.length < 2
+        ? `0${formattedHoursStart}`
+        : formattedHoursStart;
+    const paddedMinutesStart =
+      minutesStart.length < 2 ? `0${minutesStart}` : minutesStart;
+    const paddedHoursEnd =
+      formattedHoursEnd.length < 2
+        ? `0${formattedHoursEnd}`
+        : formattedHoursEnd;
+    const paddedMinutesEnd =
+      minutesEnd.length < 2 ? `0${minutesEnd}` : minutesEnd;
 
     const operatingHoursStart = `${paddedHoursStart}:${paddedMinutesStart}`;
     const operatingHoursEnd = `${paddedHoursEnd}:${paddedMinutesEnd}`;
@@ -34,40 +41,45 @@ const CreateStudySpacePage = () => {
     console.log("Operating Hours End:", operatingHoursEnd);
     // post spacedata
     const formData = {
-        title: title,
-        onCampus: onCampus,
-        location: location,
-        operatingHours: `${operatingHoursStart}-${operatingHoursEnd}`,
-        description: description,
-      };
+      title: title,
+      onCampus: onCampus,
+      location: location,
+      operatingHours: `${operatingHoursStart}-${operatingHoursEnd}`,
+      description: description,
+    };
     console.log(photo);
-    if (formData.title === "" || formData.location === "" || formData.operatingHours === "" || formData.description === "") {
-        alert("Please fill out all the required fields");
-        return;
+    if (
+      formData.title === "" ||
+      formData.location === "" ||
+      formData.operatingHours === "" ||
+      formData.description === ""
+    ) {
+      alert("Please fill out all the required fields");
+      return;
     }
     postStudySpace(formData)
-        .then((response) => {
-            if (response.status === 201) {
-                alert("Study Space added successfully");
-            } else {
-                alert(response.status);
-            }
-        })
-        .catch((error) => {
-            alert(error);
-        });
-        console.log(formData);
+      .then((response) => {
+        if (response.status === 201) {
+          alert("Study Space added successfully");
+        } else {
+          alert(response.status);
+        }
+      })
+      .catch((error) => {
+        alert(error);
+      });
+    console.log(formData);
   };
 
   function postStudySpace(spaceData) {
     console.log(Cookies.get("token"));
     const promise = fetch("http://localhost:8000/spaces", {
-        method: "POST",
-        headers: {
-            "Authorization": `Bearer ${Cookies.get("token")}`,
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(spaceData),
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${Cookies.get("token")}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(spaceData),
     });
     return promise;
   }
@@ -153,7 +165,7 @@ const CreateStudySpacePage = () => {
             <option value="PM">PM</option>
           </select>
         </div>
-        <div className = "description">
+        <div className="description">
           <label>
             Description:<br></br>
             <textarea

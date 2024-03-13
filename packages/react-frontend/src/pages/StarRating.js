@@ -5,8 +5,6 @@ function StarRating({ initialRating }) {
   const [ratingValue] = useState(initialRating || 0);
 
   return (
-
-    
     <div className="App">
       <Rating
         initialValue={ratingValue}

@@ -54,20 +54,20 @@ const LoginPage = () => {
   };
 
   return (
-
-    
     <div className="container-fluid h-100 d-flex flex-column">
-  
-  
       <Navbar />
       <header className="App-header">
-        <h1 className='alumni-sans'>SLO Study Sonar</h1>
+        <h1 className="alumni-sans">SLO Study Sonar</h1>
       </header>
 
-      <div className="back-arrow-container">    
-      <BackArrowButton onClick={() => { /* Add your click handler logic here */ }} />
+      <div className="back-arrow-container">
+        <BackArrowButton
+          onClick={() => {
+            /* Add your click handler logic here */
+          }}
+        />
       </div>
-      
+
       <div className="row justify-content-center flex-grow-1">
         <div className="col-md-6 d-flex align-items-center">
           <div className="w-100">
@@ -112,10 +112,10 @@ const LoginPage = () => {
         </div>
       </div>
       <footer>
-             <div className="container">
-                <p>&copy; 2024 SLO Study Sonar. All Rights Reserved.</p>
-            </div>
-        </footer>
+        <div className="container">
+          <p>&copy; 2024 SLO Study Sonar. All Rights Reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 };

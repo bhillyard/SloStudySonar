@@ -2,16 +2,14 @@
   text-align: center;
   /* background-color: #154734; */
 
-  color: #b88813; 
+  color: #b88813;
 
   /* color: #b88813; */
-
 
   /* color: #b88813; */
 
   /* background-color: #d8d4d5; */
 }
-
 
 .App-header {
   background-color: #154734;
@@ -41,23 +39,16 @@
 }
 
 .btn-override {
-  background-color: #DEA517 !important;
+  background-color: #dea517 !important;
 
-
-   padding: 0.5rem 1rem; /* Adjust padding to suit the button size */
+  padding: 0.5rem 1rem; /* Adjust padding to suit the button size */
   font-size: 0.8rem; /* Smaller font size if necessary */
   width: auto; /* Allow the button to only be as wide as its content plus padding */
-  display: inline-block; 
- 
-
+  display: inline-block;
 }
 
-
-
-
-
 .btn-override:hover {
-  background-color: #F2C75C !important;
+  background-color: #f2c75c !important;
   font-family: "Alumni Sans" !important;
   transform: none !important;
   margin-top: 0.5;
@@ -65,9 +56,5 @@
 }
 
 .green-div {
-  background-color: #B7CDC2
-
+  background-color: #b7cdc2;
 }
-
-
-
