@@ -18,20 +18,19 @@ const bucketName = process.env.BUCKET_NAME;
 var upload = multer({
   storage: multerGoogleStorage.storageEngine({
     autoRetry: true,
-    bucket: "space-images-slo-study-sonar",
-    projectId: "slo-study-sonar",
-    keyFilename: "myKey.json",
+    bucket: bucketName,
+    projectId: projectID,
+    keyFilename: keyFilename,
     uniformBucketLevelAccess: true,
     filename: (req, file, cb) => {
-      console.log(req.body.title);
-      console.log(bucketName, projectID, keyFilename)
       const fname = `${Date.now()}_${file.originalname}`;
       cb(null, fname);
-      console.log(fname);
       
     }
   })
 });
+
+
 
 
 
@@ -44,32 +43,9 @@ router.use(express.json());
 
 
 const storage = new Storage({projectID, keyFilename});
+const bucket = storage.bucket(bucketName);
 
-async function uploadImage(bucketName, file, uploadFileName){
-  try{
-    const bucket = storage.bucket(bucketName);
-    const response = await bucket.upload(file, {
-      destination: uploadFileName,
-      metadata: {
-        cacheControl: "public, max-age=31536000",
-      }
-    });
 
-    return response;
-  }catch(error){
-    console.log(error);
-  
-  }
-}
-
-async function uploadTest(){
-  await uploadImage(bucketName, "./kitten.png", "text.png");
-}
-
-router.get("/test", (req, res) => {
-  uploadTest();
-  res.send("Test");
-});
 
 
 //Spaces Endpoints
@@ -93,6 +69,9 @@ router.get("/", (req, res) => {
     )
     .then((result) => {
       console.log(result);
+      result.forEach((space) => {
+        space.photo = `https://storage.googleapis.com/${bucketName}/${space.photo}`;
+      });
       res.status(200).send(result);
     })
     .catch((error) => {
@@ -133,6 +112,7 @@ router.get("/:id", (req, res) => {
   spaces_methods
     .findStudySpaceById(req.params.id)
     .then((result) => {
+      result.photo = `https://storage.googleapis.com/${bucketName}/${result.photo}`;
       res.status(200).send(result);
     })
     .catch((error) => {
@@ -156,6 +136,7 @@ router.post("/", middleware.authenticateUser, upload.single('photo'), (req, res)
   users_methods.findUserById(user.id).then((result) => {
     console.log(result);
   });
+  req.body.photo = req.file.filename;
   spaces_methods
     .addStudySpace(req.body)
     .then((result) => {
@@ -173,7 +154,13 @@ router.delete("/:id", (req, res) => {
   spaces_methods
     .deleteStudySpace(req.params.id)
     .then((result) => {
-      res.status(200).send(result);
+      const file = bucket.file(result.photo);
+      file.delete().then(() => {
+        res.status(200).send(result);
+      }).catch((error) => {
+        res.status(404).send("Photo not deleted");
+        console.log(error);
+      });
     })
     .catch((error) => {
       res.status(404).send("Space not found");
