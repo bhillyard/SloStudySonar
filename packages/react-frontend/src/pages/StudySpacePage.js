@@ -77,8 +77,8 @@ const StudySpacePage = () => {
           </div>
           <div>
             Have a study space you want to share?<br></br>
-            Submit a new study space
-            <Link to="/createStudySpace">here!</Link>
+            Submit a new study space 
+            <Link to="/createStudySpace"> here!</Link>
           </div>
         </div>
         <div className="container">
@@ -105,7 +105,7 @@ const StudySpacePage = () => {
       </div>
 
       <footer>
-             <div class="container">
+             <div className="footer-container">
                 <p>&copy; 2024 SLO Study Sonar. All Rights Reserved.</p>
             </div>
       </footer>  

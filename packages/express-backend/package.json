@@ -4,12 +4,14 @@
   "description": "",
   "main": "backend.js",
   "type": "module",
-  "scripts": {
-    "lint": "npx eslint . && npx prettier --check .",
-    "test": "npx jest",
-    "dev": "nodemon backend_with_db.js",
-    "start": "node backend_with_db.js"
-  },
+
+  "scripts": {     
+	"lint": "npx eslint . && npx prettier --check .",
+	"test": "npx jest",
+	"dev": "nodemon backend_with_db.js",
+	"start": "node backend_with_db.js"
+},
+
   "author": "",
   "license": "MIT",
   "dependencies": {

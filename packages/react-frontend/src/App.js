@@ -78,6 +78,7 @@ function App() {
         <form className="mt-3 alumni-sans"><button type="button" onClick={handleAboutClick} className="btn w-75 btn-override">About SLO Study Sonar</button></form>
         <form className="mt-3 alumni-sans"><button type="button" onClick={handleStudySpaceClick} className="btn w-75 btn-override ">Browse Study Spaces</button></form>
         <form className="mt-3 alumni-sans"><button type="button" className="btn w-75 btn-override">Study Sessions Info</button></form>
+        <form className="mt-3 alumni-sans"><button type="button" className="btn w-75 btn-override">Browse Study Sessions</button></form>      
       </div >
 
       {/* Sign in or create an account... div */}
