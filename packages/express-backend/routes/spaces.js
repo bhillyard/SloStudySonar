@@ -15,6 +15,7 @@ const projectID = process.env.PROJECT_ID;
 const keyFilename = process.env.KEYFILENAME;
 const bucketName = process.env.BUCKET_NAME;
 
+//configure multer
 var upload = multer({
   storage: multerGoogleStorage.storageEngine({
     autoRetry: true,
@@ -30,22 +31,12 @@ var upload = multer({
   })
 });
 
-
-
-
-
-
-
 const router = express.Router();
 router.use(express.json());
 
-
-
-
+//configure storage bucket
 const storage = new Storage({projectID, keyFilename});
 const bucket = storage.bucket(bucketName);
-
-
 
 
 //Spaces Endpoints
