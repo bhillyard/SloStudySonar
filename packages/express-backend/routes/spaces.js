@@ -3,6 +3,7 @@ import spaces_methods from "../databaseServices/studySpaceServices.js";
 import middleware from "./middleware.js";
 import users_methods from "../databaseServices/userServices.js";
 import reviews_methods from "../databaseServices/reviewServices.js";
+import dotenv from "dotenv";
 import multer from "multer";
 
 dotenv.config();
