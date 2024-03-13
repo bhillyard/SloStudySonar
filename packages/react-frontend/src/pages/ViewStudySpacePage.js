@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import { useLocation, Link } from "react-router-dom";
 import BackArrowButton from "./BackArrowButton";
 import { Container } from "react-bootstrap";
 import "./ViewStudySpacePage.css";
@@ -206,10 +207,17 @@ const ViewStudySpacePage = () => {
                 <a className="btn btn-success">View All Study Sessions</a>
                 
               </div>
-
-              <hr></hr>
-              <h2 className="text-start"> Reviews of {studySpaceData.title}</h2>
-              <div className="row mb-3">
+              <div className="container">
+                <div className="row align-items-center">
+                  <div className="col">
+                    <h2> Reviews of {studySpaceData.title}</h2>
+                  </div>
+                  <div className="col-auto">
+                    <Button variant="primary" type="submit">
+                      Make a Review
+                    </Button>
+                  </div>
+                </div>
                 {studySpaceReviews.length === 0 ? (
                   <p>Be the first to leave a review!</p>
                 ) : (
