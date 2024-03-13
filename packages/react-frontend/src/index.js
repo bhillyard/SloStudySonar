@@ -15,11 +15,13 @@ import YourSessions from './pages/YourSessions';
 import ViewStudySpacePage from './pages/ViewStudySpacePage';
 import StudySessionPage from './pages/StudySessionPage';
 import CreateStudySpacePage from './pages/CreateStudySpacePage';
-
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import About from './pages/about';
+import PrivacyPolicy from './pages/privacy';
+import Contact from './pages/contact';
 
 const router = createBrowserRouter([
   {
@@ -58,17 +60,36 @@ const router = createBrowserRouter([
     path: "ViewStudySpace",
     element: <ViewStudySpacePage/>
   },
-  {
+ {
+    path: "About",
+    element: <About/>
+ },
+{
+    path: "Privacy",
+    element: <PrivacyPolicy/>
+},
+
+{  
     path: "StudySessionPage",
     element: <StudySessionPage/>
+
+
+},
+{
+    path: "Contact",
+    element: <Contact/>
+},
+{
+
   },
   {
     path: "createStudySpace",
     element: <CreateStudySpacePage/>
   },
   {
+
     element: <NotFoundPage />, // Not found page doesn't work
-  }
+}
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

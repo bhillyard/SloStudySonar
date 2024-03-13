@@ -1,0 +1,83 @@
+.body {
+    background-color: #ffffff; /* Light background for the main body */
+    color: #54585A; /* Darker gray for primary text */
+    font-family: Arial, sans-serif; /* You can choose a different font that fits your branding */
+}
+
+.App-header h1 {
+    text-align: center; /* This will center the text in its container */
+}
+  
+  
+.about-main h2, .about-main h3 {
+    color: #B88813;
+}
+  
+  
+.about-main {
+    background-color: #D8D4D5; /* Light gray background for the about section */
+    padding: 20px;
+}
+  
+
+  
+footer {
+    background-color: #154734; /* Dark green background for the footer */
+    color: #ffffff; /* White text for contrast */
+    padding: 10px 0;
+  }
+  
+
+
+
+  .team-members {
+    
+    display: flex;
+    justify-content: space-between; /* This will space out your items evenly */
+    flex-wrap: wrap; /* Allows items to wrap onto the next line if not enough space */
+  }
+  
+  .team-member {
+    flex: 0 0 18%; /* Don't grow, don't shrink, start at 18% of the container width */
+    margin: 1%; /* Provides some space between columns */
+    box-sizing: border-box; /* Includes padding and border in the element's total width and height */
+  }
+  
+  /* Adjustments for smaller screens */
+  @media (max-width: 1200px) {
+    .team-member {
+      flex: 0 0 23%; /* Increase the width on smaller screens to maintain a five-column layout */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .team-member {
+      flex: 0 0 48%; /* On very small screens, switch to a two-column layout */
+    }
+  }
+  .team-members {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Creates five columns with equal width */
+    grid-gap: 1%; /* Provides some space between the grid items */
+  }
+  
+
+  .back-arrow-container {
+    position: relative;
+    top: 0.1px; 
+  }
+  
+
+  .source-sans-3 {
+    font-family: "Source Sans 3", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .alumni-sans {
+    font-family: "Alumni Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+  }

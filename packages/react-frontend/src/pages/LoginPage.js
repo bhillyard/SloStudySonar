@@ -5,6 +5,7 @@ import "./LoginPage.css"; // Import CSS file for styling
 import BackArrowButton from "./BackArrowButton"; // Import CircleArrowButton component
 import Cookies from "js-cookie";
 import { Link, useNavigate } from "react-router-dom";
+import Navbar from "../Navigation/Navbar";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -53,8 +54,20 @@ const LoginPage = () => {
   };
 
   return (
+
+    
     <div className="container-fluid h-100 d-flex flex-column">
-      <BackArrowButton/>
+  
+  
+      <Navbar />
+      <header className="App-header">
+        <h1 class='alumni-sans'>SLO Study Sonar</h1>
+      </header>
+
+      <div className="back-arrow-container">    
+      <BackArrowButton onClick={() => { /* Add your click handler logic here */ }} />
+      </div>
+      
       <div className="row justify-content-center flex-grow-1">
         <div className="col-md-6 d-flex align-items-center">
           <div className="w-100">
@@ -98,6 +111,11 @@ const LoginPage = () => {
           </div>
         </div>
       </div>
+      <footer>
+             <div class="container">
+                <p>&copy; 2024 SLO Study Sonar. All Rights Reserved.</p>
+            </div>
+        </footer>
     </div>
   );
 };

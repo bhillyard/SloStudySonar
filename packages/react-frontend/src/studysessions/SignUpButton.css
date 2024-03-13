@@ -1,9 +1,9 @@
 button {
     -webkit-transition-duration: 0.1s; /* Safari */
     transition-duration: 0.1s;
-    background-color: #457ad6;
+    background-color: #154734;
     border-radius: 8px;
-    border-bottom: 4px solid #32528a;
+    border-bottom: 4px solid #154734;
     color: white;
     padding: 15px 32px;
     text-align: center;
@@ -15,10 +15,10 @@ button {
   }
   
   button:hover {
-    background-color: #548ae8;
+    background-color: #154734;
     border: none;
     border-radius: 8px;
-    border-bottom: 4px solid #32528a;
+    border-bottom: 4px solid #154734;
     color: white;
     padding: 15px 32px;
     text-align: center;
@@ -30,10 +30,10 @@ button {
   }
   
   button:active {
-    background-color: #32528a;
+    background-color: #154734;
     border: none;
     border-radius: 8px;
-    border-bottom: 4px solid #32528a;
+    border-bottom: 4px solid #154734;
     color: #CCC;
     padding: 15px 32px;
     text-align: center;
