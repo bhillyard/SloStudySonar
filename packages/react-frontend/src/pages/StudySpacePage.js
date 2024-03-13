@@ -47,7 +47,7 @@ const StudySpacePage = () => {
         <BackArrowButton /> {/* back arrow button to go to prev page */}
         <h1> </h1>
       </header>
-      <div className="study-spaces-container">
+      <div className="">
         <div className="container">
           <div className="studyspaces-header">
             <h2>Study Spaces</h2>
@@ -80,8 +80,8 @@ const StudySpacePage = () => {
             Submit a new study space
             <Link to="/createStudySpace">here!</Link>
           </div>
-        </div>
-        <div className="container">
+
+          
           <div className="row justify-content-center">
             <div className="col-lg-8">
               <div className="on-campus-container">
@@ -90,14 +90,26 @@ const StudySpacePage = () => {
                   See buildings, labs, and other study locations on the Cal Poly
                   campus.
                 </p>
-                <div className="placeholder-box"></div>
-                <ul className="building-list">
+                <div className="row">
+                 
                   {studySpaces.map((space) => (
-                    <li key={space.location} onClick={() => handleClick(space)}>
-                      {space.location}
-                    </li>
+                    <div key={space.location} className="col-md-4 mb-3">
+                      <div className="card h-100">
+                        <img src={space.photo} className="card-img-top" alt="..."/>
+                        <div className="card-body">
+                          <h5 className="card-title">{space.title}</h5>
+                          <p className="card-text">{space.description}</p>
+                          <a onClick={() => handleClick(space)} className="btn btn-success">
+                            View
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    
                   ))}
-                </ul>
+                 
+                </div>
+
               </div>
             </div>
           </div>
