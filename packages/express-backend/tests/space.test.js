@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
 test(`test`, () => {
-    expect(true).toBe(true);
-  });
-  
+  expect(true).toBe(true);
+});
