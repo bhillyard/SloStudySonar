@@ -5,8 +5,6 @@ function StarRating({ initialRating }) {
   const [ratingValue] = useState(initialRating || 0);
 
   return (
-
-    
     <div className="App">
       <Rating
         initialValue={ratingValue}
@@ -15,12 +13,6 @@ function StarRating({ initialRating }) {
         /*onClick={handleReset}*/
         /* other props */
       />
-
-      <footer>
-             <div class="container">
-                <p>&copy; 2024 SLO Study Sonar. All Rights Reserved.</p>
-            </div>
-      </footer>
     </div>
   );
 }

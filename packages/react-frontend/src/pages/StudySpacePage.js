@@ -103,12 +103,6 @@ const StudySpacePage = () => {
           </div>
         </div>
       </div>
-
-      <footer>
-             <div class="container">
-                <p>&copy; 2024 SLO Study Sonar. All Rights Reserved.</p>
-            </div>
-      </footer>  
     </div>
   );
 };
