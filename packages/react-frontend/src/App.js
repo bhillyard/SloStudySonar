@@ -49,6 +49,9 @@ function App() {
           </div>
           <div className="carousel-item">
             <img src={hills} className="d-block w-75 d-inline-block mx-auto data-bs-interval=3000" alt="..." />
+
+
+
           </div>
 
         </div>
@@ -78,6 +81,7 @@ function App() {
       </div >
 
       {/* Sign in or create an account... div */}
+
       <div className="container mt-5 py-3 px-5 green-div source-sans-3">
         <h1> <span className="text-primary"> <Link to="/login">Log in here</Link></span> or <span className="text-primary"><Link to="/signup">create an account</Link></span> to save your favorite study spots and register for study sessions.</h1>
       </div>

@@ -15,7 +15,6 @@ import YourSessions from './pages/YourSessions';
 import ViewStudySpacePage from './pages/ViewStudySpacePage';
 import StudySessionPage from './pages/StudySessionPage';
 import CreateStudySpacePage from './pages/CreateStudySpacePage';
-
 import {
   createBrowserRouter,
   RouterProvider,
