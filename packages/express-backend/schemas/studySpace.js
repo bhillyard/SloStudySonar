@@ -40,6 +40,11 @@ const StudySpaceSchema = new mongoose.Schema(
       type: Boolean,
       required: true,
     },
+    photo: {
+      type: String,
+      required: false,
+      trim: true,
+    }
   },
   { collection: "studySpace_list" },
 );

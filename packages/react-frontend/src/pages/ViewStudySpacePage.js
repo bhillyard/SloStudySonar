@@ -98,7 +98,21 @@ const ViewStudySpacePage = () => {
               ) : (
                 <h2>Loading...</h2>
               )}
-              <div className="placeholder-box"></div>
+              <div>
+                {studySpaceData ? (
+                  <img
+                    src={studySpaceData.photo}
+                    alt="study space"
+                    className="img-fluid study-space-photo"
+                  />
+                ) : (
+                  <img
+                    src="https://via.placeholder.com/300"
+                    alt="study space"
+                    className="study-space-photo"
+                  />
+                )}
+              </div>
               <div className="row">
                 <div className="col-md-6">
                   <div>

@@ -3,9 +3,41 @@ import spaces_methods from "../databaseServices/studySpaceServices.js";
 import middleware from "./middleware.js";
 import users_methods from "../databaseServices/userServices.js";
 import reviews_methods from "../databaseServices/reviewServices.js";
+import dotenv from "dotenv";
+import multer from "multer";
+import multerGoogleStorage from "multer-cloud-storage";
+
+import {Storage} from "@google-cloud/storage";
+dotenv.config();
+//image uploads
+
+const projectID = process.env.PROJECT_ID;
+const keyFilename = process.env.KEYFILENAME;
+const bucketName = process.env.BUCKET_NAME;
+
+//configure multer
+var upload = multer({
+  storage: multerGoogleStorage.storageEngine({
+    autoRetry: true,
+    bucket: bucketName,
+    projectId: projectID,
+    keyFilename: keyFilename,
+    uniformBucketLevelAccess: true,
+    filename: (req, file, cb) => {
+      const fname = `${Date.now()}_${file.originalname}`;
+      cb(null, fname);
+      
+    }
+  })
+});
 
 const router = express.Router();
 router.use(express.json());
+
+//configure storage bucket
+const storage = new Storage({projectID, keyFilename});
+const bucket = storage.bucket(bucketName);
+
 
 //Spaces Endpoints
 // get all spaces
@@ -28,6 +60,9 @@ router.get("/", (req, res) => {
     )
     .then((result) => {
       console.log(result);
+      result.forEach((space) => {
+        space.photo = `https://storage.googleapis.com/${bucketName}/${space.photo}`;
+      });
       res.status(200).send(result);
     })
     .catch((error) => {
@@ -68,6 +103,7 @@ router.get("/:id", (req, res) => {
   spaces_methods
     .findStudySpaceById(req.params.id)
     .then((result) => {
+      result.photo = `https://storage.googleapis.com/${bucketName}/${result.photo}`;
       res.status(200).send(result);
     })
     .catch((error) => {
@@ -77,16 +113,21 @@ router.get("/:id", (req, res) => {
 });
 
 // add a new space
-router.post("/", middleware.authenticateUser, (req, res) => {
+router.post("/", middleware.authenticateUser, upload.single('photo'), (req, res) => {
+  // (req, res, (err) => {
+  //   console.log(err);
+  // });
   const user = req.userRef;
   if (user == null || user == undefined) {
     res.status(403).send("User not authenticated, please sign in.");
     return;
   }
+  
   console.log(user);
   users_methods.findUserById(user.id).then((result) => {
     console.log(result);
   });
+  req.body.photo = req.file.filename;
   spaces_methods
     .addStudySpace(req.body)
     .then((result) => {
@@ -104,7 +145,13 @@ router.delete("/:id", (req, res) => {
   spaces_methods
     .deleteStudySpace(req.params.id)
     .then((result) => {
-      res.status(200).send(result);
+      const file = bucket.file(result.photo);
+      file.delete().then(() => {
+        res.status(200).send(result);
+      }).catch((error) => {
+        res.status(404).send("Photo not deleted");
+        console.log(error);
+      });
     })
     .catch((error) => {
       res.status(404).send("Space not found");
