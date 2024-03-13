@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import reviewModel from "../schemas/review.js";
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 
 dotenv.config();
 const connectionString = process.env.MONGODB_URI;
@@ -8,37 +8,36 @@ const connectionString = process.env.MONGODB_URI;
 mongoose.connect(connectionString, {}).catch((error) => console.log(error));
 
 function addReview(review) {
-    const reviewToAdd = new reviewModel(review);
-    const promise = reviewToAdd.save();
-    return promise;
+  const reviewToAdd = new reviewModel(review);
+  const promise = reviewToAdd.save();
+  return promise;
 }
 
 function getAllReviews() {
-    return reviewModel.find();
+  return reviewModel.find();
 }
 
 function findReviewById(id) {
-    return reviewModel.findById(id);
+  return reviewModel.findById(id);
 }
 
 function findReviewBySpace(space) {
-    return reviewModel.find({ space: space });
+  return reviewModel.find({ space: space });
 }
 
 function findReviewByAuthor(author) {
-    return reviewModel.find({ author: author });
+  return reviewModel.find({ author: author });
 }
 
 function deleteReview(id) {
-    return reviewModel.findByIdAndDelete(id);
+  return reviewModel.findByIdAndDelete(id);
 }
 
 export default {
-    getAllReviews,
-    addReview,
-    findReviewById,
-    findReviewBySpace,
-    findReviewByAuthor,
-    deleteReview
-}
-
+  getAllReviews,
+  addReview,
+  findReviewById,
+  findReviewBySpace,
+  findReviewByAuthor,
+  deleteReview,
+};

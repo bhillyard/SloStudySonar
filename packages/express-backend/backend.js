@@ -2,8 +2,6 @@
 import express from "express";
 import cors from "cors";
 
-
-
 //setup app
 const app = express();
 const port = 8000;
@@ -13,7 +11,6 @@ app.use(cors());
 import users from "./routes/users.js";
 import spaces from "./routes/spaces.js";
 import sessions from "./routes/sessions.js";
-
 
 //use routes
 app.use("/users", users);
@@ -28,7 +25,5 @@ app.get("/", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(
-    `Example app listening at http://localhost:${port}`
-  );
+  console.log(`Example app listening at http://localhost:${port}`);
 });
