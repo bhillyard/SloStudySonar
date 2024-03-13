@@ -81,7 +81,7 @@ const CreateStudySpacePage = () => {
         method: "POST",
         headers: {
             "Authorization": `Bearer ${Cookies.get("token")}`,
-            "Content-Type": "multipart/form-data",
+            
         },
         body: spaceData,
     });

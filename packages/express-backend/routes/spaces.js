@@ -5,12 +5,34 @@ import users_methods from "../databaseServices/userServices.js";
 import reviews_methods from "../databaseServices/reviewServices.js";
 import dotenv from "dotenv";
 import multer from "multer";
-
-dotenv.config();
+import multerGoogleStorage from "multer-cloud-storage";
 
 import {Storage} from "@google-cloud/storage";
+dotenv.config();
+//image uploads
 
-const upload = multer({dest: "uploads/"});
+const projectID = process.env.PROJECT_ID;
+const keyFilename = process.env.KEYFILENAME;
+const bucketName = process.env.BUCKET_NAME;
+
+var upload = multer({
+  storage: multerGoogleStorage.storageEngine({
+    autoRetry: true,
+    bucket: "space-images-slo-study-sonar",
+    projectId: "slo-study-sonar",
+    keyFilename: "myKey.json",
+    uniformBucketLevelAccess: true,
+    filename: (req, file, cb) => {
+      console.log(req.body.title);
+      console.log(bucketName, projectID, keyFilename)
+      const fname = `${Date.now()}_${file.originalname}`;
+      cb(null, fname);
+      console.log(fname);
+      
+    }
+  })
+});
+
 
 
 
@@ -19,10 +41,7 @@ const router = express.Router();
 router.use(express.json());
 
 
-//image uploads
-const projectID = process.env.PROJECT_ID;
-const keyFilename = process.env.KEYFILENAME;
-const bucketName = process.env.BUCKET_NAME;
+
 
 const storage = new Storage({projectID, keyFilename});
 
@@ -123,12 +142,16 @@ router.get("/:id", (req, res) => {
 });
 
 // add a new space
-router.post("/", middleware.authenticateUser, (req, res) => {
+router.post("/", middleware.authenticateUser, upload.single('photo'), (req, res) => {
+  // (req, res, (err) => {
+  //   console.log(err);
+  // });
   const user = req.userRef;
   if (user == null || user == undefined) {
     res.status(403).send("User not authenticated, please sign in.");
     return;
   }
+  
   console.log(user);
   users_methods.findUserById(user.id).then((result) => {
     console.log(result);
