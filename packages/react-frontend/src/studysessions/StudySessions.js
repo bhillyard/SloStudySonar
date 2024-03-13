@@ -2,22 +2,16 @@
 import React from "react";
 import LoggedIn from "./LoggedIn";
 import NotLoggedIn from "./NotLoggedIn";
-import './SignUpButton.css';
+import "./SignUpButton.css";
 
-function StudySessions(){
-    let loggedIn = true;
-    return(
-        <div id="authorization">
-            <h1>
-                {
-                    loggedIn ? 'Your Study Sessions' : 'Study Sessions'
-                }
-            </h1>
-            {
-                loggedIn ? <LoggedIn/> : <NotLoggedIn/>
-            }
-        </div>
-    )
+function StudySessions() {
+  let loggedIn = true;
+  return (
+    <div id="authorization">
+      <h1>{loggedIn ? "Your Study Sessions" : "Study Sessions"}</h1>
+      {loggedIn ? <LoggedIn /> : <NotLoggedIn />}
+    </div>
+  );
 }
 
 export default StudySessions;
