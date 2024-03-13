@@ -45,10 +45,13 @@ const CreateStudySpacePage = () => {
     formData.append("title", title);
     formData.append("onCampus", onCampus);
     formData.append("location", location);
-    formData.append("operatingHours", `${operatingHoursStart}-${operatingHoursEnd}`);
+    formData.append(
+      "operatingHours",
+      `${operatingHoursStart}-${operatingHoursEnd}`,
+    );
     formData.append("description", description);
     formData.append("photo", photo);
-    
+
     // const formData = {
     //     title: title,
     //     onCampus: onCampus,
@@ -57,33 +60,37 @@ const CreateStudySpacePage = () => {
     //     description: description,
     //   };
     console.log(photo);
-    if (formData.title === "" || formData.location === "" || formData.operatingHours === "" || formData.description === "") {
-        alert("Please fill out all the required fields");
-        return;
+    if (
+      formData.title === "" ||
+      formData.location === "" ||
+      formData.operatingHours === "" ||
+      formData.description === ""
+    ) {
+      alert("Please fill out all the required fields");
+      return;
     }
     postStudySpace(formData)
-        .then((response) => {
-            if (response.status === 201) {
-                alert("Study Space added successfully");
-            } else {
-                alert(response.status);
-            }
-        })
-        .catch((error) => {
-            alert(error);
-        });
-        console.log(formData);
+      .then((response) => {
+        if (response.status === 201) {
+          alert("Study Space added successfully");
+        } else {
+          alert(response.status);
+        }
+      })
+      .catch((error) => {
+        alert(error);
+      });
+    console.log(formData);
   };
 
   function postStudySpace(spaceData) {
     console.log(Cookies.get("token"));
     const promise = fetch("http://localhost:8000/spaces", {
-        method: "POST",
-        headers: {
-            "Authorization": `Bearer ${Cookies.get("token")}`,
-            
-        },
-        body: spaceData,
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${Cookies.get("token")}`,
+      },
+      body: spaceData,
     });
     return promise;
   }
