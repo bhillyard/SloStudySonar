@@ -81,7 +81,6 @@ const ViewStudySpacePage = () => {
       });
   }
 
-
   return (
     <div>
       <header className="Appheader">
@@ -174,14 +173,14 @@ const ViewStudySpacePage = () => {
                   </div>
                 </div>
               </div>
-                  <hr></hr>
+              <hr></hr>
               <div>
                 <h2> Upcoming Study Sessions</h2>
                 <ul className="building-list">
                   <ul>{mapUpcomingStudySessions}</ul>
                 </ul>
               </div>
-              
+
               <hr></hr>
               <h2 className="text-start"> Reviews of {studySpaceData.title}</h2>
               <div className="row mb-3">
@@ -189,7 +188,6 @@ const ViewStudySpacePage = () => {
                   <p>Be the first to leave a review!</p>
                 ) : (
                   studySpaceReviews.map((review, index) => (
-                    
                     <ReviewBox
                       key={index}
                       starRating={review.rating}
@@ -201,7 +199,6 @@ const ViewStudySpacePage = () => {
                   ))
                 )}
               </div>
-              
             </div>
           </div>
         </Container>

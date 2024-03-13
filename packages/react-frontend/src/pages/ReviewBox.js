@@ -2,7 +2,7 @@ import React from "react";
 import StarRating from "./StarRating"; // Import the StarRating component
 import { useState, useEffect } from "react";
 
-const ReviewBox = ({ starRating, reviewTitle, author, date, review}) => {
+const ReviewBox = ({ starRating, reviewTitle, author, date, review }) => {
   const [username, setUsername] = useState(""); // State to store the username
   const [formattedDate, setFormattedDate] = useState(""); // State to store the formatted date
   useEffect(() => {
@@ -19,8 +19,6 @@ const ReviewBox = ({ starRating, reviewTitle, author, date, review}) => {
   }, []); // Only fetch when userId changes
 
   return (
-
-
     <div className="col-12 my-1">
       <div className="card">
         <div className="row">
@@ -33,8 +31,8 @@ const ReviewBox = ({ starRating, reviewTitle, author, date, review}) => {
         </div>
         <div className="row">
           <div className="col-md-4 mb-3">
-              <p className="text-center mb-0">{username}</p>
-              <p className="text-center mb-0">{formattedDate}</p>
+            <p className="text-center mb-0">{username}</p>
+            <p className="text-center mb-0">{formattedDate}</p>
           </div>
           <div className="col-md-8">
             <p className="me-2">{review}</p>

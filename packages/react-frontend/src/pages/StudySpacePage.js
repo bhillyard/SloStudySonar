@@ -81,7 +81,6 @@ const StudySpacePage = () => {
             <Link to="/createStudySpace">here!</Link>
           </div>
 
-          
           <div className="row justify-content-center">
             <div className="col-lg-8">
               <div className="on-campus-container">
@@ -91,25 +90,28 @@ const StudySpacePage = () => {
                   campus.
                 </p>
                 <div className="row">
-                 
                   {studySpaces.map((space) => (
                     <div key={space.location} className="col-md-4 mb-3">
                       <div className="card h-100">
-                        <img src={space.photo} className="card-img-top" alt="..."/>
+                        <img
+                          src={space.photo}
+                          className="card-img-top"
+                          alt="..."
+                        />
                         <div className="card-body">
                           <h5 className="card-title">{space.title}</h5>
                           <p className="card-text">{space.description}</p>
-                          <a onClick={() => handleClick(space)} className="btn btn-success">
+                          <a
+                            onClick={() => handleClick(space)}
+                            className="btn btn-success"
+                          >
                             View
                           </a>
                         </div>
                       </div>
                     </div>
-                    
                   ))}
-                 
                 </div>
-
               </div>
             </div>
           </div>
