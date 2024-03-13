@@ -87,7 +87,7 @@ const SignupPage = () => {
       
       <Navbar />
       <header className="App-header mb-5">
-        <h1 class="alumni-sans">SLO Study Sonar</h1>
+        <h1 className="alumni-sans">SLO Study Sonar</h1>
       </header>
 
       <div className="back-arrow-container mb-5">    

@@ -61,7 +61,7 @@ const LoginPage = () => {
   
       <Navbar />
       <header className="App-header">
-        <h1 class='alumni-sans'>SLO Study Sonar</h1>
+        <h1 className='alumni-sans'>SLO Study Sonar</h1>
       </header>
 
       <div className="back-arrow-container">    
@@ -112,7 +112,7 @@ const LoginPage = () => {
         </div>
       </div>
       <footer>
-             <div class="container">
+             <div className="container">
                 <p>&copy; 2024 SLO Study Sonar. All Rights Reserved.</p>
             </div>
         </footer>
