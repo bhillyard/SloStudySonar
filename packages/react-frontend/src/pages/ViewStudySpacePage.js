@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import BackArrowButton from "./BackArrowButton";
 import { Container } from "react-bootstrap";
 import "./ViewStudySpacePage.css";
+import { useNavigate } from "react-router-dom";
 import StarRating from "./StarRating"; // Import the StarRating component
 import ReviewBox from "./ReviewBox"; // Import the reviewBox component
 
@@ -10,6 +11,8 @@ const ViewStudySpacePage = () => {
   const location = useLocation();
   const { _id } = location.state;
   console.log(_id);
+
+  const navigate = useNavigate();
 
   //use states to keep page updated correctly
   const [studySpaceData, setStudySpaceData] = useState([]);
@@ -63,15 +66,7 @@ const ViewStudySpacePage = () => {
     setRatingUpdated(averageRating !== 0 || studySpaceReviews.length > 0);
   }, [averageRating, studySpaceReviews]);
 
-  const mapUpcomingStudySessions = studySessions.map((session) => {
-    return (
-      <li key={session._id}>
-        <Link to="/StudySessionPage" style={{ color: "black" }}>
-          {session.sessionName}
-        </Link>
-      </li>
-    );
-  });
+  
   //function to get the study space data with study space id passed from prev page
   function getStudySpace(_id) {
     fetch(`http://localhost:8000/spaces/${_id}`)
@@ -79,6 +74,14 @@ const ViewStudySpacePage = () => {
       .then((data) => {
         setStudySpaceData(data);
       });
+  }
+
+  function truncate(str, maxLength = 100) {
+    return str.length > maxLength ? str.substring(0, maxLength - 3) + '...' : str;
+  }
+
+  const goToStudySession = (sessionId) => {
+    navigate(`/viewStudySession/${sessionId}`)
   }
 
   return (
@@ -174,11 +177,34 @@ const ViewStudySpacePage = () => {
                 </div>
               </div>
               <hr></hr>
-              <div>
-                <h2> Upcoming Study Sessions</h2>
-                <ul className="building-list">
-                  <ul>{mapUpcomingStudySessions}</ul>
-                </ul>
+              <h2> Upcoming Study Sessions</h2>
+              <div className="row">
+                { studySessions.map((session) => {
+                    return (
+                      <div key={session._id} className="col-md-6 mb-3">
+                        <div className="card">
+                          <div className="card-title mt-2">
+                            <div className="col-md-12">
+                              <h4 className="mx-3">{session.sessionName}</h4>
+                            </div>
+                          </div>
+                          <div className="card-body pt-1">
+                            <div className="row">
+                              <p>{session.date}</p>
+                              <p>{session.startTime} - {session.endTime}</p>
+                              <p>{truncate(session.description)}</p>
+                            </div>
+                            <div className="row mx-2">
+                              <a onClick={() => goToStudySession(session._id)} className="btn btn-success">More Information</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })
+                }
+                <a className="btn btn-success">View All Study Sessions</a>
+                
               </div>
 
               <hr></hr>

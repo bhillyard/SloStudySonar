@@ -11,6 +11,7 @@ const ViewStudySessionPage = () => {
     // use states to keep page updated correctly
     const [studySessionData, setStudySessionData] = useState([]);
     const [studySpaceData, setStudySpaceData] = useState([]);
+    const [hostData, setHostData] = useState([]);
     
 
     useEffect(() => {
@@ -33,7 +34,17 @@ const ViewStudySessionPage = () => {
         }).catch((error) => {
             console.error("Error fetching study space:", error);
         });
-    })
+
+        fetch(`http://localhost:8000/users/${studySessionData.host}`)
+            .then((response) => response.json())
+            .then((data) => {
+                setHostData(data);
+            }).catch((error) => {
+                console.error("Error fetching host:", error);
+            });
+
+        
+    }, [id, studySessionData.space, studySessionData.host]);
 
     return (
         <div>
@@ -63,7 +74,7 @@ const ViewStudySessionPage = () => {
                             <p>{studySessionData.description}</p>
                         </div>
                         <div className="row">
-                            <h5>Hosted by: C.J. DuHamel</h5>
+                            <h5>Hosted by: {hostData.displayName} </h5>
                         </div>
                         <div className="row mt-3">
                             <a className="btn btn-success">Join Study Session</a>
