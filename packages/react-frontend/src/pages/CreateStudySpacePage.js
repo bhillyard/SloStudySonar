@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./CreateStudySpacePage.css"; // Import CSS file for styling
 import Cookies from "js-cookie";
 
+
 const CreateStudySpacePage = () => {
   const [onCampus, setOnCampus] = useState(false);
   const [title, setTitle] = useState("");

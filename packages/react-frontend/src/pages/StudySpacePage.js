@@ -22,9 +22,7 @@ const StudySpacePage = () => {
   }, []);
 
   const handleClick = (space) => {
-    navigate("/viewStudySpace", {
-      state: { _id: space._id },
-    });
+    navigate("/viewStudySpace/" + space._id);
   };
 
   const handleFilterChange = (e) => {
@@ -41,6 +39,12 @@ const StudySpacePage = () => {
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
+
+  function truncate(str, maxLength = 200) {
+    return str.length > maxLength
+      ? str.substring(0, maxLength - 3) + "..."
+      : str;
+  }
 
   const filteredStudySpaces = studySpaces.filter((space) =>
     space.title.toLowerCase().startsWith(searchQuery.toLowerCase()),
@@ -102,9 +106,9 @@ const StudySpacePage = () => {
           <div className="row justify-content-center">
             <div className="col-lg-8">
               <div className="on-campus-container">
-                <h2>On-Campus</h2>
+                <h2>All Study Spaces</h2>
                 <p>
-                  See buildings, labs, and other study locations on the Cal Poly
+                  See buildings, labs, and other study locations on and off the Cal Poly
                   campus.
                 </p>
                 <div className="row">
@@ -118,7 +122,7 @@ const StudySpacePage = () => {
                         />
                         <div className="card-body">
                           <h5 className="card-title">{space.title}</h5>
-                          <p className="card-text">{space.description}</p>
+                          <p className="card-text">{truncate(space.description)}</p>
                           <a
                             onClick={() => handleClick(space)}
                             className="btn btn-success"

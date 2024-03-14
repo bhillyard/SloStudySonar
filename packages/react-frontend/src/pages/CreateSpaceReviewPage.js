@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import StarRating from "./ClickStarRating"; // Import the StarRating component
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import BackArrowButton from "./BackArrowButton";
 import Cookies from "js-cookie";
 import { Button } from "react-bootstrap";
 
 const CreateSpaceReviewPage = () => {
-  const location = useLocation();
-  const _id = location.state ? location.state._id : null;
+  const {id} = useParams();
   //const spaceId = id ? id : null;
-  console.log(_id);
+  console.log(id);
   //const navigate = useNavigate(); // Get the navigate object from React Router
 
   const [title, setTitle] = useState("");
@@ -54,6 +53,7 @@ const CreateSpaceReviewPage = () => {
       title: title,
       review: review,
       rating: curRating,
+      space: id
     };
     console.log(formData);
     if (title === "") {
@@ -63,7 +63,7 @@ const CreateSpaceReviewPage = () => {
       alert("Please provide review details");
       return;
     }
-    postReview(_id, formData)
+    postReview(id, formData)
       .then((response) => {
         if (response.status === 201) {
           alert("Review added successfully");

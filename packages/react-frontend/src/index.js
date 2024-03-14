@@ -16,6 +16,7 @@ import ViewStudySpacePage from "./pages/ViewStudySpacePage";
 import StudySessionPage from "./pages/StudySessionPage";
 import CreateStudySpacePage from "./pages/CreateStudySpacePage";
 import ViewStudySessionPage from "./pages/viewStudySessionPage";
+import CreateStudySessionPage from "./pages/CreateStudySessionPage";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import About from "./pages/about";
 import PrivacyPolicy from "./pages/privacy";
@@ -56,7 +57,7 @@ const router = createBrowserRouter([
     element: <YourSessions />,
   },
   {
-    path: "ViewStudySpace",
+    path: "ViewStudySpace/:id",
     element: <ViewStudySpacePage />,
   },
   {
@@ -86,8 +87,12 @@ const router = createBrowserRouter([
     element: <ViewStudySessionPage />,
   },
   {
-    path: "CreateSpaceReview",
+    path: "viewStudySpace/:id/CreateSpaceReview",
     element: <CreateSpaceReviewPage />,
+  },
+  {
+    path: "viewStudySpace/:id/CreateStudySession",
+    element: <CreateStudySessionPage />,
   },
   {
     element: <NotFoundPage />, // Not found page doesn't work

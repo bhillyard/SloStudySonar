@@ -1,11 +1,10 @@
 import React, { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import "./CreateStudySpacePage.css"; // Import CSS file for styling
 import Cookies from "js-cookie";
 
-const CreateStudySpacePage = () => {
-  const [onCampus, setOnCampus] = useState(false);
+const CreateStudySessionPage = () => {
   const [title, setTitle] = useState("");
-  const [location, setLocation] = useState("");
   const [hoursStart, setHoursStart] = useState("00");
   const [minutesStart, setMinutesStart] = useState("00");
   const [amPmStart, setAmPmStart] = useState("AM");
@@ -13,8 +12,12 @@ const CreateStudySpacePage = () => {
   const [minutesEnd, setMinutesEnd] = useState("00");
   const [amPmEnd, setAmPmEnd] = useState("AM");
   const [description, setDescription] = useState("");
-  const [photo, setPhoto] = useState(null);
+  const [date, setDate] = useState("");
 
+  const { id } = useParams();
+
+  const navigate = useNavigate();
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     const formattedHoursStart =
@@ -41,29 +44,25 @@ const CreateStudySpacePage = () => {
     console.log("Operating Hours End:", operatingHoursEnd);
     // post spacedata
 
-    // const formData = {
-    //   title: title,
-    //   onCampus: onCampus,
-    //   location: location,
-    //   operatingHours: `${operatingHoursStart}-${operatingHoursEnd}`,
-    //   description: description,
-    // };
+    const formData = {
+        space: id,
+      sessionName: title,
+      date: date,
+      location: location,
+      startTime: operatingHoursStart,
+      endTime: operatingHoursEnd,
+      description: description,
+    };
 
-    const formData = new FormData();
-
-    formData.append("title", title);
-    formData.append("onCampus", onCampus);
-    formData.append("location", location);
-    formData.append("operatingHours", `${operatingHoursStart}-${operatingHoursEnd}`);
-    formData.append("description", description);
-    formData.append("photo", photo);
     
-    console.log(photo);
+    
     if (
-      formData.title === "" ||
-      formData.location === "" ||
-      formData.operatingHours === "" ||
-      formData.description === ""
+        formData.space === "" ||
+      formData.sessionName === "" ||
+      formData.startTime === "" ||
+      formData.endTime === "" ||
+      formData.description === "" ||
+      formData.date === ""
     ) {
       alert("Please fill out all the required fields");
       return;
@@ -80,32 +79,32 @@ const CreateStudySpacePage = () => {
         alert(error);
       });
     console.log(formData);
+
+    
+    navigate(`/viewStudySpace/${id}`);
   };
 
-  function postStudySpace(spaceData) {
+  function postStudySpace(sessionData) {
     console.log(Cookies.get("token"));
     // eslint-disable-next-line no-undef
-    const promise = fetch(`${process.env.REACT_APP_BACKEND_URL}/spaces`, {
+    const promise = fetch(`${process.env.REACT_APP_BACKEND_URL}/sessions`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${Cookies.get("token")}`,
         "Content-Type": "application/json",
       },
-      body: spaceData
+      body: JSON.stringify(sessionData),
     });
     return promise;
   }
 
   return (
-    <div className="container">
+    <div className="container d-flex align-items-center">
       <header>
-        <h1>Add a Study Session</h1>
+        <h1 className="my-3">Add a Study Session</h1>
       </header>
       <form onSubmit={handleSubmit}>
-        <div>
-          
-        </div>
-        <div>
+        <div className="form-group">
           <label>
             Session Title:
             <input
@@ -115,8 +114,18 @@ const CreateStudySpacePage = () => {
             />
           </label>
         </div>
-        <div className="time-picker">
-          <label>Session Time</label>
+        <div className="form-group">
+          <label>
+            Date:
+            <input
+              type="text"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+            />
+          </label>
+        </div>
+        <div className="time-picker form-group mt-3">
+          <label className="me-2">Session Time:</label>
           <input
             type="number"
             min="0"
@@ -160,7 +169,7 @@ const CreateStudySpacePage = () => {
             <option value="PM">PM</option>
           </select>
         </div>
-        <div className="description">
+        <div className="description form-group mt-2">
           <label>
             Description:<br></br>
             <textarea
@@ -170,10 +179,10 @@ const CreateStudySpacePage = () => {
           </label>
         </div>
         
-        <button type="submit">Submit</button>
+        <button className="mt-3 btn btn-success" type="submit">Submit</button>
       </form>
     </div>
   );
 };
 
-export default CreateStudySpacePage;
+export default CreateStudySessionPage;
