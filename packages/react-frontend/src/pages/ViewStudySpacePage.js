@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-
 import { useLocation, useNavigate } from "react-router-dom";
 
 import BackArrowButton from "./BackArrowButton";
@@ -15,7 +14,6 @@ const ViewStudySpacePage = () => {
   const { _id } = location.state;
   const navigate = useNavigate(); // Get the navigate object from React Router
   console.log(_id);
-
 
   //use states to keep page updated correctly
   const [studySpaceData, setStudySpaceData] = useState([]);
@@ -69,7 +67,6 @@ const ViewStudySpacePage = () => {
     setRatingUpdated(averageRating !== 0 || studySpaceReviews.length > 0);
   }, [averageRating, studySpaceReviews]);
 
-  
   //function to get the study space data with study space id passed from prev page
   function getStudySpace(_id) {
     fetch(`http://localhost:8000/spaces/${_id}`)
@@ -85,15 +82,16 @@ const ViewStudySpacePage = () => {
     });
   };
 
-
   function truncate(str, maxLength = 100) {
-    return str.length > maxLength ? str.substring(0, maxLength - 3) + '...' : str;
+    return str.length > maxLength
+      ? str.substring(0, maxLength - 3) + "..."
+      : str;
   }
 
   const goToStudySession = (sessionId) => {
-    navigate(`/viewStudySession/${sessionId}`)
-  }
-  
+    navigate(`/viewStudySession/${sessionId}`);
+  };
+
   return (
     <div>
       <header className="Appheader">
@@ -189,32 +187,37 @@ const ViewStudySpacePage = () => {
               <hr></hr>
               <h2> Upcoming Study Sessions</h2>
               <div className="row">
-                { studySessions.map((session) => {
-                    return (
-                      <div key={session._id} className="col-md-6 mb-3">
-                        <div className="card">
-                          <div className="card-title mt-2">
-                            <div className="col-md-12">
-                              <h4 className="mx-3">{session.sessionName}</h4>
-                            </div>
+                {studySessions.map((session) => {
+                  return (
+                    <div key={session._id} className="col-md-6 mb-3">
+                      <div className="card">
+                        <div className="card-title mt-2">
+                          <div className="col-md-12">
+                            <h4 className="mx-3">{session.sessionName}</h4>
                           </div>
-                          <div className="card-body pt-1">
-                            <div className="row">
-                              <p>{session.date}</p>
-                              <p>{session.startTime} - {session.endTime}</p>
-                              <p>{truncate(session.description)}</p>
-                            </div>
-                            <div className="row mx-2">
-                              <a onClick={() => goToStudySession(session._id)} className="btn btn-success">More Information</a>
-                            </div>
+                        </div>
+                        <div className="card-body pt-1">
+                          <div className="row">
+                            <p>{session.date}</p>
+                            <p>
+                              {session.startTime} - {session.endTime}
+                            </p>
+                            <p>{truncate(session.description)}</p>
+                          </div>
+                          <div className="row mx-2">
+                            <a
+                              onClick={() => goToStudySession(session._id)}
+                              className="btn btn-success"
+                            >
+                              More Information
+                            </a>
                           </div>
                         </div>
                       </div>
-                    );
-                  })
-                }
+                    </div>
+                  );
+                })}
                 <a className="btn btn-success">View All Study Sessions</a>
-                
               </div>
 
               <hr></hr>
@@ -224,9 +227,9 @@ const ViewStudySpacePage = () => {
                     <h2 className="mb-0"> Reviews of {studySpaceData.title}</h2>
                   </div>
                   <div className="col-auto">
-                    <a className="btn btn-success mb-1" onClick={handleClick}>Make a Review</a>
-                   
-
+                    <a className="btn btn-success mb-1" onClick={handleClick}>
+                      Make a Review
+                    </a>
                   </div>
                 </div>
                 {studySpaceReviews.length === 0 ? (
