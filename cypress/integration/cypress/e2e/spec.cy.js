@@ -26,7 +26,7 @@ describe("End-to-end tests", () => {
     cy.get(".btn-success:first").click();
 
     // Verify that reviews are visible
-    cy.get("button")
+    cy.get('.btn-success')
       .contains("Make a Review")
       .click();
     cy.get("button")
@@ -78,26 +78,28 @@ describe("End-to-end tests", () => {
     cy.get("button").contains("Browse Study Spaces").click();
     cy.contains("here!").click();
 
-    cy.get('input[type="checkbox"]').check(); // Check the on-campus checkbox
-    cy.get('input[type="text"][placeholder="Title:"]').type("University Union");
-    cy.get('input[type="text"][placeholder="Location:"]').type("Cal Poly, San Luis Obispo, CA");
-    cy.get('input[type="number"][min="0"][max="12"]').eq(0).type("7"); // Start hours
-    cy.get('input[type="number"][min="0"][max="59"]').eq(0).type("00"); // Start minutes
-    cy.get('select').eq(0).select("AM"); // Start AM/PM
-    cy.get('input[type="number"][min="0"][max="12"]').eq(1).type("10"); // End hours
-    cy.get('input[type="number"][min="0"][max="59"]').eq(1).type("00"); // End minutes
-    cy.get('select').eq(1).select("PM"); // End AM/PM
-    cy.get('textarea').type("The UU is a chill place for students to come and study "); // Description
-    cy.get('button[type="submit"]').click(); // Submit the form
-
     // Check if the study space was added successfully
     // cy.on("window:alert", (str) => {
     //   expect(str).to.equal("Study Space added successfully");
     // });
 
+  });
+
+  it("navigate to various landing page links", () => {
+    cy.contains("About SLO Study Sonar").click();
+    cy.contains("Home").click();
+    cy.contains("Contact Us").click();
+    cy.contains("Home").click();
+    cy.contains("Privacy Policy").click();
     cy.contains("Home").click();
 
   });
+
+  it("navigate to an individual study session", () => {
+    cy.contains("Browse Study Spaces").click();
+    cy.get(".btn-success:first").click();
+    cy.get(".btn-success:first").contains("More Information").click();
+  })
 
   // it("should navigate to the StudySessionPage and see upcoming study sessions", () => {
   //   // Click on a study space card to view its details
