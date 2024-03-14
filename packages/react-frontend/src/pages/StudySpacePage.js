@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
-import BackArrowButton from "./BackArrowButton"; // Import the BackArrowButton component
-import { useNavigate, Link } from "react-router-dom"; // Import useNavigate hook from React Router
-import "./StudySpacePage.css"; // Import CSS file for styling
+import BackArrowButton from "./BackArrowButton";
+import { useNavigate, Link } from "react-router-dom";
+import "./StudySpacePage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 
 const StudySpacePage = () => {
   const [studySpaces, setSpaces] = useState([]);
-  const [selectedFilters, setSelectedFilters] = useState([]); // State to manage the selected filters
-  const [isOpen, setIsOpen] = useState(false); // State to manage the dropdown visibility
-  const navigate = useNavigate(); // Get the navigate object from React Router
+  const [selectedFilters, setSelectedFilters] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState(""); // State to manage search query
+  const navigate = useNavigate();
 
-  //get all study spaces (going to need to separate to on campus and off campus later)
   useEffect(() => {
     fetch("http://localhost:8000/spaces")
       .then((response) => response.json())
@@ -34,17 +34,28 @@ const StudySpacePage = () => {
         selectedValues.push(options[i].value);
       }
     }
-    setSelectedFilters(selectedValues); // Update the selected filters state when the user changes the selection
+    setSelectedFilters(selectedValues);
   };
 
   const toggleDropdown = () => {
-    setIsOpen(!isOpen); // Toggle the dropdown visibility
+    setIsOpen(!isOpen);
   };
+
+  const filteredStudySpaces = studySpaces.filter((space) =>
+    space.title.toLowerCase().startsWith(searchQuery.toLowerCase()),
+  );
+
+  // Remove duplicates based on space ID
+  const uniqueStudySpaces = Array.from(
+    new Set(filteredStudySpaces.map((space) => space._id)),
+  ).map((id) => {
+    return filteredStudySpaces.find((space) => space._id === id);
+  });
 
   return (
     <div>
       <header className="Appheader">
-        <BackArrowButton /> {/* back arrow button to go to prev page */}
+        <BackArrowButton />
         <h1> </h1>
       </header>
       <div className="">
@@ -53,7 +64,12 @@ const StudySpacePage = () => {
             <h2>Study Spaces</h2>
             <p>Find the perfect study spot</p>
             {/* Search Bar */}
-            <input type="text" placeholder="Search..." onChange={() => {}} />
+            <input
+              type="text"
+              placeholder="Search..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
           </div>
           {/* Drop-down Menu */}
           <div className="dropdown">
@@ -76,7 +92,8 @@ const StudySpacePage = () => {
             )}
           </div>
           <div>
-            Have a study space you want to share?<br></br>
+            Have a study space you want to share?
+            <br />
             Submit a new study space
             <Link to="/createStudySpace">here!</Link>
           </div>
@@ -90,7 +107,7 @@ const StudySpacePage = () => {
                   campus.
                 </p>
                 <div className="row">
-                  {studySpaces.map((space) => (
+                  {uniqueStudySpaces.map((space) => (
                     <div key={space.location} className="col-md-4 mb-3">
                       <div className="card h-100">
                         <img
