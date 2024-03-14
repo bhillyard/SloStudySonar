@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 
+
 import { useLocation, useNavigate } from "react-router-dom";
+
 import BackArrowButton from "./BackArrowButton";
 import { Container } from "react-bootstrap";
 import "./ViewStudySpacePage.css";
@@ -83,6 +85,7 @@ const ViewStudySpacePage = () => {
     });
   };
 
+
   function truncate(str, maxLength = 100) {
     return str.length > maxLength ? str.substring(0, maxLength - 3) + '...' : str;
   }
@@ -90,7 +93,7 @@ const ViewStudySpacePage = () => {
   const goToStudySession = (sessionId) => {
     navigate(`/viewStudySession/${sessionId}`)
   }
-
+  
   return (
     <div>
       <header className="Appheader">
@@ -213,6 +216,7 @@ const ViewStudySpacePage = () => {
                 <a className="btn btn-success">View All Study Sessions</a>
                 
               </div>
+
               <hr></hr>
               <div className="container">
                 <div className="row align-items-center mb-2">
@@ -222,6 +226,7 @@ const ViewStudySpacePage = () => {
                   <div className="col-auto">
                     <a className="btn btn-success mb-1" onClick={handleClick}>Make a Review</a>
                    
+
                   </div>
                 </div>
                 {studySpaceReviews.length === 0 ? (
