@@ -17,15 +17,18 @@ const CreateSpaceReviewPage = () => {
   const [curRating, setRating] = useState(0);
 
   function postReview(id, reviewData) {
-    //const url = "http://localhost:8000/spaces/id/reviews";
-    const promise = fetch(`http://localhost:8000/spaces/${id}/reviews`, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${Cookies.get("token")}`,
-        "Content-Type": "application/json",
+    const promise = fetch(
+      `slostudysonar.azurewebsites.net
+    /spaces/${id}/reviews`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${Cookies.get("token")}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(reviewData),
       },
-      body: JSON.stringify(reviewData),
-    });
+    );
     return promise;
   }
 

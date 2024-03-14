@@ -73,7 +73,7 @@ const CreateStudySpacePage = () => {
 
   function postStudySpace(spaceData) {
     console.log(Cookies.get("token"));
-    const promise = fetch("http://localhost:8000/spaces", {
+    const promise = fetch("slostudysonar.azurewebsites.net/spaces", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${Cookies.get("token")}`,

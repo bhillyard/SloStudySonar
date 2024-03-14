@@ -12,7 +12,8 @@ const ViewStudySessionPage = () => {
   const [hostData, setHostData] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/sessions/${id}`)
+    fetch(`slostudysonar.azurewebsites.net
+    /sessions/${id}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch study session");
@@ -26,7 +27,8 @@ const ViewStudySessionPage = () => {
         console.error("Error fetching study session:", error);
       });
 
-    fetch(`http://localhost:8000/spaces/${studySessionData.space}`)
+    fetch(`slostudysonar.azurewebsites.net
+    /spaces/${studySessionData.space}`)
       .then((response) => response.json())
       .then((data) => {
         setStudySpaceData(data);
@@ -35,7 +37,8 @@ const ViewStudySessionPage = () => {
         console.error("Error fetching study space:", error);
       });
 
-    fetch(`http://localhost:8000/users/${studySessionData.host}`)
+    fetch(`slostudysonar.azurewebsites.net
+    /users/${studySessionData.host}`)
       .then((response) => response.json())
       .then((data) => {
         setHostData(data);

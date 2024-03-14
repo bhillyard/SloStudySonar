@@ -21,7 +21,7 @@ const LoginPage = () => {
   };
 
   function postUser(userData) {
-    const promise = fetch("http://localhost:8000/users/login", {
+    const promise = fetch("slostudysonar.azurewebsites.net/users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
