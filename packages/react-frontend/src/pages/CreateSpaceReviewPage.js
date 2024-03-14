@@ -19,7 +19,7 @@ const CreateSpaceReviewPage = () => {
   function postReview(id, reviewData) {
     const promise = fetch(
       // eslint-disable-next-line no-undef
-      `${process.env.BACKEND_URL}/spaces/${id}/reviews`,
+      `${process.env.REACT_APP_BACKEND_URL}/spaces/${id}/reviews`,
       {
         method: "POST",
         headers: {
