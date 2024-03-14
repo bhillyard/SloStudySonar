@@ -15,6 +15,7 @@ const StudySpaceSchema = new mongoose.Schema(
       type: String,
       required: true,
       trim: true,
+      unique: true,
     },
     photo: {
       type: String,

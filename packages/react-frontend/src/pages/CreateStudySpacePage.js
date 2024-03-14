@@ -40,25 +40,13 @@ const CreateStudySpacePage = () => {
     console.log("Operating Hours Start:", operatingHoursStart);
     console.log("Operating Hours End:", operatingHoursEnd);
     // post spacedata
-    const formData = new FormData();
-
-    formData.append("title", title);
-    formData.append("onCampus", onCampus);
-    formData.append("location", location);
-    formData.append(
-      "operatingHours",
-      `${operatingHoursStart}-${operatingHoursEnd}`,
-    );
-    formData.append("description", description);
-    formData.append("photo", photo);
-
-    // const formData = {
-    //     title: title,
-    //     onCampus: onCampus,
-    //     location: location,
-    //     operatingHours: `${operatingHoursStart}-${operatingHoursEnd}`,
-    //     description: description,
-    //   };
+    const formData = {
+      title: title,
+      onCampus: onCampus,
+      location: location,
+      operatingHours: `${operatingHoursStart}-${operatingHoursEnd}`,
+      description: description,
+    };
     console.log(photo);
     if (
       formData.title === "" ||
@@ -89,27 +77,30 @@ const CreateStudySpacePage = () => {
       method: "POST",
       headers: {
         Authorization: `Bearer ${Cookies.get("token")}`,
+        "Content-Type": "application/json",
       },
-      body: spaceData,
+      body: JSON.stringify(spaceData),
     });
     return promise;
   }
 
   return (
     <div className="container">
-      <h1 className="my-3">Add a Study Space</h1>
-
+      <header>
+        <h1>Add a Study Space</h1>
+      </header>
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label className="me-2">On Campus:</label>
-          <input
-            type="checkbox"
-            checked={onCampus}
-            onChange={(e) => setOnCampus(e.target.checked)}
-            className="form-check-input"
-          />
+        <div>
+          <label>
+            On Campus:
+            <input
+              type="checkbox"
+              checked={onCampus}
+              onChange={(e) => setOnCampus(e.target.checked)}
+            />
+          </label>
         </div>
-        <div className="form-group">
+        <div>
           <label>
             Title:
             <input
@@ -119,7 +110,7 @@ const CreateStudySpacePage = () => {
             />
           </label>
         </div>
-        <div className="mt-2 form-group">
+        <div>
           <label>
             Location:
             <input
@@ -129,7 +120,7 @@ const CreateStudySpacePage = () => {
             />
           </label>
         </div>
-        <div className="time-picker mt-3">
+        <div className="time-picker">
           <label>Operating Hours:</label>
           <input
             type="number"
@@ -174,7 +165,7 @@ const CreateStudySpacePage = () => {
             <option value="PM">PM</option>
           </select>
         </div>
-        <div className="description mt-2">
+        <div className="description">
           <label>
             Description:<br></br>
             <textarea
@@ -184,22 +175,15 @@ const CreateStudySpacePage = () => {
           </label>
         </div>
         {/* File upload input */}
-        <div className="photo-upload form-group">
-          <label className="me-2 mb-1">Upload Photo:</label>
+        <div className="photo-upload">
+          <label>Upload Photo:</label>
           <input
-            className="form-control"
             type="file"
             accept="image/*" // Specify that only image files are allowed
             onChange={(e) => setPhoto(e.target.files[0])} // Store the uploaded file in state
           />
         </div>
-        <div className="row">
-          <div className="col-md-6">
-            <button className="mt-3 btn" type="submit">
-              Submit
-            </button>
-          </div>
-        </div>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
