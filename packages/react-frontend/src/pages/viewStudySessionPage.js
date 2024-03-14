@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 // import { useLocation, Link } from "react-router-dom";
@@ -26,7 +27,9 @@ const ViewStudySessionPage = () => {
         console.error("Error fetching study session:", error);
       });
 
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/spaces/${studySessionData.space}`)
+    fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/spaces/${studySessionData.space}`,
+    )
       .then((response) => response.json())
       .then((data) => {
         setStudySpaceData(data);

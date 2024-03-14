@@ -73,6 +73,7 @@ const CreateStudySpacePage = () => {
 
   function postStudySpace(spaceData) {
     console.log(Cookies.get("token"));
+    // eslint-disable-next-line no-undef
     const promise = fetch(`${process.env.REACT_APP_BACKEND_URL}/spaces`, {
       method: "POST",
       headers: {

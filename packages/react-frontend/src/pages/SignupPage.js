@@ -26,6 +26,7 @@ const SignupPage = () => {
   };
 
   function postUser(userData) {
+    // eslint-disable-next-line no-undef
     const promise = fetch(`${process.env.REACT_APP_BACKEND_URL}/users`, {
       method: "POST",
       headers: {

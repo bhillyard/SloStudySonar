@@ -7,6 +7,7 @@ const ReviewBox = ({ starRating, reviewTitle, author, date, review }) => {
   const [formattedDate, setFormattedDate] = useState(""); // State to store the formatted date
   useEffect(() => {
     // Fetch username for the current review
+    // eslint-disable-next-line no-undef
     fetch(`${process.env.REACT_APP_BACKEND_URL}/users/${author}`) // Assuming userId exists in review data
       .then((response) => response.json())
       .then((data) => setUsername(data.displayName))
