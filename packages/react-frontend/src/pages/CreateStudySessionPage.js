@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./CreateStudySpacePage.css"; // Import CSS file for styling
 import Cookies from "js-cookie";
+import Navbar from "../Navigation/Navbar.js";
+import BackArrowButton from "./BackArrowButton";
 
 const CreateStudySessionPage = () => {
   const [title, setTitle] = useState("");
@@ -17,7 +19,7 @@ const CreateStudySessionPage = () => {
   const { id } = useParams();
 
   const navigate = useNavigate();
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const formattedHoursStart =
@@ -99,88 +101,96 @@ const CreateStudySessionPage = () => {
   }
 
   return (
-    <div className="container d-flex align-items-center">
-      <header>
-        <h1 className="my-3">Add a Study Session</h1>
-      </header>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>
-            Session Title:
+    <div>
+        <Navbar />
+        <header className="Appheader">
+        <h1> </h1>
+            <BackArrowButton />
+            
+        </header>
+        <div className="container d-flex align-items-center">
+        <header>
+            <h1 className="my-3">Add a Study Session</h1>
+        </header>
+        <form onSubmit={handleSubmit}>
+            <div className="form-group">
+            <label>
+                Session Title:
+                <input
+                type="text"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                />
+            </label>
+            </div>
+            <div className="form-group">
+            <label>
+                Date:
+                <input
+                type="text"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                />
+            </label>
+            </div>
+            <div className="time-picker form-group mt-3">
+            <label className="me-2">Session Time:</label>
             <input
-              type="text"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
+                type="number"
+                min="0"
+                max="12"
+                value={hoursStart}
+                onChange={(e) => setHoursStart(e.target.value)}
             />
-          </label>
-        </div>
-        <div className="form-group">
-          <label>
-            Date:
+            :
             <input
-              type="text"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
+                type="number"
+                min="0"
+                max="59"
+                value={minutesStart}
+                onChange={(e) => setMinutesStart(e.target.value)}
             />
-          </label>
-        </div>
-        <div className="time-picker form-group mt-3">
-          <label className="me-2">Session Time:</label>
-          <input
-            type="number"
-            min="0"
-            max="12"
-            value={hoursStart}
-            onChange={(e) => setHoursStart(e.target.value)}
-          />
-          :
-          <input
-            type="number"
-            min="0"
-            max="59"
-            value={minutesStart}
-            onChange={(e) => setMinutesStart(e.target.value)}
-          />
-          <select
-            value={amPmStart}
-            onChange={(e) => setAmPmStart(e.target.value)}
-          >
-            <option value="AM">AM</option>
-            <option value="PM">PM</option>
-          </select>
-          {" - "}
-          <input
-            type="number"
-            min="0"
-            max="12"
-            value={hoursEnd}
-            onChange={(e) => setHoursEnd(e.target.value)}
-          />
-          :
-          <input
-            type="number"
-            min="0"
-            max="59"
-            value={minutesEnd}
-            onChange={(e) => setMinutesEnd(e.target.value)}
-          />
-          <select value={amPmEnd} onChange={(e) => setAmPmEnd(e.target.value)}>
-            <option value="AM">AM</option>
-            <option value="PM">PM</option>
-          </select>
-        </div>
-        <div className="description form-group mt-2">
-          <label>
-            Description:<br></br>
-            <textarea
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
+            <select
+                value={amPmStart}
+                onChange={(e) => setAmPmStart(e.target.value)}
+            >
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+            </select>
+            {" - "}
+            <input
+                type="number"
+                min="0"
+                max="12"
+                value={hoursEnd}
+                onChange={(e) => setHoursEnd(e.target.value)}
             />
-          </label>
+            :
+            <input
+                type="number"
+                min="0"
+                max="59"
+                value={minutesEnd}
+                onChange={(e) => setMinutesEnd(e.target.value)}
+            />
+            <select value={amPmEnd} onChange={(e) => setAmPmEnd(e.target.value)}>
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+            </select>
+            </div>
+            <div className="description form-group mt-2">
+            <label>
+                Description:<br></br>
+                <textarea
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+                />
+            </label>
+            </div>
+            
+            <button className="mt-3 btn btn-success" type="submit">Submit</button>
+        </form>
         </div>
-        
-        <button className="mt-3 btn btn-success" type="submit">Submit</button>
-      </form>
     </div>
   );
 };

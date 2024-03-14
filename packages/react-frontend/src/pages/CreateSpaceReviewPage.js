@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import BackArrowButton from "./BackArrowButton";
 import Cookies from "js-cookie";
 import { Button } from "react-bootstrap";
+import Navbar from "../Navigation/Navbar.js";
 
 const CreateSpaceReviewPage = () => {
   const {id} = useParams();
@@ -83,38 +84,46 @@ const CreateSpaceReviewPage = () => {
   };
 
   return (
-    <div className="container">
-      <BackArrowButton />
-      <h1 className="my-3">Submit Review</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Title:</label>
-          <input
-            type="text"
-            value={title}
-            onChange={handleTitleChange}
-            placeholder="Enter title"
-          />
-        </div>
-        <div>
-          <label>Review:</label>
-          <br />
-          <textarea
-            value={review}
-            onChange={handleReviewChange}
-            placeholder="Enter review"
-          ></textarea>
-        </div>
-        <div>
-          <label>Rating:</label>
-          <StarRating initialRating={curRating} onChange={handleRatingChange} />
-        </div>
-        <div className="col-md-6">
-          <Button className="mt-3 btn" variant="primary" type="submit">
-            Submit
-          </Button>
-        </div>
-      </form>
+    <div>
+      <Navbar />
+      <header className="Appheader">
+      <h1> </h1>
+        <BackArrowButton />
+        
+      </header>
+      <div className="container">
+        
+        <h1 className="my-3">Submit Review</h1>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label>Title:</label>
+            <input
+              type="text"
+              value={title}
+              onChange={handleTitleChange}
+              placeholder="Enter title"
+            />
+          </div>
+          <div>
+            <label>Review:</label>
+            <br />
+            <textarea
+              value={review}
+              onChange={handleReviewChange}
+              placeholder="Enter review"
+            ></textarea>
+          </div>
+          <div>
+            <label>Rating:</label>
+            <StarRating initialRating={curRating} onChange={handleRatingChange} />
+          </div>
+          <div className="col-md-6">
+            <Button className="mt-3 btn" variant="primary" type="submit">
+              Submit
+            </Button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

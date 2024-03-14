@@ -2,7 +2,7 @@
 
 .Appheader {
   background-color: #106e08; /* Example background color */
-  height: 80px; /* Set the fixed height */
+  height: 50px; /* Set the fixed height */
   width: 100%; /* Make the header span the entire width */
   display: flex;
   justify-content: center;

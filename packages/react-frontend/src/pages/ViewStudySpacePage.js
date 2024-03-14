@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import React, { useState, useEffect } from "react";
-
+import Navbar from "../Navigation/Navbar.js";
 import { useParams, useNavigate } from "react-router-dom";
 
 import BackArrowButton from "./BackArrowButton";
@@ -97,6 +97,7 @@ const ViewStudySpacePage = () => {
 
   return (
     <div>
+      <Navbar />
       <header className="Appheader">
         <BackArrowButton /> {/* back arrow button to go back a page */}
         <h1> </h1>

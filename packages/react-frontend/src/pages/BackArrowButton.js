@@ -12,7 +12,7 @@ const BackArrowButton = () => {
     <div
       style={{
         position: "absolute",
-        top: "15px",
+        top: "60px",
         left: "15px",
         zIndex: "1000",
       }}
