@@ -85,7 +85,7 @@ const ViewStudySpacePage = () => {
 
   const handleClick = () => {
     navigate("/CreateSpaceReview", {
-      state: { _id: _id },
+      state: { _id: studySpaceData._id },
     });
   };
 
