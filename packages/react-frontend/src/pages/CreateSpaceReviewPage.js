@@ -5,6 +5,7 @@ import BackArrowButton from "./BackArrowButton";
 import Cookies from "js-cookie";
 import { Button } from "react-bootstrap";
 
+
 const CreateSpaceReviewPage = () => {
   const location = useLocation();
   const _id = location.state ? location.state._id : null;
@@ -17,15 +18,18 @@ const CreateSpaceReviewPage = () => {
   const [curRating, setRating] = useState(0);
 
   function postReview(id, reviewData) {
-    //const url = "http://localhost:8000/spaces/id/reviews";
-    const promise = fetch(`http://localhost:8000/spaces/${id}/reviews`, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${Cookies.get("token")}`,
-        "Content-Type": "application/json",
+    const promise = fetch(
+      `${process.env.BACKEND_URL}
+    /spaces/${id}/reviews`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${Cookies.get("token")}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(reviewData),
       },
-      body: JSON.stringify(reviewData),
-    });
+    );
     return promise;
   }
 

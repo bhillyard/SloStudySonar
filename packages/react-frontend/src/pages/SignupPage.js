@@ -26,7 +26,7 @@ const SignupPage = () => {
   };
 
   function postUser(userData) {
-    const promise = fetch("http://localhost:8000/users", {
+    const promise = fetch(`${process.env.REACT_APP_BACKEND_URL}/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
