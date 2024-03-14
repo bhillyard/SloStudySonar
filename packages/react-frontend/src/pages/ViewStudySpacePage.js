@@ -11,7 +11,6 @@ import StarRating from "./StarRating"; // Import the StarRating component
 import ReviewBox from "./ReviewBox"; // Import the reviewBox component
 
 const ViewStudySpacePage = () => {
- 
   const { id } = useParams();
   const navigate = useNavigate(); // Get the navigate object from React Router
   console.log(id);
@@ -194,14 +193,15 @@ const ViewStudySpacePage = () => {
                   <h2>Upcoming Study Sessions</h2>
                 </div>
                 <div className="col-md-3">
-                  <a className="btn btn-success mb-1" onClick={handleClickSessions}>
+                  <a
+                    className="btn btn-success mb-1"
+                    onClick={handleClickSessions}
+                  >
                     Create a Study Session
                   </a>
                 </div>
               </div>
               <div className="row">
-              
-              
                 {studySessions.map((session) => {
                   return (
                     <div key={session._id} className="col-md-6 mb-3">

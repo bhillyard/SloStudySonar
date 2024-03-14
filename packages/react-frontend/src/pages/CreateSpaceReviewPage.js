@@ -7,7 +7,7 @@ import { Button } from "react-bootstrap";
 import Navbar from "../Navigation/Navbar.js";
 
 const CreateSpaceReviewPage = () => {
-  const {id} = useParams();
+  const { id } = useParams();
   //const spaceId = id ? id : null;
   console.log(id);
   //const navigate = useNavigate(); // Get the navigate object from React Router
@@ -54,7 +54,7 @@ const CreateSpaceReviewPage = () => {
       title: title,
       review: review,
       rating: curRating,
-      space: id
+      space: id,
     };
     console.log(formData);
     if (title === "") {
@@ -87,12 +87,10 @@ const CreateSpaceReviewPage = () => {
     <div>
       <Navbar />
       <header className="Appheader">
-      <h1> </h1>
+        <h1> </h1>
         <BackArrowButton />
-        
       </header>
       <div className="container">
-        
         <h1 className="my-3">Submit Review</h1>
         <form onSubmit={handleSubmit}>
           <div>
@@ -115,7 +113,10 @@ const CreateSpaceReviewPage = () => {
           </div>
           <div>
             <label>Rating:</label>
-            <StarRating initialRating={curRating} onChange={handleRatingChange} />
+            <StarRating
+              initialRating={curRating}
+              onChange={handleRatingChange}
+            />
           </div>
           <div className="col-md-6">
             <Button className="mt-3 btn" variant="primary" type="submit">

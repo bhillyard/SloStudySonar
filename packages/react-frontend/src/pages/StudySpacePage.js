@@ -28,7 +28,7 @@ const StudySpacePage = () => {
 
   const handleCreate = () => {
     navigate("/createStudySpace");
-  }
+  };
 
   // const handleFilterChange = (e) => {
   //   const options = e.target.options;
@@ -66,9 +66,8 @@ const StudySpacePage = () => {
     <div>
       <Navbar />
       <header className="Appheader">
-      <h1> </h1>
+        <h1> </h1>
         <BackArrowButton />
-        
       </header>
       <div className="container mt-2 d-block">
         <div className="">
@@ -85,12 +84,11 @@ const StudySpacePage = () => {
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
             </div>
-            
           </div>
           <div className="">
-          {/* Drop-down Menu */}
-            
-              {/* <div className="dropdown">
+            {/* Drop-down Menu */}
+
+            {/* <div className="dropdown">
                 <div className="selected-filters" onClick={toggleDropdown}>
                   Filters{" "}
                   <span className={`arrow ${isOpen ? "up" : "down"}`}>&#9660;</span>
@@ -110,19 +108,20 @@ const StudySpacePage = () => {
                 )}
               
               </div> */}
-            
-              <div className="text-center mt-2">
-                <p className="mb-1">Have a study space you want to share?</p>
-              
-                <p className="mt-0">Submit a new study space!</p>
-              </div>
-              <div className="row text-center">
-                <div className="col-md-12">
-                  <a className="btn btn-success" onClick={handleCreate}>Create A Study Space</a>
-                </div>
-              </div>
-              
+
+            <div className="text-center mt-2">
+              <p className="mb-1">Have a study space you want to share?</p>
+
+              <p className="mt-0">Submit a new study space!</p>
             </div>
+            <div className="row text-center">
+              <div className="col-md-12">
+                <a className="btn btn-success" onClick={handleCreate}>
+                  Create A Study Space
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="row">
           <div className="row justify-content-center">
@@ -130,8 +129,8 @@ const StudySpacePage = () => {
               <div className="on-campus-container">
                 <h2>All Study Spaces</h2>
                 <p>
-                  See buildings, labs, and other study locations on and off the Cal Poly
-                  campus.
+                  See buildings, labs, and other study locations on and off the
+                  Cal Poly campus.
                 </p>
                 <div className="row">
                   {uniqueStudySpaces.map((space) => (
@@ -144,7 +143,9 @@ const StudySpacePage = () => {
                         />
                         <div className="card-body">
                           <h5 className="card-title">{space.title}</h5>
-                          <p className="card-text">{truncate(space.description)}</p>
+                          <p className="card-text">
+                            {truncate(space.description)}
+                          </p>
                           <a
                             onClick={() => handleClick(space)}
                             className="btn btn-success"

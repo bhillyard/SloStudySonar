@@ -53,9 +53,8 @@ const ViewStudySessionPage = () => {
     <div>
       <Navbar />
       <header className="Appheader">
-      <h1> </h1>
+        <h1> </h1>
         <BackArrowButton />
-        
       </header>
 
       <div className="container d-flex">
