@@ -205,7 +205,7 @@ const ViewStudySpacePage = () => {
       </div>
 
       <footer>
-        <div className="container">
+        <div className="container footer-container">
           <p>&copy; 2024 SLO Study Sonar. All Rights Reserved.</p>
         </div>
       </footer>
