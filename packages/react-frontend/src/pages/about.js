@@ -1,3 +1,5 @@
+import "bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap/dist/js/bootstrap.min.js';
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import "./about.css";
@@ -21,7 +23,7 @@ function About() {
       </div>
          
       <div className="about-main">
-        <div className="about-container">
+        <div className="about-container py-5">
           <h2 className="alumni-sans">About Us</h2>
           <p>
             Welcome to SLO Study Sonar! We're committed to providing students in

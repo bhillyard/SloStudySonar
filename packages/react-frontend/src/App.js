@@ -83,14 +83,14 @@ function App() {
 
       {/* Sign in or create an account... div */}
 
-      <div className="container mt-5 py-3 px-5 green-div source-sans-3">
+      <div className="mt-5 mx-auto py-3 px-5 w-75 green-div source-sans-3">
         <h1> <span className="text-primary"> <Link to="/login">Log in here</Link></span> or <span className="text-primary"><Link to="/signup">create an account</Link></span> to save your favorite study spots and register for study sessions.</h1>
       </div>
 
       {/*Features div*/}
       <div className="py-5">
         <h1 className="text-start px-5 source-sans-3">Features</h1>
-        <div className="container text-center">
+        <div className="text-center">
           <div className="row">
             <div className="col source-sans-3">
               <div><img src={review} className="w-75"/></div>
@@ -115,7 +115,7 @@ function App() {
 
       {/*Bottom segment div*/}
       <div className="mt-5 py-5 green-div">
-        <div className="container text-center">
+        <div className="text-center">
           <div className="row">
             <div className="col">
               <h5>About</h5>
@@ -147,7 +147,7 @@ function App() {
 
 
       <footer>
-    <div className="container">
+    <div>
       <p>&copy; 2024 SLO Study Sonar. All Rights Reserved.</p>
     </div>
   </footer>
