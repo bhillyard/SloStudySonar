@@ -40,13 +40,24 @@ const CreateStudySpacePage = () => {
     console.log("Operating Hours Start:", operatingHoursStart);
     console.log("Operating Hours End:", operatingHoursEnd);
     // post spacedata
-    const formData = {
-      title: title,
-      onCampus: onCampus,
-      location: location,
-      operatingHours: `${operatingHoursStart}-${operatingHoursEnd}`,
-      description: description,
-    };
+
+    // const formData = {
+    //   title: title,
+    //   onCampus: onCampus,
+    //   location: location,
+    //   operatingHours: `${operatingHoursStart}-${operatingHoursEnd}`,
+    //   description: description,
+    // };
+
+    const formData = new FormData();
+
+    formData.append("title", title);
+    formData.append("onCampus", onCampus);
+    formData.append("location", location);
+    formData.append("operatingHours", `${operatingHoursStart}-${operatingHoursEnd}`);
+    formData.append("description", description);
+    formData.append("photo", photo);
+    
     console.log(photo);
     if (
       formData.title === "" ||
@@ -78,9 +89,9 @@ const CreateStudySpacePage = () => {
       method: "POST",
       headers: {
         Authorization: `Bearer ${Cookies.get("token")}`,
-        "Content-Type": "application/json",
+        
       },
-      body: JSON.stringify(spaceData),
+      body: spaceData
     });
     return promise;
   }
