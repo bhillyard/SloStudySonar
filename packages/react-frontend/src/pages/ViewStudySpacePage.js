@@ -15,8 +15,6 @@ const ViewStudySpacePage = () => {
   const { _id } = location.state;
   const navigate = useNavigate(); // Get the navigate object from React Router
   console.log(_id);
-  const apiURL = process.env.REACT_APP_BACKEND_URL;
-  console.log("url: ", apiURL);
 
   //use states to keep page updated correctly
   const [studySpaceData, setStudySpaceData] = useState([]);
