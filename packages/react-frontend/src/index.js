@@ -83,7 +83,7 @@ const router = createBrowserRouter([
   },
   {
     path: "viewStudySession/:id",
-    element: <ViewStudySessionPage />
+    element: <ViewStudySessionPage />,
   },
   {
     path: "CreateSpaceReview",
