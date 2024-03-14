@@ -21,7 +21,7 @@ const LoginPage = () => {
   };
 
   function postUser(userData) {
-    const promise = fetch("slostudysonar.azurewebsites.net/users/login", {
+    const promise = fetch(`${process.env.REACT_APP_BACKEND_URL}/users/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

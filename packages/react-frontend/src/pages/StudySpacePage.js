@@ -13,7 +13,7 @@ const StudySpacePage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("slostudysonar.azurewebsites.net/spaces")
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/spaces`)
       .then((response) => response.json())
       .then((data) => {
         setSpaces(data);

@@ -5,6 +5,7 @@ import BackArrowButton from "./BackArrowButton";
 import Cookies from "js-cookie";
 import { Button } from "react-bootstrap";
 
+
 const CreateSpaceReviewPage = () => {
   const location = useLocation();
   const _id = location.state ? location.state._id : null;
@@ -18,7 +19,7 @@ const CreateSpaceReviewPage = () => {
 
   function postReview(id, reviewData) {
     const promise = fetch(
-      `slostudysonar.azurewebsites.net
+      `${process.env.BACKEND_URL}
     /spaces/${id}/reviews`,
       {
         method: "POST",

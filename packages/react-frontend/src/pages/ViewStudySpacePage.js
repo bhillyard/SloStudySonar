@@ -14,6 +14,8 @@ const ViewStudySpacePage = () => {
   const { _id } = location.state;
   const navigate = useNavigate(); // Get the navigate object from React Router
   console.log(_id);
+  const apiURL = process.env.REACT_APP_BACKEND_URL;
+  console.log("url: ", apiURL);
 
   //use states to keep page updated correctly
   const [studySpaceData, setStudySpaceData] = useState([]);
@@ -25,7 +27,7 @@ const ViewStudySpacePage = () => {
   //useEffect to get the study space data, study sessions, and reviews
   useEffect(() => {
     getStudySpace(_id);
-    fetch("slostudysonar.azurewebsites.net/sessions?space=" + _id)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/sessions?space=` + _id)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch study sessions");
@@ -38,8 +40,7 @@ const ViewStudySpacePage = () => {
       .catch((error) => {
         console.error("Error fetching study sessions:", error);
       });
-    fetch(`slostudysonar.azurewebsites.net
-    /spaces/${_id}/reviews`)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/spaces/${_id}/reviews`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch study space reviews");
@@ -70,8 +71,7 @@ const ViewStudySpacePage = () => {
 
   //function to get the study space data with study space id passed from prev page
   function getStudySpace(_id) {
-    fetch(`slostudysonar.azurewebsites.net
-    /spaces/${_id}`)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/spaces/${_id}`)
       .then((response) => response.json())
       .then((data) => {
         setStudySpaceData(data);
