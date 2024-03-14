@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Button } from "react-bootstrap";
-import { useLocation, Link, useNavigate } from "react-router-dom";
+
+import { useLocation, useNavigate } from "react-router-dom";
 import BackArrowButton from "./BackArrowButton";
 import { Container } from "react-bootstrap";
 import "./ViewStudySpacePage.css";
-import { useNavigate } from "react-router-dom";
+
 import StarRating from "./StarRating"; // Import the StarRating component
 import ReviewBox from "./ReviewBox"; // Import the reviewBox component
 
@@ -12,10 +12,8 @@ const ViewStudySpacePage = () => {
   const location = useLocation();
   const { _id } = location.state;
   const navigate = useNavigate(); // Get the navigate object from React Router
-  const navigate = useNavigate(); // Get the navigate object from React Router
   console.log(_id);
 
-  const navigate = useNavigate();
 
   //use states to keep page updated correctly
   const [studySpaceData, setStudySpaceData] = useState([]);
@@ -215,15 +213,15 @@ const ViewStudySpacePage = () => {
                 <a className="btn btn-success">View All Study Sessions</a>
                 
               </div>
+              <hr></hr>
               <div className="container">
-                <div className="row align-items-center">
+                <div className="row align-items-center mb-2">
                   <div className="col">
-                    <h2> Reviews of {studySpaceData.title}</h2>
+                    <h2 className="mb-0"> Reviews of {studySpaceData.title}</h2>
                   </div>
                   <div className="col-auto">
-                    <Button variant="primary" onClick={handleClick} type="submit">
-                      Make a Review
-                    </Button>
+                    <a className="btn btn-success mb-1" onClick={handleClick}>Make a Review</a>
+                   
                   </div>
                 </div>
                 {studySpaceReviews.length === 0 ? (
