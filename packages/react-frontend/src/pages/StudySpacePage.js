@@ -13,6 +13,7 @@ const StudySpacePage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // eslint-disable-next-line no-undef
     fetch(`${process.env.REACT_APP_BACKEND_URL}/spaces`)
       .then((response) => response.json())
       .then((data) => {
