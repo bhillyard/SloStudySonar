@@ -13,7 +13,6 @@ const ViewStudySessionPage = () => {
   const [hostData, setHostData] = useState([]);
 
   useEffect(() => {
-
     fetch(`${process.env.REACT_APP_BACKEND_URL}/sessions/${id}`)
       .then((response) => {
         if (!response.ok) {
@@ -28,8 +27,9 @@ const ViewStudySessionPage = () => {
         console.error("Error fetching study session:", error);
       });
 
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/spaces/${studySessionData.space}`)
-
+    fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/spaces/${studySessionData.space}`,
+    )
       .then((response) => response.json())
       .then((data) => {
         setStudySpaceData(data);
@@ -37,7 +37,6 @@ const ViewStudySessionPage = () => {
       .catch((error) => {
         console.error("Error fetching study space:", error);
       });
-
 
     fetch(`${process.env.REACT_APP_BACKEND_URL}/users/${studySessionData.host}`)
       .then((response) => response.json())
