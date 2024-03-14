@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import StarRating from "./ClickStarRating"; // Import the StarRating component
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import BackArrowButton from "./BackArrowButton";
 import Cookies from "js-cookie";
 import { Button } from "react-bootstrap";
+import Navbar from "../Navigation/Navbar.js";
 
 const CreateSpaceReviewPage = () => {
-  const location = useLocation();
-  const _id = location.state ? location.state._id : null;
+  const {id} = useParams();
   //const spaceId = id ? id : null;
-  console.log(_id);
+  console.log(id);
   //const navigate = useNavigate(); // Get the navigate object from React Router
 
   const [title, setTitle] = useState("");
@@ -54,6 +54,7 @@ const CreateSpaceReviewPage = () => {
       title: title,
       review: review,
       rating: curRating,
+      space: id
     };
     console.log(formData);
     if (title === "") {
@@ -63,7 +64,7 @@ const CreateSpaceReviewPage = () => {
       alert("Please provide review details");
       return;
     }
-    postReview(_id, formData)
+    postReview(id, formData)
       .then((response) => {
         if (response.status === 201) {
           alert("Review added successfully");
@@ -83,38 +84,46 @@ const CreateSpaceReviewPage = () => {
   };
 
   return (
-    <div className="container">
-      <BackArrowButton />
-      <h1 className="my-3">Submit Review</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Title:</label>
-          <input
-            type="text"
-            value={title}
-            onChange={handleTitleChange}
-            placeholder="Enter title"
-          />
-        </div>
-        <div>
-          <label>Review:</label>
-          <br />
-          <textarea
-            value={review}
-            onChange={handleReviewChange}
-            placeholder="Enter review"
-          ></textarea>
-        </div>
-        <div>
-          <label>Rating:</label>
-          <StarRating initialRating={curRating} onChange={handleRatingChange} />
-        </div>
-        <div className="col-md-6">
-          <Button className="mt-3 btn" variant="primary" type="submit">
-            Submit
-          </Button>
-        </div>
-      </form>
+    <div>
+      <Navbar />
+      <header className="Appheader">
+      <h1> </h1>
+        <BackArrowButton />
+        
+      </header>
+      <div className="container">
+        
+        <h1 className="my-3">Submit Review</h1>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label>Title:</label>
+            <input
+              type="text"
+              value={title}
+              onChange={handleTitleChange}
+              placeholder="Enter title"
+            />
+          </div>
+          <div>
+            <label>Review:</label>
+            <br />
+            <textarea
+              value={review}
+              onChange={handleReviewChange}
+              placeholder="Enter review"
+            ></textarea>
+          </div>
+          <div>
+            <label>Rating:</label>
+            <StarRating initialRating={curRating} onChange={handleRatingChange} />
+          </div>
+          <div className="col-md-6">
+            <Button className="mt-3 btn" variant="primary" type="submit">
+              Submit
+            </Button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

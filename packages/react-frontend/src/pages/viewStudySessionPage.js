@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 // import { useLocation, Link } from "react-router-dom";
 import BackArrowButton from "./BackArrowButton";
+import Navbar from "../Navigation/Navbar.js";
 
 const ViewStudySessionPage = () => {
   const { id } = useParams();
@@ -50,9 +51,11 @@ const ViewStudySessionPage = () => {
 
   return (
     <div>
+      <Navbar />
       <header className="Appheader">
+      <h1> </h1>
         <BackArrowButton />
-        <h1> </h1>
+        
       </header>
 
       <div className="container d-flex">

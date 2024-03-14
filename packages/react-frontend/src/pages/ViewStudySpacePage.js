@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import React, { useState, useEffect } from "react";
-
-import { useLocation, useNavigate } from "react-router-dom";
+import Navbar from "../Navigation/Navbar.js";
+import { useParams, useNavigate } from "react-router-dom";
 
 import BackArrowButton from "./BackArrowButton";
 import { Container } from "react-bootstrap";
@@ -11,10 +11,10 @@ import StarRating from "./StarRating"; // Import the StarRating component
 import ReviewBox from "./ReviewBox"; // Import the reviewBox component
 
 const ViewStudySpacePage = () => {
-  const location = useLocation();
-  const { _id } = location.state;
+ 
+  const { id } = useParams();
   const navigate = useNavigate(); // Get the navigate object from React Router
-  console.log(_id);
+  console.log(id);
 
   //use states to keep page updated correctly
   const [studySpaceData, setStudySpaceData] = useState([]);
@@ -25,8 +25,8 @@ const ViewStudySpacePage = () => {
 
   //useEffect to get the study space data, study sessions, and reviews
   useEffect(() => {
-    getStudySpace(_id);
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/sessions?space=` + _id)
+    getStudySpace(id);
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/sessions?space=` + id)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch study sessions");
@@ -39,7 +39,7 @@ const ViewStudySpacePage = () => {
       .catch((error) => {
         console.error("Error fetching study sessions:", error);
       });
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/spaces/${_id}/reviews`)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/spaces/${id}/reviews`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch study space reviews");
@@ -52,7 +52,7 @@ const ViewStudySpacePage = () => {
       .catch((error) => {
         console.error("Error fetching study space reviews", error);
       });
-  }, [_id]);
+  }, [id]);
 
   useEffect(() => {
     let totalRating = 0;
@@ -69,18 +69,20 @@ const ViewStudySpacePage = () => {
   }, [averageRating, studySpaceReviews]);
 
   //function to get the study space data with study space id passed from prev page
-  function getStudySpace(_id) {
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/spaces/${_id}`)
+  function getStudySpace(id) {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/spaces/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setStudySpaceData(data);
       });
   }
 
+  const handleClickSessions = () => {
+    navigate(`/viewStudySpace/${id}/CreateStudySession`);
+  };
+
   const handleClick = () => {
-    navigate("/CreateSpaceReview", {
-      state: { _id: studySpaceData._id },
-    });
+    navigate(`/viewStudySpace/${id}/CreateSpaceReview`);
   };
 
   function truncate(str, maxLength = 100) {
@@ -95,11 +97,12 @@ const ViewStudySpacePage = () => {
 
   return (
     <div>
+      <Navbar />
       <header className="Appheader">
         <BackArrowButton /> {/* back arrow button to go back a page */}
         <h1> </h1>
       </header>
-      <div className="gap">
+      <div className="gap mb-3">
         <Container fluid className="align-items-center">
           {/* Row to separate from the header */}
           <div className="row justify-content-center">
@@ -186,8 +189,19 @@ const ViewStudySpacePage = () => {
                 </div>
               </div>
               <hr></hr>
-              <h2> Upcoming Study Sessions</h2>
+              <div className="row mb-3">
+                <div className="col-md-9">
+                  <h2>Upcoming Study Sessions</h2>
+                </div>
+                <div className="col-md-3">
+                  <a className="btn btn-success mb-1" onClick={handleClickSessions}>
+                    Create a Study Session
+                  </a>
+                </div>
+              </div>
               <div className="row">
+              
+              
                 {studySessions.map((session) => {
                   return (
                     <div key={session._id} className="col-md-6 mb-3">
