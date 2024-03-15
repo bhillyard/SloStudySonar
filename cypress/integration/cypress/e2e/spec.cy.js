@@ -3,7 +3,7 @@
 describe("End-to-end tests", () => {
   beforeEach(() => {
     // Visit the main page before each test
-    cy.visit("localhost:3000");
+    cy.visit("https://icy-forest-0f9bc031e.5.azurestaticapps.net");
   });
 
   it("should navigate to the ViewStudySpacePage and see study space details", () => {
@@ -23,10 +23,12 @@ describe("End-to-end tests", () => {
     // Navigate to the review section
     // Find all elements with the class 'btn-success'
     // Find the first element with the class 'btn-success' and click it
-    cy.get(".btn-success:first").click();
+    cy.get(".btn.btn-success:first")
+      .not(':contains("Create A Study Space")')
+      .click();
 
     // Verify that reviews are visible
-    cy.get('.btn-success')
+    cy.get(".btn-success")
       .contains("Make a Review")
       .click();
     cy.get("button")
@@ -75,14 +77,15 @@ describe("End-to-end tests", () => {
     cy.url().should("include", "/dashboard"); // Assuming signup redirects to the dashboard
 
     cy.contains("Home").click();
-    cy.get("button").contains("Browse Study Spaces").click();
+    cy.get("button")
+      .contains("Browse Study Spaces")
+      .click();
     cy.contains("here!").click();
 
     // Check if the study space was added successfully
     // cy.on("window:alert", (str) => {
     //   expect(str).to.equal("Study Space added successfully");
     // });
-
   });
 
   it("navigate to various landing page links", () => {
@@ -92,14 +95,23 @@ describe("End-to-end tests", () => {
     cy.contains("Home").click();
     cy.contains("Privacy Policy").click();
     cy.contains("Home").click();
-
   });
 
   it("navigate to an individual study session", () => {
     cy.contains("Browse Study Spaces").click();
     cy.get(".btn-success:first").click();
-    cy.get(".btn-success:first").contains("More Information").click();
-  })
+    cy.get(".btn-success:first")
+      .contains("More Information")
+      .click();
+  });
+
+  it("navigate to an create study session", () => {
+    cy.contains("Browse Study Spaces").click();
+    cy.get(".btn-success:first").click();
+    cy.get(".btn-success")
+      .contains("Create a Study Session")
+      .click();
+  });
 
   // it("should navigate to the StudySessionPage and see upcoming study sessions", () => {
   //   // Click on a study space card to view its details
