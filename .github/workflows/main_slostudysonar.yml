@@ -68,7 +68,7 @@ jobs:
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
-          app-name: 'SloStudySonar'
+          app-name: 'slostudysonardb'
           slot-name: 'Production'
           package: .
           
