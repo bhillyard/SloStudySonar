@@ -7,7 +7,7 @@
     "lint": "npx eslint .. && npx prettier --check .",
     "test": "npx jest",
     "dev": "nodemon backend.js",
-    "start": "cd packages/react-frontend && npm start",
+    "start": "cd packages/express-backend && npm start",
     "start-server": "cd packages/express-backend && npx nodemon backend.js",
     "format": "npx prettier . --write"
   },
