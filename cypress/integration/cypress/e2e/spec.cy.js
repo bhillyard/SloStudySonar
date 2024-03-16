@@ -23,7 +23,7 @@ describe("End-to-end tests", () => {
     // Navigate to the review section
     // Find all elements with the class 'btn-success'
     // Find the first element with the class 'btn-success' and click it
-    cy.get(".btn.btn-success:first")
+    cy.get(".btn.view:first")
       .not(':contains("Create A Study Space")')
       .click();
 
@@ -100,7 +100,7 @@ describe("End-to-end tests", () => {
   it("navigate to an individual study session", () => {
     cy.contains("Browse Study Spaces").click();
     cy.get(".btn.view:first").click();
-    cy.get(".btn-success:first")
+    cy.get(".btn.moreinfo:first")
       .contains("More Information")
       .click();
   });

@@ -222,7 +222,7 @@ const ViewStudySpacePage = () => {
                           <div className="row mx-2">
                             <a
                               onClick={() => goToStudySession(session._id)}
-                              className="btn btn-success"
+                              className="btn btn-success moreinfo"
                             >
                               More Information
                             </a>
