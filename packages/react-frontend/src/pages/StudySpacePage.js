@@ -148,7 +148,7 @@ const StudySpacePage = () => {
                           </p>
                           <a
                             onClick={() => handleClick(space)}
-                            className="btn btn-success"
+                            className="btn btn-success view"
                           >
                             View
                           </a>

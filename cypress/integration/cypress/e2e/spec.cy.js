@@ -99,7 +99,7 @@ describe("End-to-end tests", () => {
 
   it("navigate to an individual study session", () => {
     cy.contains("Browse Study Spaces").click();
-    cy.get(".btn-success:first").click();
+    cy.get(".btn.view:first").click();
     cy.get(".btn-success:first")
       .contains("More Information")
       .click();
@@ -107,7 +107,7 @@ describe("End-to-end tests", () => {
 
   it("navigate to an create study session", () => {
     cy.contains("Browse Study Spaces").click();
-    cy.get(".btn-success:first").click();
+    cy.get(".btn.view:first").click();
     cy.get(".btn-success")
       .contains("Create a Study Session")
       .click();
