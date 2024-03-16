@@ -47,6 +47,3 @@ jobs:
 
       - name: Unzip artifact for deployment
         run: unzip release.zip
-        
-      - name: Start backend on Heroku
-        run: npm start
