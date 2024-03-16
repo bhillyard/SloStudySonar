@@ -1,0 +1,43 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - backendDeployment
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14.x'
+
+      - name: Install dependencies and build backend
+        run: |
+          cd packages/express-backend
+          npm install
+          npm run build
+        working-directory: packages/express-backend
+
+      - name: Zip backend artifact
+        run: zip -r backend.zip ./*
+        working-directory: packages/express-backend
+
+      - name: Upload backend artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: backend
+          path: packages/express-backend/backend.zip
+
+      - name: Deploy backend to Heroku
+        uses: akhileshns/heroku-deploy@v3.13.15
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: "slostudysonar" # Must be unique in Heroku
+          heroku_email: "bretthillyard@gmail.com"
